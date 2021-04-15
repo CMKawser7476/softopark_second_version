@@ -1,0 +1,86 @@
+{% load static %}
+{% load widget_tweaks %}
+<section>
+    <div class="my-5">
+        <h3 class="text-center">{{section.heading}}</h3>
+        {% for item in section.heading_with_description.all %}
+        <div class="card text-center">
+            <div class="call_to_action call_action card-body">
+              <h2 class="card-title text-white mt-5">{{ item.heading }}</h2>
+              <a href="tel:+4733378901" class="btn btn-warning  btn-lg circle_button"><b>Lets Go for contact </b> </a>
+            </div>
+            {% if request.user.is_authenticated %}
+            <div class="action-buttons">
+                <div class="button-group">
+                  <a href="{% url 'cms_app:heading_with_description_view' pk=item.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                  <a href="{% url 'cms_app:heading_with_description_delete_view' pk=item.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> </a>
+                </div>
+              </div>
+            {% endif %}
+        </div>
+        {% empty %}
+        <div class=" call_to_action call_action card-body">
+            <h2 class="card-title text-white mt-5">Heading Dummy</h2>
+            <a href="tel:+4733378901" class="btn btn-warning  btn-lg circle_button"><b>Lets Go for contact </b> </a>
+          </div>
+        {% endfor %}
+    </div>
+
+
+  <!-- Button trigger modal -->
+    <div class="col-sm-3">
+        {% if request.user.is_authenticated %}
+         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#heading_with_description_form_{{ section.id }}">
+           <i class="fa fa-plus-circle" aria-hidden="true"></i>
+         </button>
+        
+       {% endif %}
+      </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="heading_with_description_form_{{ section.id }}" tabindex="-1" role="dialog" aria-labelledby="heading_with_description_formLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="heading_with_description_form">ADD CONTENT</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+          
+                <form method="POST" action="{% url 'page_detail' slug=page.slug %}" enctype="multipart/form-data">
+                  <div class="modal-body">
+                    {% csrf_token %}
+
+                    <input type="hidden" name="form_name" value="heading_with_description_form">
+          
+                    {% for field in heading_with_description_form.visible_fields %}
+                      {% if field.name == "section" %}
+                        <input type="hidden" name="section" value="{{ section.id }}">
+                      {% elif field.name in 'heading' %}
+                        <div class="form-group">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field|add_class:'form-control' }}
+                            {% for error in field.errors %}
+                            <span class="help-block text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+          
+          
+                  </div>
+                  
+          
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+                </form>
+          
+              </div>
+            </div>
+          </div>
+
+
+</section>

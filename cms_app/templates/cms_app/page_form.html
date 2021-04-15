@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/material-ocean.css"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/show-hint.css">
+<style>
+    .editor {
+        display: none;
+    }
+
+    .CodeMirror {
+        height: 600px;
+    }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        margin-left: 30px;
+        top: -6px;
+    }
+    
+    .switch input { 
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+    
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+    
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+    
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+    
+    .slider.round:before {
+      border-radius: 50%;
+    }
+    </style>
+    
+{% endblock %}
+
+{% block content %}
+
+    <div class="container py-5 text-dark">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label>Raw HTML:</label>
+                    <label class="switch">
+                        <input id="extra-switch" type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    {% for field in form.visible_fields %}
+                        {% if field.name == "content" %}
+                            <div class="form-group {% if field.name not in 'content,page_name' %}advanced-fields{% elif field.name == 'content' %}editor{% endif %}">
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                <br>
+                                <a target="_blank" href="{% url 'page_assets_list' %}" class="btn btn-primary my-3 py-3">Get / Upload (css/js/image) assets</a>
+                                {% render_field field class="form-control" id="editor" %}
+                                {% for error in field.errors %}
+                                <span class="help-block">{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% elif field.name not in "title_tag, meta_description,keywords,og_title,og_text,og_url,og_image, twitter_description, twitter_title, twitter_image" %}
+                            <div class="form-group {% if field.name not in 'content,page_name' %}advanced-fields{% elif field.name == 'content' %}editor{% endif %}">
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field|add_class:'form-control' }}
+                                {% for error in field.errors %}
+                                <span class="help-block">{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    <hr>
+                    <h3>Seo info</h3>
+                    {% for field in form.visible_fields %}
+                        {% if field.name in "title_tag, meta_description,keywords,og_title,og_text,og_url,og_image, twitter_description, twitter_title, twitter_image" %}
+                        <div class="form-group">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field|add_class:'form-control' }}
+                            {% for error in field.errors %}
+                                <span class="help-block">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                    <input type="submit" class="btn btn-primary" value="Save">
+                </form>
+            </div>
+        </div>
+    </div><br>
+
+
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/xml/xml.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/css/css.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/htmlmixed/htmlmixed.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/edit/matchbrackets.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/show-hint.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/javascript-hint.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/html-hint.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/xml-hint.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/css-hint.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/keymap/sublime.js"></script>
+<script src="{% static 'js/real_time_html_editor/main.js' %}"></script>
+<script>
+    document.getElementById('extra-switch').addEventListener('change', (e) => {
+        let elements = document.querySelectorAll('.advanced-fields');
+        let editor = document.querySelector('.editor');
+        if(e.target.checked) {
+            editor.style.display = 'block';
+            elements.forEach(element => {
+                element.style.display = 'none';
+            });
+        } else {
+            editor.style.display = 'none';
+            elements.forEach(element => {
+                element.style.display = 'block';
+            })
+        }
+    });
+</script>
+{% endblock %}

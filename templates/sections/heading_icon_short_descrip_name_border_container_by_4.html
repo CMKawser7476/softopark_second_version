@@ -1,0 +1,104 @@
+{% load static %}
+{% load widget_tweaks %}
+<section class="border-top py-5 heading_icon_name_short_descrip_without_border_container_by_3" style="background-color: rgb(227, 238, 238);"><br/>
+    <div class="container pt-3">
+          <h2 class="text-center">{{ section.heading }}</h2><br/>
+      
+          <div class="row  py-2">
+
+                  {% for item in section.heading_logo_name_short_descrip.all %}
+                  <div class="col-sm-3  p-3">
+                    {% if request.user.is_authenticated %}
+                              <div class="action-buttons">
+                                <div class="button-group">
+                                  <a href="{% url 'cms_app:heading_logo_name_short_descrip_view' pk=item.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                  
+                                  <a href="{% url 'cms_app:heading_logo_name_short_descrip_delete_view' pk=item.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> </a>
+                               
+                                </div>
+                              </div><br>
+                              {% endif %}
+                        <div class="m-1 border promotional_ad_content shadow bg-white text-dark">
+                            <div class="text-center pt-3">
+                                <img src="{{item.logo_icon.url}}"  height="100" width="100" alt=" {{item.heading}}" title="{{ item.heading }}">
+                            </div>
+                            <div class="m-1 pt-2">
+                                <p class="text-center p-2 ">{{ item.short_description }}</p>
+                            </div>
+                        </div><br>
+                        <h6 class="text-center"><strong>{{ item.heading }}</strong></h6>
+                  </div>
+                  {% empty %}
+                  <div class="col-sm-3  p-3">
+                        <div class="m-1 border promotional_ad_content shadow bg-white text-dark">
+                        <div class="text-center pt-3">
+                        <img src="{% static '/images/content_development/content_development/icons/004_notebook_min.png' %}"  height="110" width="110" alt="">
+                        </div>
+                          <div class="m-1 pt-2">
+                          <p class="text-center p-2 ">Life Paragraph. Student Life Paragraph – Students are the future leaders of a nation. After equipping themselves... Essay on Student Life</p>
+                            </div>
+                        </div><br>
+                        <h6 class="text-center"><strong>Heading Dummy</strong></h6>
+                  </div>
+                  {% endfor %}
+
+
+          <!-- Button trigger modal -->
+     <div class="col-sm-3">
+      {% if request.user.is_authenticated %}
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#heading_logo_name_short_descrip_form_{{ section.id }}">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i> 
+      </button>
+      {% endif %}
+     </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="heading_logo_name_short_descrip_form_{{ section.id }}" tabindex="-1" role="dialog" aria-labelledby="heading_logo_name_short_descrip_formLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="heading_logo_name_short_descrip_form">ADD CONTENT</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <form method="POST" action="{% url 'page_detail' slug=page.slug %}" enctype="multipart/form-data">
+                <div class="modal-body">
+                  {% csrf_token %}
+                  <input type="hidden" name="form_name" value="heading_logo_name_short_descrip_form">
+                  {% for field in heading_logo_name_short_descrip_form.visible_fields %}
+                    {% if field.name == "section" %}
+                      <input type="hidden" name="section" value="{{ section.id }}">
+                    {% else %}
+                      <div class="form-group">
+                          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                          {{ field|add_class:'form-control' }}
+                          {% for error in field.errors %}
+                          <span class="help-block text-danger">{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
+
+                </div>
+                
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+         
+
+       </div>
+    
+
+    </div>
+    
+</section>

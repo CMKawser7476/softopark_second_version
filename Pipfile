@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+mysqlclient = "*"
+django = "*"
+pillow = "*"
+django-widget-tweaks = "*"
+django-ckeditor = "*"
+whitenoise = "*"
+django-tawkto = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"

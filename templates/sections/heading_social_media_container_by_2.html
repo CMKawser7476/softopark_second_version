@@ -1,0 +1,105 @@
+{% load static %}
+{% load widget_tweaks %}
+<section class="py-5 heading_social_media_container_by_2" style="background-color: rgb(255, 255, 255);">
+    <div class="container">
+      <h2 class="text-center">{{ section.heading }}</h2>
+      
+    <div class="row pt-5">
+                            {% for item in section.heading_logo_name_short_descrip.all %}
+                              <div class="col-sm-6 p-3">
+                                {% if request.user.is_authenticated %}
+                              <div class="action-buttons">
+                                <div class="button-group">
+                                  <a href="{% url 'cms_app:heading_logo_name_short_descrip_view' pk=item.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                  
+                                  <a href="{% url 'cms_app:heading_logo_name_short_descrip_delete_view' pk=item.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> </a>
+                               
+                                </div>
+                              </div><br>
+                              {% endif %}
+                                <div class="media">
+                                  <img class="align-self-start mr-3" src="{{ item.logo_icon.url }}" width="70" height="70" alt=" {{item.heading}} " title="{{ item.heading }}">
+                                  <div class="media-body">
+                                    <h6 class="mt-0">{{ item.heading }}</h6>
+                                    <p class="text-dark">{{ item.short_description }}</p>
+                                  </div>
+                                </div>
+                                
+                              </div>
+                              {% empty %}
+                              <div class="col-sm-6 p-3">
+                                <div class="media">
+                                  <img class="align-self-start mr-3" src="{% static '/images/content_development/content_development/icons/004_notebook_min.png' %}" width="70" height="70" alt="Generic placeholder image">
+                                  <div class="media-body">
+                                    <h6 class="mt-0">Heading Dummy</h6>
+                                    <p class="text-dark">Life Paragraph. Student Life Paragraph – Students are the future leaders of a nation. After equipping themselves... Essay on Student Life</p>
+                                  </div>
+                                </div>
+                                
+                              </div>
+                              {% endfor %}
+
+                                      <!-- Button trigger modal -->
+                           <div class="col-sm-6"><br><br>
+                            {% if request.user.is_authenticated %}
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#heading_logo_name_short_descrip_form_{{ section.id }}">
+                              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            </button>
+                            {% endif %}
+                           </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="heading_logo_name_short_descrip_form_{{ section.id }}" tabindex="-1" role="dialog" aria-labelledby="heading_logo_name_short_descrip_formLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="heading_logo_name_short_descrip_form">ADD CONTENT</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+
+                              <form method="POST" action="{% url 'page_detail' slug=page.slug %}" enctype="multipart/form-data">
+                                <div class="modal-body">
+                                  {% csrf_token %}
+                                  <input type="hidden" name="form_name" value="heading_logo_name_short_descrip_form">
+                                  {% for field in heading_logo_name_short_descrip_form.visible_fields %}
+                                    {% if field.name == "section" %}
+                                      <input type="hidden" name="section" value="{{ section.id }}">
+                                      {% elif field.name in 'heading, logo_icon, short_description' %}
+                                      <div class="form-group">
+                                          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                          {{ field|add_class:'form-control' }}
+                                          {% for error in field.errors %}
+                                          <span class="help-block text-danger">{{ error }}</span>
+                                          {% endfor %}
+                                      </div>
+                                    {% endif %}
+                                  {% endfor %}
+
+
+                                </div>
+                                
+
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                              </form>
+
+                            </div>
+                          </div>
+                        </div>
+
+      </div>
+      
+    
+    
+    
+    </div>
+  </section>
+ 
+  
+ 
+  
+ 

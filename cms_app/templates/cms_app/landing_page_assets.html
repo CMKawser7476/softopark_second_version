@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+
+<div class="page-assets my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Page assets list:</h2>
+                <ul class="list-group">
+                    {% for asset in assets %}
+                        {% if '.css' in asset.image_or_file.url %}
+                            <li class="list-group-item"><span class="text-info">{{ asset.name }}</span><br>{{ request.META.HTTP_HOST }}{{ asset.image_or_file.url }} <span class="badge badge-primary">CSS</span></li>
+                        {% elif '.js' in asset.image_or_file.url %}
+                            <li class="list-group-item"><span class="text-info">{{ asset.name }}</span><br>{{ request.META.HTTP_HOST }}{{ asset.image_or_file.url }} <span class="badge badge-info">JS</span></li>
+                        {% else %}
+                            <li class="list-group-item"><span class="text-info">{{ asset.name }}</span><br>{{ request.META.HTTP_HOST }}{{ asset.image_or_file.url }} <span class="badge badge-success">IMAGE</span></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h2>Add new asset:</h2>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form.visible_fields %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field|add_class:'form-control' }}
+                        {% for error in field.errors %}
+                            <span class="help-block">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                    <input type="submit" class="btn btn-primary" value="Save">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

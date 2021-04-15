@@ -1,0 +1,88 @@
+{% load static %}
+{% load widget_tweaks %}
+<section class="py-5 heading_img_by_3">
+    <div class="container shadow"><br/>
+      <h3 class="text-center">{{ section.heading }}</h3>
+      <h4 class="text-center">{{ section.sub_heading }}</h4>
+
+      <br/>
+      <div class="row">
+                          {% for item in section.heading_with_multiple_image_upload.all %}
+                          <div class="col-sm-4 mb-3">
+                            {% if request.user.is_authenticated %}
+                              <div class="action-buttons">
+                                <div class="button-group">
+                                  <a href="{% url 'cms_app:heading_with_multiple_image_upload_view' pk=item.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                  
+                                  <a href="{% url 'cms_app:heading_with_multiple_image_upload_delete_view' pk=item.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> </a>
+                               
+                                </div>
+                              </div><br>
+                              {% endif %}
+                          <img src="{{item.photo.url}}" class="img-fluid" alt="{{section.heading}">
+                          </div>
+                          {% empty %}
+                          <div class="col-sm-4">
+                            <img src="{% static '/images/content_development/content_development/icons/004_notebook_min.png' %}" class="img-fluid" alt="{{ item.heading }}" title="{{ item.heading }}">
+                          </div>
+                          {% endfor %}
+
+
+        
+                 
+
+                        <!-- Button trigger modal -->
+                         <div class="col-sm-4">
+                          {% if request.user.is_authenticated %}
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#heading_with_multiple_image_upload_form_{{ section.id }}">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                          </button>
+                          {% endif %}
+                         </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="heading_with_multiple_image_upload_form_{{ section.id }}" tabindex="-1" role="dialog" aria-labelledby="heading_with_multiple_image_upload_formLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="heading_with_multiple_image_upload_form">ADD CONTENT</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+
+                              <form method="POST" action="{% url 'page_detail' slug=page.slug %}" enctype="multipart/form-data">
+                                <div class="modal-body">
+                                  {% csrf_token %}
+                                  <input type="hidden" name="form_name" value="heading_with_multiple_image_upload_form">
+                                  {% for field in heading_with_multiple_image_upload_form.visible_fields %}
+                                    {% if field.name == "section" %}
+                                      <input type="hidden" name="section" value="{{ section.id }}">
+                                    {% else %}
+                                      <div class="form-group">
+                                          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                          {{ field|add_class:'form-control' }}
+                                          {% for error in field.errors %}
+                                          <span class="help-block text-danger">{{ error }}</span>
+                                          {% endfor %}
+                                      </div>
+                                    {% endif %}
+                                  {% endfor %}
+
+
+                                </div>
+                                
+
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                              </form>
+
+                            </div>
+                          </div>
+                        </div>
+    
+                </div>
+        </div>
+</section>

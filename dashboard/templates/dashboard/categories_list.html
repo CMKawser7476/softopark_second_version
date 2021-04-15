@@ -1,0 +1,97 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block content %}
+
+<div class="col-lg-6 col-7">
+  <h6 class="h2 text-dark d-inline-block mb-0">Default</h6>
+  <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+    <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+      <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+      <li class="breadcrumb-item"><a href="{% url 'dashboard:dashboard' %}">Dashboards</a></li>
+      <li class="breadcrumb-item active" aria-current="page">All Categories</li>
+    </ol>
+  </nav>
+</div>
+
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-xl-10 offset-xl-1">
+        <div class="card">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0">Category List</h3>
+              </div>
+              <div class="col text-right">
+                <a href="{% url 'dashboard:category_create' %}" class="btn btn-sm btn-primary">New</a>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <!-- Projects table -->
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Parent</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for category in object_list %}
+                <tr>
+                  <th scope="row">
+                    {{ category.name }}
+                  </th>
+                  <td>
+                    {% if category.parent %}{{ category.parent.name }}{% else %}---{% endif %}
+                  </td>
+                  <td>
+                    {{ category.description|truncatechars:50 }}
+                  </td>
+                  <td>
+                    <a href="{% url 'dashboard:category_update' slug=category.slug %}" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="" class="btn btn-danger btn-sm">Delete</a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+
+            {% if is_paginated %}
+            <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                  <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1" aria-disabled="true">Previous</a>
+                  </li>
+                {% else %}
+                  <li class="page-item disabled">
+                    <a class="page-link" href="" tabindex="-1" aria-disabled="true">Previous</a>
+                  </li>
+                {% endif %}
+                {% for i in paginator.page_range %}
+                  {% if page_obj.number == i %}
+                      <li class="page-item active"><a class="page-link" href="#">{{ i }}</a></li>
+                  {% else %}
+                      <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                  {% endif %}
+                  {% endfor %}
+                  {% if page_obj.has_next %}
+                  <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                  {% else %}
+                  <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                  {% endif %}
+              </ul>
+            </nav>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

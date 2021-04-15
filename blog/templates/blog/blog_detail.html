@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="page-content">
+    <section class="pt-5 pb-5" style="background-color: rgb(255, 255, 255);">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 border-right" style="background-color: rgb(251, 251, 251);">
+                <div class=" p-3">
+                    <h1 class="text-left fntfamily text-dark">{{ object.title }}</h1><br>
+                    <img class="img-fluid" src="{{ object.photo.url }}" alt="{{ object.title }}" title="{{ object.title }}"><br>
+                    <br>
+                    
+                                        <a href="http://www.facebook.com/sharer/sharer.php?u={{ request.get_host }}{{ request.get_full_path|urlencode }}"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>&nbsp;
+                                        <a href="#"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>&nbsp;
+                                        <a href="http://www.linkedin.com/shareArticle?url={{ request.get_host }}{{ request.get_full_path|urlencode }}&title={{ object.title }}&summary={{ object.description }}&source={{ request.get_host }}"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a> &nbsp;
+                                        <a href="#"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>&nbsp;
+                                        <a href="#"><i class="fa fa-pinterest-square fa-2x" aria-hidden="true"></i></a>&nbsp;   <hr>
+                    <p class="text-dark fntfamily">{{ object.description|safe }}</p>
+                    <hr>
+
+                    <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="button" data-action="like" data-size="large" data-share="true"></div>
+                    <br>
+                    <hr>
+                                       
+                    <a href="http://www.facebook.com/sharer/sharer.php?u={{ request.get_host }}{{ request.get_full_path|urlencode }}" title="Facebook"><i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>&nbsp;
+                    <a href="#"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a>&nbsp;
+                    <a href="http://www.linkedin.com/shareArticle?url={{ request.get_host }}{{ request.get_full_path|urlencode }}&title={{ object.title }}&summary={{ object.description }}&source={{ request.get_host }}"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a> &nbsp;
+                    <a href="#"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>&nbsp;
+                    <a href="#"><i class="fa fa-pinterest-square fa-3x" aria-hidden="true"></i></a>&nbsp;
+                    <br>
+                    <hr>
+                    {% for category in object.categories.all %}
+                        <a href="{% url 'blog:blog_list' %}?category={{ category.slug }}" class="btn softo-btn btn-primary btn-sm btnpadding border-0 bg-lightgrey text-dark">{{ category.name }}</a>
+                    {% endfor %} <hr>
+
+
+                </div>
+                
+                <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-width="" data-numposts="5"></div>
+            </div>
+            <div class="col-sm-3">
+                <div style="background-color: rgb(245, 243, 240);">
+                    <form action="{% url 'blog:blog_list' %}" method="GET">
+                        <div class="p-2 border bg-lightgrey">
+                            <input class="form-control pl-1" value="{{ request.GET.search }}" name="search" type="text" placeholder="Search your blog" aria-label="Search">
+                        </div>
+                    </form>
+
+                </div><br><br>
+                <div>
+                    <div class="card" style="background-color: rgb(250, 248, 248);">
+                        <a href="https://www.facebook.com/softopark" target="_blank">
+                            <div>
+                                <img class="card-img-top" src="{%  static 'images/blog/softopark.png' %}" alt="softopark-IT-limited">
+                            <div class="p-5">
+                                <div>
+                                    <p class="fntsize fntfamily">About</p>
+                                </div>
+                              <h5 class="card-title fntfamily">{{ object.author.username }}</h5>
+                              <p class="card-text fntfamily">This card has supporting text below as a natural  supporting text below as a natural &nbsp;&nbsp; <i class="fa fa-long-arrow-right" aria-hidden="true"></i></p>
+                            </div>
+                            </div>
+                        </a>
+                        
+                      </div>
+                      <br><br><br>
+                     <div class="border p-2">
+                         <h5  class="text-center text-white pt-3 pb-3" style="background-color: rgb(143, 47, 47);">Categories</h5>
+                        {% for category in categories %}
+                        <li> <a href="{% url 'blog:blog_list' %}?category={{ category.slug }}" class="text-dark">{{ category.name }}</a></li>
+                        {% endfor %}
+                         <br><br><br>
+
+
+                     </div><br><br><br>
+                   
+
+                    </div>
+
+            </div>
+
+        </div>
+     
+    </div>
+
+  </section>
+
+  </div>
+
+{% endblock %}
+     

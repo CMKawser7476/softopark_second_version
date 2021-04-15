@@ -1,0 +1,203 @@
+
+ 
+
+div#sidebar-section {
+  width: 0%;
+  height: 100%;
+  overflow-y: scroll;
+  float: left;
+  transition: .3s;
+  position: fixed;
+}
+
+div#content-section {
+  width: 100%;
+  float: right;
+  transition: .3s;
+}
+
+.maximize-sidebar {
+  width: 25% !important;
+}
+
+.minimize-content {
+  width: 75% !important;
+}
+
+#sidebar-btn {
+  position: fixed;
+  top: 0;
+  z-index: 4000;
+}
+
+#sidebar .list-group-item img {
+  width: 90%;
+}
+
+
+.section-form {
+  width: 90%;
+  padding: 15px 5%;
+}
+
+.form-control.section-input {
+  height: 30px;
+  padding-left: 8px;
+}
+
+.section-form .form-control[type="file"] {
+  height: 45px;
+}
+ 
+
+
+  
+
+/* banner image */
+  .inner-banner {
+    background-size:100% 100%;
+    height: 400px;
+    position: relative; 
+    display: table;
+    width: 100%;
+
+ }
+
+
+ 
+
+
+  .how_social_media_works {
+    border-radius: 25px;
+
+
+  }
+
+
+
+
+
+  .promotional_ad_content {
+    border-radius: 20px;
+
+
+  }
+
+
+  .landing_page_development {
+    border-radius: 20px;
+
+
+  }
+
+  .ecommerce_parent {
+    border-radius: 20px;
+
+
+  }
+
+
+  .startup_consultation {
+    border-radius: 15px;
+
+
+  }
+
+
+
+
+
+
+  .background {
+
+  
+    
+    background-size: cover;
+    background-position: right center;
+    height: 550px;
+    position: relative; 
+    display: table;
+    width: 100%;
+  
+  }
+
+
+  .background.webdevelopment {
+
+    background: url("../images/development/Capturebackground.PNG") no-repeat 0 0;
+    background-size: cover;
+
+}
+
+
+
+/* call to action */
+.call_to_action{
+
+  background-size: cover;
+  background-position: right center;
+  height: 200px;
+  position: relative; 
+  display: table;
+  width: 100%;
+  
+}
+
+.call_to_action.call_action{
+  background: url("../img/call_to_action.jpg") no-repeat 0 0;
+    background-size: cover;
+}
+
+.call_to_action.book_an_appointment{
+  background: url("../img/book_an_appointment.jpg") no-repeat 0 0;
+    background-size: cover;
+}
+
+.circle_button{
+
+border-radius: 15px;
+}
+
+
+
+
+
+
+.fntsize{
+  font-size: small;
+  
+}
+
+.fntfamily{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fntheight{
+  font-weight: 100;
+}
+
+a:hover {
+  color: rgb(43, 15, 147);
+}
+
+.btnpadding{
+  padding: 10px 10px;
+}
+ 
+button.btn.btn-primary.btn-sm.btnpadding.border-0.bg-lightgrey.text-dark {
+  margin-bottom: 5px;
+}
+
+.categories li.active a {
+  color: rgb(40, 6, 164);
+}
+
+
+
+.fontsize.h4{
+  font-size: 30 !important;
+  color: black;
+  font-weight: 600;
+
+
+}
