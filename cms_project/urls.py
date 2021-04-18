@@ -1,4 +1,3 @@
-
 from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
@@ -25,11 +24,12 @@ urlpatterns = [
     path('pages/new/', PageCreateView.as_view(), name="page_create"),
     path('pages/<str:slug>/update/', PageUpdateView.as_view(), name="page_update"),
     path('pages/assets/', LandingPageAssetsListCreateView.as_view(), name="page_assets_list"),
-    path('sitemap.xml/', sitemap, {'sitemaps': sitemaps}),
+    path('sitemap.xml/', sitemap, {'sitemaps': sitemaps}), 
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('blog/', include('blog.urls', 'blog')),
     path('dashboard/', include('dashboard.urls', 'dashboard')),
     path('', TemplateView.as_view(template_name="index.html"), name='home'),
+    path('robots.txt/', include('robots.urls')),
     path('<str:slug>/', PageView.as_view(), name="page_detail"),
  
 ]

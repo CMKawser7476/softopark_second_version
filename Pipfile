@@ -11,6 +11,8 @@ django-widget-tweaks = "*"
 django-ckeditor = "*"
 whitenoise = "*"
 django-tawkto = "*"
+django-robots = "*"
+six = "*"
 
 [dev-packages]
 

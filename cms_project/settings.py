@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'ckeditor',
     'tawkto',
+    'robots',
+   
 
     # our apps
     'cms_app',

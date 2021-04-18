@@ -10,6 +10,11 @@
     <title>{{ page.title_tag }} | Softopark</title>  
 <meta name="keywords" content="{{ page.keywords }}">
 <meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}{{ page.sub_heading }}{% endif %}">
+<meta name="title" content="{% if page.og_title %} {{ page.og_title }} {% else %} {{ page.heading }} {% endif %}">
+<meta name="og_url" content="{% if page.og_url %}{{ page.og_url }}{% else %}{{ request.build_absolute_uri }}{% endif %}">
+<meta name="og_image" content="{% if page.og_image_url %} {{ page.og_image_url }} {% endif %}">
+
+
 <meta property="og:description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}{{ page.sub_heading }}{% endif %}">
 <meta property="og:title" content="{% if page.og_title %} {{ page.og_title }} {% else %} {{ page.heading }} {% endif %}">
 <meta property="og:url" content="{% if page.og_url %}{{ page.og_url }}{% else %}{{ request.build_absolute_uri }}{% endif %}">
