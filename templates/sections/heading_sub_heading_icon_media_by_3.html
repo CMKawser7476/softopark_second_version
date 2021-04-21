@@ -22,7 +22,7 @@
                               </div><br>
                               {% endif %}
                           <div class="media mb-5">
-                            <img class="align-self-start mr-3" src="{{ item.logo_icon.url }}" height="70" width="70" alt="{{ item.heading }}" title="{{ item.heading }}">
+                            <img class="align-self-start mr-3" src="{% if item.logo_icon  %} {{ item.logo_icon.url }} {% endif %}"  height="70" width="70" alt="{{ item.heading }}" title="{{ item.heading }}">
                             <div class="media-body">
                               <h4 class="mt-0 fontsize h4  text-dark">{{ item.heading }}</h4>
                       
