@@ -19,7 +19,7 @@
                                 </div>
                               </div><br>
                               {% endif %}
-                          <img src="{{item.photo.url}}" class="img-fluid" alt="{{section.heading}">
+                          <img src="{% if item.photo %} {{item.photo.url}} {% endif %}" class="img-fluid" alt="{{section.heading}">
                           </div>
                           {% empty %}
                           <div class="col-sm-4">

@@ -18,7 +18,7 @@
                                               </div><br>
                                               {% endif %}
                                               <div class="m-1 border how_social_media_works p-5 shadow">
-                                                <img src="{{item.icon.url}}" height="110" width="110" class="img-fluid" alt=" {{item.heading}} " title="{{ item.heading }}">
+                                                <img src="{% if item.icon %} {{item.icon.url}} {% endif %}" height="110" width="110" class="img-fluid" alt=" {{item.heading}} " title="{{ item.heading }}">
 
                                               </div>
                                                 <h6 class="p-1 text-dark">{{ item.heading }}</h6>

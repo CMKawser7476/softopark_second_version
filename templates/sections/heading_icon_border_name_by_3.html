@@ -19,7 +19,7 @@
                               {% endif %}
                                     <div class="m-2 border p-5  shadow ecommerce_parent text-center bg-white">
                                     <div class="p-2">
-                                      <img src="{{item.icon.url}}" class="img-fluid" height="120" width="120" alt="{{ item.heading }}" title="{{ item.heading }}">
+                                      <img src="{% if item.icon %} {{item.icon.url}} {% endif %}" class="img-fluid" height="120" width="120" alt="{{ item.heading }}" title="{{ item.heading }}">
                                   </div>
                               
                               

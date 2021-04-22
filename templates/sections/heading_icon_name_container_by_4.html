@@ -25,7 +25,7 @@
                               </div><br>
                               {% endif %}
                   <div class="m-1  p-4 ">
-                      <img src="{{item.icon.url}}" alt=" {{item.heading}} " class="img-fluid" height="100" width="100" title="{{ item.heading }}">
+                      <img src="{% if item.icon %} {{item.icon.url}} {% endif %}" alt=" {{item.heading}} " class="img-fluid" height="100" width="100" title="{{ item.heading }}">
                   
             
                   </div>

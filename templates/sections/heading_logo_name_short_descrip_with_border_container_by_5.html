@@ -20,7 +20,7 @@
                               {% endif %}
                         <div class="m-2  shadow ecommerce_parent pb-1">
                             <div class="card-body text-center">
-                                <img class="" src="{{  item.logo_icon.url }}" height="130" width="130" alt=" {{item.heading}} " title="{{ item.heading }}">
+                                <img class="" src="{% if item.logo_icon %} {{  item.logo_icon.url }} {% endif %}" height="130" width="130" alt=" {{item.heading}} " title="{{ item.heading }}">
     
                               </div>
                              

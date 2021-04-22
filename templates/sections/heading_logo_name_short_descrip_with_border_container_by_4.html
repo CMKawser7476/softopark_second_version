@@ -19,7 +19,7 @@
                                         <a href="{{ item.target_url }}">
                                       <div class="h-100 m-1 border promotional_ad_content shadow" style="background-color: rgb(255, 255, 255);">
                                         <div class="text-center pt-2">
-                                          <img src="{{ item.logo_icon.url }}"  height="70" width="70" alt=" {{item.heading}} ">
+                                          <img src=" {% if item.logo_icon %} {{ item.logo_icon.url }} {% endif %}"  height="70" width="70" alt=" {{item.heading}} ">
                                         </div>
                                         <div class="m-1 pt-2">
                                             <h6 class="text-center">{{ item.heading | truncatechars:30 }}</h6>

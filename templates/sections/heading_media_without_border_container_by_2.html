@@ -18,7 +18,7 @@
               </div><br>
               {% endif %}
                 <div class="media">
-                    <img class="align-self-start mr-3" src="{{ item.logo_icon.url }}" alt=" {{item.heading}} " height="60" width="60" title="{{ item.heading }}">
+                    <img class="align-self-start mr-3" src="{% if item.logo_icon %} {{ item.logo_icon.url }} {% endif %}" alt=" {{item.heading}} " height="60" width="60" title="{{ item.heading }}">
                     <div class="media-body">
                       <h6 class="mt-0 text-dark">{{ item.heading }}</h6>
                       <p class="text-justify text-dark">{{ item.short_description }}</p>

@@ -18,7 +18,7 @@
                               </div><br>
                               {% endif %}
                                   <div class="m-1 h-100  border pt-4">
-                                <img src="{{item.icon.url}}" height="100" width="100" alt=" {{item.heading}} " title="{{ item.heading }}">
+                                <img src="{% if item.icon %} {{item.icon.url}} {% endif %}" height="100" width="100" alt=" {{item.heading}} " title="{{ item.heading }}">
                                   <div class="p-4 text-center">
                                     <h6>  {{item.heading}}   </h6>
                                   </div>
