@@ -521,6 +521,24 @@
 <noscript>
     <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=2848564&fmt=gif" />
 </noscript>
+
+
+
+<!-- submit for google sheet script -->
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxnNK6Dmi_MP521GzoI3MusQ15-qkMbLunJa9dNfTAZ468_zGCkq_MzgAj96V9gnHCB/exec'
+const form = document.forms['google-sheet']
+
+form.addEventListener('submit', e => {
+ e.preventDefault()
+ fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+   .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+   .catch(error => console.error('Error!', error.message))
+}) 
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- end submit for google sheet script -->
     
 </body>
 
