@@ -73,7 +73,7 @@ class CategoryListView(generic.ListView):
 
 class PostCreateView(LoginRequiredMixin, generic.CreateView):
     model = Blog
-    fields = ['title', 'description', 'photo', 'publish_at', 'featured', 'categories']
+    fields = ['title', 'description', 'photo', 'publish_at', 'featured', 'categories', 'blog_title_tag','blog_meta_description', 'blog_keywords', 'blog_twitter_description', 'blog_twitter_title', 'blog_twitter_image', 'blog_og_title', 'blog_og_description', 'blog_og_url', 'blog_og_image']
     template_name = 'dashboard/blog_form.html'
     success_url = reverse_lazy('dashboard:post_list')
     login_url = reverse_lazy('dashboard:login')
@@ -103,7 +103,7 @@ class PostListView(generic.ListView):
 
 class PostUpdateView(generic.UpdateView):
     model = Blog
-    fields = ['title', 'description', 'photo', 'publish_at', 'featured', 'categories']
+    fields = ['title', 'description', 'photo', 'publish_at', 'featured', 'categories', 'blog_title_tag','blog_meta_description', 'blog_keywords', 'blog_twitter_description', 'blog_twitter_title', 'blog_twitter_image', 'blog_og_title', 'blog_og_description', 'blog_og_url', 'blog_og_image']
     template_name = 'dashboard/blog_form.html'
     success_url = reverse_lazy('dashboard:post_list')
 

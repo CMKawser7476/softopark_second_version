@@ -62,17 +62,22 @@ class Page(models.Model):
     sub_heading = models.TextField(null=True, blank=True)
     content = models.TextField(null=True, blank=True)
     
-    # seo related fields
+    # seo related fields for name
     title_tag = models.TextField(null=True, blank=True)
     meta_description = models.TextField(null=True, blank=True)
     keywords = models.TextField(null=True, blank=True) # please enter keywords separated by comma here
-    og_title = models.CharField(max_length=255, null=True, blank=True)
-    og_text = models.TextField(null=True, blank=True)
-    og_url = models.URLField(null=True, blank=True)
-    og_image = models.ImageField(upload_to="og_images", null=True, blank=True)
+    
     twitter_description = models.TextField(null=True, blank=True)
     twitter_title = models.CharField(max_length=260 ,null=True, blank=True)
     twitter_image = models.ImageField(upload_to="twitter_images", null=True, blank=True)
+
+
+    # OG issues for properties
+    og_title = models.CharField(max_length=255, null=True, blank=True)
+    og_description = models.TextField(null=True, blank=True)
+    og_url = models.URLField(null=True, blank=True)
+    og_image = models.ImageField(upload_to="og_images", null=True, blank=True)
+    
     
  
 

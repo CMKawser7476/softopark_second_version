@@ -43,6 +43,23 @@ class Blog(models.Model):
     featured = models.BooleanField(default=False)
     categories = models.ManyToManyField(Category, related_name="blog_posts")
 
+  # seo related fields for name
+    blog_title_tag = models.TextField(null=True, blank=True)
+    blog_meta_description = models.TextField(null=True, blank=True)
+    blog_keywords = models.TextField(null=True, blank=True) # please enter keywords separated by comma here
+    
+    blog_twitter_description = models.TextField(null=True, blank=True)
+    blog_twitter_title = models.CharField(max_length=260 ,null=True, blank=True)
+    blog_twitter_image = models.ImageField(upload_to="twitter_images", null=True, blank=True)
+
+
+    # OG issues for properties
+    blog_og_title = models.CharField(max_length=255, null=True, blank=True)
+    blog_og_description = models.TextField(null=True, blank=True)
+    blog_og_url = models.URLField(null=True, blank=True)
+    blog_og_image = models.ImageField(upload_to="og_images", null=True, blank=True)
+
+
     def save(self, *args, **kwargs):
         obj = None
         if self.id:

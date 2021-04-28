@@ -25,7 +25,7 @@ class CategoryUpdateView(generic.UpdateView):
 
 class BlogCreateView(generic.CreateView):
     model = Blog
-    fields = ['title', 'description', 'photo', 'publish_at', 'featured', 'categories']
+    fields = ['title', 'description', 'photo', 'publish_at', 'featured', 'categories', 'blog_title_tag','blog_meta_description', 'blog_keywords', 'blog_twitter_description', 'blog_twitter_title', 'blog_twitter_image', 'blog_og_title', 'blog_og_description', 'blog_og_url', 'blog_og_image']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -34,7 +34,7 @@ class BlogCreateView(generic.CreateView):
 
 class BlogUpdateView(generic.UpdateView):
     model = Blog
-    fields = ['title', 'description', 'photo', 'publish_at', 'featured', 'categories']
+    fields = ['title', 'description', 'photo', 'publish_at', 'featured', 'categories', 'blog_title_tag','blog_meta_description', 'blog_keywords', 'blog_twitter_description', 'blog_twitter_title', 'blog_twitter_image', 'blog_og_title', 'blog_og_description', 'blog_og_url', 'blog_og_image']
 
     def get_object(self, queryset=None):
         post_slug = self.kwargs.get("slug")
