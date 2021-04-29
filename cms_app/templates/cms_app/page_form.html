@@ -104,7 +104,7 @@
                                 <span class="help-block">{{ error }}</span>
                                 {% endfor %}
                             </div>
-                        {% elif field.name not in "title_tag, meta_description,keywords,og_title,og_text,og_url,og_image, twitter_description, twitter_title, twitter_image" %}
+                        {% elif field.name not in "keywords, meta_description,title_tag, og_description, og_title, og_url, og_image, twitter_description, twitter_title, twitter_image_url" %}
                             <div class="form-group {% if field.name not in 'content,page_name' %}advanced-fields{% elif field.name == 'content' %}editor{% endif %}">
                                 <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                                 {{ field|add_class:'form-control' }}
@@ -117,7 +117,7 @@
                     <hr>
                     <h3>Seo info</h3>
                     {% for field in form.visible_fields %}
-                        {% if field.name in "title_tag, meta_description,keywords,og_title,og_text,og_url,og_image, twitter_description, twitter_title, twitter_image" %}
+                        {% if field.name in "keywords, meta_description,title_tag, og_description, og_title, og_url, og_image, twitter_description, twitter_title, twitter_image_url" %}
                         <div class="form-group">
                             <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                                 {{ field|add_class:'form-control' }}

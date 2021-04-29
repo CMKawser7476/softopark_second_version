@@ -7,19 +7,19 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% if request.path == "/" %}Top IT Farm in Bangladesh{% else %}{{ page.title_tag }}{% endif %} | Softopark</title>  
+    <title>{% if request.path == "/" %}Top IT Firm in Bangladesh | Web Development Company{% else %}{{ page.title_tag }}{% endif %}</title>  
 <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}{{ blog.blog_keywords }}{% endif %}">
 <meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}{{ blog.blog_meta_description }}{% endif %}">
 <meta name="title" content="{% if page.title_tag %} {{ page.title_tag }} {% else %} {{ blog.blog_title_tag }} {% endif %}">
 
-<meta property="og:og_description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}{{ blog.blog_og_description }}{% endif %}">
-<meta property="og:og_title" content="{% if page.og_title %} {{ page.og_title }} {% else %} {{ blog.blog_og_title }} {% endif %}">
-<meta property="og:og_url" content="{% if page.og_url %}{{ page.og_url }}{% else %}{{ request.build_absolute_uri }}{% endif %}">
-<meta property="og:image:og_image" content="{% if page.og_image_url %} {{ blog.blog_og_image }} {% endif %}">
+<meta property="og:description" content="{% if page.og_description %}{{ page.og_description }}{% else %}{{ blog.blog_og_description }}{% endif %}">
+<meta property="og:title" content="{% if page.og_title %} {{ page.og_title }} {% else %} {{ blog.blog_og_title }} {% endif %}">
+<meta property="og:url" content="{% if page.og_url %}{{ page.og_url }}{% else %}{{ request.build_absolute_uri }}{% endif %}">
+<meta property="og:image:url" content="{% if page.og_image %}{{page.og_image.url}} {% else %} {{ blog.blog_og_image.url }} {% endif %}">
 
-<meta name="twitter:twitter_description" content="{% if page.twitter_description %}{{ page.twitter_description }}{% else %}{{ blog.blog_twitter_description }}{% endif %}">
-<meta name="twitter:twitter_title" content="{% if page.twitter_title %} {{ page.twitter_title }} {% else %} {{blog.blog_twitter_title }} {% endif %}">
-<meta name="twitter:twitter_image" content="{% if page.twitter_image_url %} {{ page.twitter_image_url }}{% else %}{{ blog.blog_twitter_image }} {% endif %}">
+<meta name="twitter:description" content="{% if page.twitter_description %}{{ page.twitter_description }}{% else %}{{ blog.blog_twitter_description }}{% endif %}">
+<meta name="twitter:title" content="{% if page.twitter_title %} {{ page.twitter_title }} {% else %} {{blog.blog_twitter_title }} {% endif %}">
+<meta name="twitter:image:url" content="{% if page.twitter_image %} {{ page.twitter_image.url }}{% else %}{{ blog.blog_twitter_image.url }} {% endif %}">
 
 <meta name="google-site-verification" content="rup-IADS3mZrbTrP2os0bbwtO9CwO91kI7--7Fr8TVk" />
 <meta name="msvalidate.01" content="8AB7D8FE2DFF7954EAAF9214B214619F" />
