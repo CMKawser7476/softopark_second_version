@@ -15,11 +15,11 @@
 <meta property="og:description" content="{% if page.og_description %}{{ page.og_description }}{% else %}{{ blog.blog_og_description }}{% endif %}">
 <meta property="og:title" content="{% if page.og_title %} {{ page.og_title }} {% else %} {{ blog.blog_og_title }} {% endif %}">
 <meta property="og:url" content="{% if page.og_url %}{{ page.og_url }}{% else %}{{ request.build_absolute_uri }}{% endif %}">
-<meta property="og:image:url" content="{% if page.og_image %}{{page.og_image.url}} {% else %} {{ blog.blog_og_image.url }} {% endif %}">
+<meta property="og:image:url" content="{% if page.og_image %}{{page.og_image.url}} {% elif blog.blog_og_image %} {{blog.blog_og_image.url}} {% endif %}">
 
 <meta name="twitter:description" content="{% if page.twitter_description %}{{ page.twitter_description }}{% else %}{{ blog.blog_twitter_description }}{% endif %}">
 <meta name="twitter:title" content="{% if page.twitter_title %} {{ page.twitter_title }} {% else %} {{blog.blog_twitter_title }} {% endif %}">
-<meta name="twitter:image:url" content="{% if page.twitter_image %} {{ page.twitter_image.url }}{% else %}{{ blog.blog_twitter_image.url }} {% endif %}">
+<meta name="twitter:image:url" content="{% if page.twitter_image %} {{ page.twitter_image.url }}{% elif blog.blog_twitter_image %} {{blog.blog_twitter_image.url}} {% endif %}">
 
 <meta name="google-site-verification" content="rup-IADS3mZrbTrP2os0bbwtO9CwO91kI7--7Fr8TVk" />
 <meta name="msvalidate.01" content="8AB7D8FE2DFF7954EAAF9214B214619F" />
