@@ -31,7 +31,7 @@
                                                 <div class="card h-100">
                                                     <a href="{% url 'blog:blog_detail' slug=post.slug %}">
                                                         <div>
-                                                            <img class="card-img-top"  src="{% if post.photo %}{{ post.photo.url }}{% else %}  {% static 'images/blog/blog3.jpg'  %} {% endif %}" alt="{{ post.title }}">
+                                                            <img class="card-img-top"  src="{% if post.photo %}{{ post.photo.url }}{% else %}  {% static 'images/blog/blog3.jpg'  %} {% endif %}" alt="{{ post.title }}" title="{{ post.title }}">
                                                             <div class="p-5">
                                                                 <div>
                                                                     <p class="fntsize fntfamily">{{ post.author.username }} - {{ post.publish_at }}</p>
