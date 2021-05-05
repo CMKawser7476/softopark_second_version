@@ -25,7 +25,7 @@ SECTION_TYPE_CHOICES = [
     ("heading_logo_name_short_descrip_with_border_container_by_5", "Heading logo name short descrip with border container by 5"),
     ("heading_media_with_border_container_by_2", "Heading media with border container by 2"),
     ("heading_media_without_border_container_by_2", "Heading media without border container by 2"),
-    ("heading_name_short_descrip_border_container_by_4", "Heading name short descrip border container by 4"),
+    # ("heading_name_short_descrip_border_container_by_4", "Heading name short descrip border container by 4"),
     ("heading_social_media_container_by_2", "Heading social media container by 2"),
     ("heading_sub_heading_icon_media_by_3", "Heading sub heading icon media by 3"),
     ("slider", "Slider"),

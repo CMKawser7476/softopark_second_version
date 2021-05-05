@@ -9,16 +9,16 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% if request.path == "/" %}Top IT Firm in Bangladesh | Web Development Company{% else %}{{ page.title_tag }}{% endif %}</title>  
 <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}{{ blog.blog_keywords }}{% endif %}">
-<meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}{{ blog.blog_meta_description }}{% endif %}">
-<meta name="title" content="{% if page.title_tag %} {{ page.title_tag }} {% else %} {{ blog.blog_title_tag }} {% endif %}">
+<meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% elif blog.blog_meta_description %}{{ blog.blog_meta_description }}{% endif %}">
+<meta name="title" content="{% if page.title_tag %} {{ page.title_tag }} {% elif blog.blog_title_tag  %} {{ blog.blog_title_tag }} {% endif %}">
 
-<meta property="og:description" content="{% if page.og_description %}{{ page.og_description }}{% else %}{{ blog.blog_og_description }}{% endif %}">
-<meta property="og:title" content="{% if page.og_title %} {{ page.og_title }} {% else %} {{ blog.blog_og_title }} {% endif %}">
+<meta property="og:description" content="{% if page.og_description %}{{ page.og_description }}{% elif blog.blog_og_description %}{{ blog.blog_og_description }}{% endif %}">
+<meta property="og:title" content="{% if page.og_title %} {{ page.og_title }} {% elif blog.blog_og_title %} {{ blog.blog_og_title }} {% endif %}">
 <meta property="og:url" content="{% if page.og_url %}{{ page.og_url }}{% else %}{{ request.build_absolute_uri }}{% endif %}">
 <meta property="og:image:url" content="{% if page.og_image %}{{page.og_image.url}} {% elif blog.blog_og_image %} {{blog.blog_og_image.url}} {% endif %}">
 
-<meta name="twitter:description" content="{% if page.twitter_description %}{{ page.twitter_description }}{% else %}{{ blog.blog_twitter_description }}{% endif %}">
-<meta name="twitter:title" content="{% if page.twitter_title %} {{ page.twitter_title }} {% else %} {{blog.blog_twitter_title }} {% endif %}">
+<meta name="twitter:description" content="{% if page.twitter_description %}{{ page.twitter_description }}{% elif blog.blog_twitter_description %}{{ blog.blog_twitter_description }}{% endif %}">
+<meta name="twitter:title" content="{% if page.twitter_title %} {{ page.twitter_title }} {% elif blog.blog_twitter_title %} {{blog.blog_twitter_title }} {% endif %}">
 <meta name="twitter:image:url" content="{% if page.twitter_image %} {{ page.twitter_image.url }}{% elif blog.blog_twitter_image %} {{blog.blog_twitter_image.url}} {% endif %}">
 
 <meta name="google-site-verification" content="rup-IADS3mZrbTrP2os0bbwtO9CwO91kI7--7Fr8TVk" />
@@ -31,7 +31,7 @@
 
     <!-- cdn link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min'  %}" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min'  %}" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min'  %}" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
     <!-- CSS
         ============================================ -->
 
@@ -421,7 +421,7 @@
             </form>
         </div>
     </div> -->
-
+    
 <!-- Search Box End Here -->
 
     <!-- GetButton.io widget -->
