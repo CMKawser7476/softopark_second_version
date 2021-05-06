@@ -55,7 +55,7 @@ class Blog(models.Model):
 
     # OG issues for properties
     blog_og_title = models.CharField(max_length=255, null=True, blank=True)
-    blog_og_type = models.CharField()(null=True, blank=True)
+    blog_og_type = models.CharField(max_length=260 ,null=True, blank=True)
     blog_og_description = models.TextField(null=True, blank=True)
     blog_og_url = models.URLField(null=True, blank=True)
     blog_og_image = models.ImageField(upload_to="og_images", null=True, blank=True)

@@ -75,7 +75,7 @@ class Page(models.Model):
     # OG issues for properties
     og_title = models.CharField(max_length=255, null=True, blank=True)
     og_description = models.TextField(null=True, blank=True)
-    og_type = models.CharField(null=True, blank=True)
+    og_type = models.CharField(max_length=260 , null=True, blank=True)
     og_url = models.URLField(null=True, blank=True)
     og_image = models.ImageField(upload_to="og_images", null=True, blank=True)
     
