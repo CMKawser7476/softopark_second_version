@@ -36,7 +36,7 @@ SECTION_TYPE_CHOICES = [
 # Create your views here.
 class PageCreateView(generic.CreateView):
     model = Page
-    fields = ['parent_page', 'page_name', 'heading', 'sub_heading', 'page_banner', 'content','title_tag', 'meta_description', 'keywords', 'twitter_description', 'twitter_title', 'twitter_image', 'og_title', 'og_description', 'og_url', 'og_image',]
+    fields = ['parent_page', 'page_name', 'heading', 'sub_heading', 'page_banner', 'content','title_tag', 'meta_description', 'keywords', 'twitter_description', 'twitter_title', 'twitter_image', 'og_title', 'og_type', 'og_description', 'og_url', 'og_image',]
 
     def get_context_data(self, **kwargs):
         context = super(PageCreateView, self).get_context_data(**kwargs)
@@ -45,7 +45,7 @@ class PageCreateView(generic.CreateView):
 
 class PageUpdateView(generic.UpdateView):
     model = Page
-    fields = ['parent_page', 'page_name', 'heading', 'sub_heading', 'page_banner', 'content','title_tag', 'meta_description', 'keywords', 'twitter_description', 'twitter_title', 'twitter_image', 'og_title', 'og_description', 'og_url', 'og_image',]
+    fields = ['parent_page', 'page_name', 'heading', 'sub_heading', 'page_banner', 'content','title_tag', 'meta_description', 'keywords', 'twitter_description', 'twitter_title', 'twitter_image', 'og_title', 'og_type', 'og_description', 'og_url', 'og_image',]
 
     def get_context_data(self, **kwargs):
         context = super(PageUpdateView, self).get_context_data(**kwargs)

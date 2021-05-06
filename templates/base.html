@@ -11,6 +11,8 @@
 <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}{{ blog.blog_keywords }}{% endif %}">
 <meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% elif blog.blog_meta_description %}{{ blog.blog_meta_description }}{% endif %}">
 <meta name="title" content="{% if page.title_tag %} {{ page.title_tag }} {% elif blog.blog_title_tag  %} {{ blog.blog_title_tag }} {% endif %}">
+<meta property="og:title" content="{% if page.og_type %} {{ page.og_type }} {% elif blog.blog_og_type %} {{ blog.blog_og_type }} {% endif %}">
+
 
 <meta property="og:description" content="{% if page.og_description %}{{ page.og_description }}{% elif blog.blog_og_description %}{{ blog.blog_og_description }}{% endif %}">
 <meta property="og:title" content="{% if page.og_title %} {{ page.og_title }} {% elif blog.blog_og_title %} {{ blog.blog_og_title }} {% endif %}">
