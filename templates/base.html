@@ -7,7 +7,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% if request.path == "/" %}Top IT Firm in Bangladesh | Web Development Company{% elif page.title_tag %}{{ page.title_tag }} {% else %} {{ blog.blog_title_tag }} {% endif %}</title>  
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>  
 <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}{{ blog.blog_keywords }}{% endif %}">
 <meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% elif blog.blog_meta_description %}{{ blog.blog_meta_description }}{% endif %}">
 <meta name="title" content="{% if page.title_tag %} {{ page.title_tag }} {% elif blog.blog_title_tag  %} {{ blog.blog_title_tag }} {% endif %}">
@@ -32,7 +35,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo/Softopark_Fevicon.png' %}">
 
     <!-- cdn link -->
-    <link rel="stylesheet" href="{% https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min'  %}" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min'  %}" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
     <!-- CSS
         ============================================ -->
