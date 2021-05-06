@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% if request.path == "/" %}Top IT Firm in Bangladesh | Web Development Company{% else %}{{ page.title_tag }}{% endif %}</title>  
+    <title>{% if request.path == "/" %}Top IT Firm in Bangladesh | Web Development Company{% elif page.title_tag %}{{ page.title_tag }} {% else %} {{ blog.blog_title_tag }} {% endif %}</title>  
 <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}{{ blog.blog_keywords }}{% endif %}">
 <meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% elif blog.blog_meta_description %}{{ blog.blog_meta_description }}{% endif %}">
 <meta name="title" content="{% if page.title_tag %} {{ page.title_tag }} {% elif blog.blog_title_tag  %} {{ blog.blog_title_tag }} {% endif %}">
