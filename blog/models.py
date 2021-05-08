@@ -66,8 +66,12 @@ class Blog(models.Model):
         if self.id:
             obj = Blog.objects.get(id=self.id)
         if (obj and (obj.title != self.title)) or not obj:
-            random_string = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(7))
-            self.slug = f"{slugify(self.title)}-{random_string}"
+            new_slug = slugify(self.title)
+            post = Blog.objects.filter(slug=new_slug)
+            self.slug = new_slug
+            if post.exists():
+                random_string = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(7))
+                self.slug = f"{new_slug}-{random_string}"
         super(Blog, self).save(*args, **kwargs)
  
     def get_absolute_url(self):
