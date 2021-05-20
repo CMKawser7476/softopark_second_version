@@ -14,11 +14,12 @@
                     <img class="img-fluid" src="{{ object.photo.url }}" alt="{{ object.title }}" title="{{ object.title }}"><br>
                     <br>
                     
-                                        <a href="http://www.facebook.com/sharer/sharer.php?u={{ request.get_host }}{{ request.get_full_path|urlencode }}"><i class="fa fa-facebook-official fa-2x" aria-hidden="true" alt="Facebook" title="{{ object.title }}"></i></a>&nbsp;
-                                        <a href="#"><i class="fa fa-twitter fa-2x" aria-hidden="true" alt="Twitter" title="{{ object.title }}"></i></a>&nbsp;
-                                        <a href="http://www.linkedin.com/shareArticle?url={{ request.get_host }}{{ request.get_full_path|urlencode }}&title={{ object.title }}&summary={{ object.description }}&source={{ request.get_host }}"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true" alt="Linkedin" title="{{ object.title }}"></i></a> &nbsp;
-                                        <a href="#"><i class="fa fa-instagram fa-2x" aria-hidden="true" alt="Instagram" title="{{ object.title }}"></i></a>&nbsp;
-                                        <a href="#"><i class="fa fa-pinterest-square fa-2x" aria-hidden="true" alt="Pinterest" title="{{ object.title }}"></i></a>&nbsp;   <hr>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.get_host }}{{ request.get_full_path|urlencode }}"><i class="fa fa-facebook-official fa-2x" aria-hidden="true" alt="Facebook" title="{{ object.title }}"></i></a>&nbsp;
+                     <a href="https://twitter.com/home?status=I'm%20going%20to%20learn%20to%20Code...%20Come%20build%20an%20web%20apsp%20with%20me!%20%23CFE%20and%20@justinmitchel%20http:{{ request.get_host }}{{ request.get_full_path|urlencode }}">
+                                            <i class="fa fa-twitter fa-2x" aria-hidden="true" alt="Twitter" title="{{ object.title }}"></i></a>&nbsp;
+                    <a href="https://www.linkedin.com/shareArticle?url={{ request.get_host }}{{ request.get_full_path|urlencode }}&title={{ object.title }}&summary={{ object.description }}&source={{ request.get_host }}"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true" alt="Linkedin" title="{{ object.title }}"></i></a> &nbsp;
+                     <a href="#"><i class="fa fa-instagram fa-2x" aria-hidden="true" alt="Instagram" title="{{ object.title }}"></i></a>&nbsp;
+                    <a href="#"><i class="fa fa-pinterest-square fa-2x" aria-hidden="true" alt="Pinterest" title="{{ object.title }}"></i></a>&nbsp;   <hr>
                     <p class="text-dark fntfamily">{{ object.description|safe }}</p>
                     <hr>
 
