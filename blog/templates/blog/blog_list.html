@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}
-Softopark Blog {% if request.GET.category %}| category:{{ request.GET.category }}{% endif %}{% elif request.GET.page %} | page: {{ request.GET.page }}{% endif %} | Softopark 
+Softopark Blog {% if request.GET.category %}| category:{{ request.GET.category }}{% endif %}{% if request.GET.page %} | page: {{ request.GET.page }}{% endif %} | Softopark 
 {% endblock %}
 {% block content %}
 <div class="page-content">
