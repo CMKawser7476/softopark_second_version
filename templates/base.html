@@ -12,8 +12,8 @@
         {% endblock %}
     </title>  
 <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% elif blog.blog_keywords %}{{ blog.blog_keywords }}{% else %}blog, softopark blog{% endif %}">
-<meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% elif blog.blog_meta_description %}{{ blog.blog_meta_description }}{% else %}This is the blog page{% endif %}">
-<meta name="title" content="{% if page.title_tag %} {{ page.title_tag }} {% elif blog.blog_title_tag  %}{{ blog.blog_title_tag }}{% else %}The Blog page{% endif %}">
+<meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% elif blog.blog_meta_description %}{{ blog.blog_meta_description }}{% else %}This is the blog page {% if request.GET.category %}| {{ request.GET.category }}{% endif %}{% endif %}">
+<meta name="title" content="{% if page.title_tag %} {{ page.title_tag }} {% elif blog.blog_title_tag  %}{{ blog.blog_title_tag }}{% else %}The Blog page {% if request.GET.category %}| {{ request.GET.category }}{% endif %}{% endif %}">
 
 <meta property="og:title" content="{% if page.og_type %} {{ page.og_type }} {% elif blog.blog_og_type %}{{ blog.blog_og_type }}{% endif %}">
 <meta property="og:description" content="{% if page.og_description %}{{ page.og_description }}{% elif blog.blog_og_description %}{{ blog.blog_og_description }}{% endif %}">
