@@ -38,7 +38,7 @@ class Blog(models.Model):
     description = RichTextUploadingField(blank=True, null=True, config_name='default')
     photo = models.ImageField(upload_to="blog_post_photos", null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False)
-    publish_at = models.DateTimeField()
+    publish_at = models.DateTimeField(null=True, blank=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
     featured = models.BooleanField(default=False)
     categories = models.ManyToManyField(Category, related_name="blog_posts")
