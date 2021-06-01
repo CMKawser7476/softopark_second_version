@@ -172,7 +172,7 @@ class ImageWithDescription(models.Model):
     background_image = models.ImageField(upload_to="item_backgrounds", blank=True, null=True)
     photo = models.ImageField()
     heading = models.CharField(max_length=255)
-    sub_heading = models.CharField(max_length=255, blank=True, null=True)
+    sub_heading = models.TextField(blank=True, null=True)
     description = models.TextField( blank=True, null=True)
     target_url = models.URLField(blank=True, null=True)
 

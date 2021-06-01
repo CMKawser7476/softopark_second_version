@@ -26,8 +26,8 @@
             <div class="col-sm-5 {% if item.image_alignment == 'right' %}order-sm-1{% endif %}">
               <div class="p-5 mt-5 text-left">
                 <h1 class="text-left text-primary" style="font-weight: 500;"><b>{{ item.heading }}</b></h1><br>
-                <h5 class="text-dark">{{ item.sub_heading }}</h5><br>
-                <p class="text-dark">{{ item.sub_heading }}</p><br><br>
+                <h6 class="text-dark">{{ item.sub_heading }}</h6><br>
+                <p class="text-dark">{{ item.description }}</p><br>
                 {% if item.target_url %}
                 <a href="{{ item.target_url }}" class="btn btn-outline-primary btn-lg" >Learn More</a>
                 {% endif %}              
