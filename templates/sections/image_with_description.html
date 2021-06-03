@@ -28,7 +28,7 @@
               <div class="p-5 text-left">
                 <h3 class="pb-2 text-left">{{ item.heading }}</h3>
                 <!-- <h4 class="text-danger pb-1 text-left">{{ item.sub_heading }}</h4> -->
-                <p class="text-left text-dark">{{ item.description|safe }}</p><br/>
+                <p class="text-left text-dark">{{ item.description }}</p><br/>
                 {% if item.target_url %}
                 <a href="{{ item.target_url }}" class="btn btn-outline-primary btn-lg" >Learn More</a>
                 {% endif %}
