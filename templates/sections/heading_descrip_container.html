@@ -3,7 +3,7 @@
 <section class="heading_descrip_container">
     <div class="container">
                 <h3 class="text-dark text-center pt-5">{{ section.heading}}</h3> 
-                <h4 class="text-dark text-center pt-3">{{ section.sub_heading }}</h4><br>
+                <h4 class="text-dark text-center pt-3">{{ section.sub_heading | safe }}</h4><br>
 
                 {% for item in section.heading_with_description.all %}
                 <div class="text-center pb-4">
@@ -19,7 +19,7 @@
                               {% endif %}
                   <!-- <h2 class="text-dark pt-5">{{ item.heading}}</h2> -->
                   <br>
-                <p class="text-dark">{{item.description}}</p>
+                <p class="text-dark">{{item.description | safe}}</p>
                       <br>
                 
               </div>

@@ -3,7 +3,7 @@
 <section class="py-5 heading_media_with_border_container_by_2" style="background-color: rgb(255, 255, 255);">
     <div class="container">
       <h2 class="text-center">{{ section.heading }}</h2><br/>
-      <p class="text-center">{{ section.sub_heading }}</p><br/>
+      <p class="text-center">{{ section.sub_heading | safe }}</p><br/>
     <div class="row pt-5">
       {% for item in section.heading_logo_name_short_descrip.all %}
       <div class="col-sm-6 p-3">
