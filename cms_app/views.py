@@ -7,6 +7,12 @@ from .forms import SectionForm, HeadingLogoNameShortDescripForm, ImageWithDescri
 
 SECTION_TYPE_CHOICES = [
     ("call_to_action", ['heading', 'ordering']),
+    ("call_to_action2", ['heading', 'ordering']),
+    ("image_with_cards_by_2", ['heading', 'ordering']),
+    ("testimonials", ['heading', 'ordering']),
+    ("video_with_full_container", ['heading', 'ordering']),
+    ("video_with_description_by_2", ['heading', 'ordering']),
+    ("video_with_description_by_3", ['heading', 'ordering']),
     ("book_an_appointment", ['heading', 'ordering']),
     ("heading_short_des_svg_png_video_2", ['heading', 'ordering']),
     ("slider", ['heading', 'ordering']),

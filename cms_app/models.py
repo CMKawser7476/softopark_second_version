@@ -9,6 +9,12 @@ from tinymce import HTMLField
 SECTION_TYPE_CHOICES = [
     ("book_an_appointment", "Book An Appointment"),
     ("call_to_action", "Call To Action"),
+    ("call_to_action2", "Call To Action 2"),
+    ("image_with_cards_by_2", "Image With Cards By 2"),
+    ("testimonials", "Testimonials"),
+    ("video_with_full_container", "Video With Full Container"),
+    ("video_with_description_by_2", "Video With Description By 2"),
+    ("video_with_description_by_3", "Video With Description By 2"),
     ("image_with_description", "Image With Description"),
     ("heading_border_name_by_4", "Heading Border Name By 4"),
     ("heading_descrip_container", " Heading Descrip Container"),
@@ -46,8 +52,6 @@ IMAGE_ALIGNMENT_CHOICES = [
     ("left", "Left Image"),
     ("right", "Right Image")
 ]
-
-
 
 
 
@@ -121,8 +125,6 @@ class Section(models.Model):
     
     def __str__(self):
         return self.heading
-
-
 
 
 

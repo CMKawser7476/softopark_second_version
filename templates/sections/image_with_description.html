@@ -11,7 +11,7 @@
                                
                                 </div>
                               </div><br>
-                              {% endif %}
+        {% endif %}
       <div class="{{ item.container_type }}"
         {% if item.background_image %} 
           style="background-image: url({{item.background_image.url}})"
@@ -39,7 +39,7 @@
         </div>
         
       </section>
-      
+       
     {% empty %}
     <section>
       <div class="{{ item.container_type }} {% if item.background_image %}{{item.background_image.url}}{% endif %}">
