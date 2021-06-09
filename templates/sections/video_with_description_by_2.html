@@ -92,17 +92,17 @@
           {% for field in image_with_description_form.visible_fields %}
             {% if field.name == "section" %}
               <input type="hidden" name="section" value="{{ section.id }}">
-            {% else %}
-              <div class="form-group">
-                  <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                  {{ field|add_class:'form-control' }}
-                  {% for error in field.errors %}
-                  <span class="help-block text-danger">{{ error }}</span>
-                  {% endfor %}
-              </div>
+              {% elif field.name in 'heading, sub_heading, embed_url, description' %}
+                                    <div class="form-group">
+                                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                        {{ field|add_class:'form-control' }}
+                                        {% for error in field.errors %}
+                                        <span class="help-block text-danger">{{ error }}</span>
+                                        {% endfor %}
+                                    </div> 
             {% endif %}
           {% endfor %}
-
+ 
         </div>
         
 

@@ -1,10 +1,12 @@
 {% load static %}
 {% load widget_tweaks %}
-<section class="text-center bg-primary my-5 py-2">
+<section class="text-center bg-primary my-5 py-2 video_with_description_by_3">
     <div class="container">
     <!-- Section heading -->
-    <h2 class="h2-responsive text-white font-weight-bold my-5">What Clients Say</h2>
+    <h2 class="h2-responsive text-white font-weight-bold my-5">{{ section.heading }}</h2>
+
     <div class="row pb-5">
+
       <div class="col-sm-4">
         <div class="embed-responsive embed-responsive-4by3">
           <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/watch?v=pOjkXmBqEM8"></iframe>
@@ -24,9 +26,7 @@
           <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/watch?v=pOjkXmBqEM8"></iframe>
         </div>
         <h5 class="text-left text-white p-2">In publishing and graphic design, Lorem ipsum</h5>
-    
       </div>
-  
-  
+      
     </div>
    </section>
