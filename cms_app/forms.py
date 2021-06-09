@@ -1,5 +1,5 @@
 from django import forms
-from .models import Section, HeadingLogoNameShortDescrip, ImageWithDescription, IconWithHeading, HeadingWithDescription, HeadingWithMultipleImageUpload, LandingPageAssets, Slide
+from .models import Section, HeadingLogoNameShortDescrip, ImageWithDescription, IconWithHeading, HeadingWithDescription, HeadingWithMultipleImageUpload, LandingPageAssets, Slide, VideosUrls
 
 
 class LandingPageAssetsForm(forms.ModelForm):
@@ -52,3 +52,10 @@ class HeadingWithMultipleImageUploadForm(forms.ModelForm):
     class Meta:
         model = HeadingWithMultipleImageUpload
         fields = "__all__" 
+
+        
+
+class VideosUrlsForm(forms.ModelForm):
+    class Meta:
+        model = VideosUrls
+        fields = "__all__"

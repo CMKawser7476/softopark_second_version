@@ -1,9 +1,10 @@
+from django.db import models
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views import generic
 from django.contrib.sitemaps import Sitemap
-from .models import Page, Section,HeadingLogoNameShortDescrip, ImageWithDescription, IconWithHeading, HeadingWithDescription, HeadingWithMultipleImageUpload, LandingPageAssets, Slide
-from .forms import SectionForm, HeadingLogoNameShortDescripForm, ImageWithDescriptionForm, IconWithHeadingForm, HeadingWithDescriptionForm, HeadingWithMultipleImageUploadForm, LandingPageAssetsForm, SlideForm
+from .models import Page, Section, HeadingLogoNameShortDescrip, ImageWithDescription, IconWithHeading, HeadingWithDescription, HeadingWithMultipleImageUpload, LandingPageAssets, Slide, VideosUrls
+from .forms import SectionForm, HeadingLogoNameShortDescripForm, ImageWithDescriptionForm, IconWithHeadingForm, HeadingWithDescriptionForm, HeadingWithMultipleImageUploadForm, LandingPageAssetsForm, SlideForm, VideosUrlsForm
 
 SECTION_TYPE_CHOICES = [
     ("call_to_action", ['heading', 'ordering']),
@@ -72,7 +73,8 @@ class PageView(generic.View):
         'image_with_description_form': ImageWithDescriptionForm,
         'icon_with_heading_form': IconWithHeadingForm,
         'heading_with_description_form': HeadingWithDescriptionForm,
-        'heading_with_multiple_image_upload_form': HeadingWithMultipleImageUploadForm
+        'heading_with_multiple_image_upload_form': HeadingWithMultipleImageUploadForm,
+        
     }
 
 
@@ -92,6 +94,8 @@ class PageView(generic.View):
 
     def post(self, request, *args, **kwargs):
         slug = kwargs.get('slug')
+        if not slug:
+            slug = 'home'
         form_name = request.POST.get('form_name')
         page = get_object_or_404(Page, slug=slug)
         context = {}
@@ -192,6 +196,12 @@ class HeadingWithMultipleImageUploadUpdateView(generic.UpdateView):
     
     def get_success_url(self):
         return self.get_object().section.page.get_absolute_url()
+
+
+class VideosUrlsUpdateView(generic.UpdateView):
+    model = VideosUrls
+    template_name = 'cms_app/videos_urls.html'
+    fields = ['heading', 'sub_heading', 'embed_url', 'description']
 
 
 

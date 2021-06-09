@@ -1,31 +1,97 @@
 {% load static %}
 {% load widget_tweaks %}
-<section class="text-center bg-dark my-5 py-2">
+<section class="text-center bg-dark my-5 py-2 testimonials">
     <div class="container">
     <!-- Section heading -->
-    <h2 class="h2-responsive text-white font-weight-bold my-5">What Clients Say</h2>
+    <h2 class="h2-responsive text-white font-weight-bold my-5">{{ section.heading }}</h2>
     <div class="row pb-5">
-      <div class="col-sm-6">
-        <div class="card p-3 border-success bg-white">
-          <img src="img/sni.PNG" alt="" height="100" width="100" class="img-fluid rounded-circle">
-        <div class="text-left">
-          <h5>Razib Hasan</h5>
-          <p class="text-success"><b>CTO-Softopark IT Ltd</b></p>
-          <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content</p>
-        </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card p-3 border-success bg-white">
-          <img src="img/sni.PNG" alt="" height="100" width="100" class="img-fluid rounded-circle">
-        <div class="text-left">
-          <h5>Farid Mahmud</h5>
-          <p class="text-success"><b>PM at johukum</b></p>
-          <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content</p>
-  
-        </div>
-        </div>
-      </div>
+
+      {% for item in section.heading_logo_name_short_descrip.all %}
+          <div class="col-sm-6">
+            {% if request.user.is_authenticated %}
+            <div class="action-buttons">
+              <div class="button-group">
+                <a href="{% url 'cms_app:heading_logo_name_short_descrip_view' pk=item.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                
+                <a href="{% url 'cms_app:heading_logo_name_short_descrip_delete_view' pk=item.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> </a>
+             
+              </div>
+            </div><br>
+            {% endif %}
+            <div class="card p-3 border-success bg-white">
+              <img src="{% if item.logo_icon %} {{ item.logo_icon.url }} {% endif %}" alt="" height="100" width="100" class="img-fluid rounded-circle">
+            <div class="text-left">
+              <h5>{{ item.heading }}</h5>
+              <p class="text-success"><b>{{item.sub_heading}}</b></p>
+              <p>{{ item.short_description | safe }}</p>
+            </div>
+            </div>
+          </div>
+      {% empty %}
+          <div class="col-sm-6">
+            <div class="card p-3 border-success bg-white">
+              <img src="{% static 'img/sni.PNG' %}" alt="" height="100" width="100" class="img-fluid rounded-circle">
+            <div class="text-left">
+              <h5>Farid Mahmud</h5>
+              <p class="text-success"><b>PM at johukum</b></p>
+              <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content</p>
+      
+            </div>
+            </div>
+          </div>
+      {% endfor %}
+                         <!-- Button trigger modal -->
+                         <div class="col-sm-4">
+                          {% if request.user.is_authenticated %}
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#heading_logo_name_short_descrip_form_{{ section.id }}">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                          </button>
+                          {% endif %}
+                        </div>
+
+                          <!-- Modal -->
+                  <div class="modal fade" id="heading_logo_name_short_descrip_form_{{ section.id }}" tabindex="-1" role="dialog" aria-labelledby="heading_logo_name_short_descrip_formLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="heading_logo_name_short_descrip_form">ADD CONTENT</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+
+                        <form method="POST" action="{% url 'page_detail' slug=page.slug %}" enctype="multipart/form-data">
+                          <div class="modal-body">
+                            {% csrf_token %}
+                            <input type="hidden" name="form_name" value="heading_logo_name_short_descrip_form">
+                            {% for field in heading_logo_name_short_descrip_form.visible_fields %}
+                              {% if field.name == "section" %}
+                                <input type="hidden" name="section" value="{{ section.id }}">
+                              {% elif field.name in 'heading, sub_heading, logo_icon, short_description' %}
+                                <div class="form-group">
+                                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                    {{ field|add_class:'form-control' }}
+                                    {% for error in field.errors %}
+                                    <span class="help-block text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                              {% endif %}
+                            {% endfor %}
+
+
+                          </div>
+                          
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                          </div>
+                        </form>
+
+                      </div>
+                    </div>
+                  </div>
+
     </div>
   
     </div>
