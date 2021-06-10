@@ -21,7 +21,11 @@
             <div class="col-sm-6 pt-5
             
             {% if item.image_alignment == 'right' %}order-sm-12{% endif %}">
-                <img src="{{item.embed_url.url}}" class="img-fluid" alt=" {{item.heading}}" title="{{ item.heading }}">
+            {% if item.embed_url %}
+            <div class="embed-responsive embed-responsive-4by3">
+              <iframe class="embed-responsive-item" src="{{ item.embed_url }}" allowfullscreen></iframe>
+            </div>
+            {% endif %}
             </div>
 
             <div class="col-sm-6 {% if item.image_alignment == 'right' %}order-sm-1{% endif %}">
@@ -44,9 +48,9 @@
     <section>
       <div class="{{ item.container_type }} {% if item.background_image %}{{item.background_image.url}}{% endif %}">
         <div class="row">
-            <div class="col-sm-6 {% if item.image_alignment == 'right' %}col-md-push-6 col-sm-push-6{% endif %}">
-                <img src="{{item.photo.url}}" class="img-fluid" alt="">
-            </div>
+          <div class="embed-responsive embed-responsive-4by3">
+            <iframe class="embed-responsive-item" src="{{ item.embed_url }}" allowfullscreen></iframe>
+          </div>
 
             <div class="col-sm-6 pt-4 {% if item.image_alignment == 'right' %}col-md-pull-6 col-sm-pull-6{% endif %}"><br/>
 

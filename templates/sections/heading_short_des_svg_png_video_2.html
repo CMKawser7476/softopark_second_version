@@ -41,6 +41,7 @@
       
     {% empty %}
     <section>
+      {{ section.heading }}
       <div class="{{ item.container_type }} {% if item.background_image %}{{item.background_image.url}}{% endif %}">
         <div class="row">
             <div class="col-sm-6 {% if item.image_alignment == 'right' %}col-md-push-6 col-sm-push-6{% endif %}">
@@ -50,9 +51,9 @@
             <div class="col-sm-6 pt-4 {% if item.image_alignment == 'right' %}col-md-pull-6 col-sm-pull-6{% endif %}"><br/>
 
               <div class="p-5 text-left">
-                <h3 class="text-dark pb-2 text-justify">Heading Dummy</h3>
+                <h3 class="text-dark pb-2 text-justify">{{section.heading}}</h3>
                 <h3 class="text-danger pb-2 text-justify">Life Paragraph. </h3>
-                <p class="text-dark">Life Paragraph. Student Life Paragraph – Students are the future leaders of a nation. After equipping themselves... Essay on Student Life </p><br/>
+                <p class="text-dark">nation. After equipping themselves... Essay on Student Life </p><br/>
               </div>
               
             </div>

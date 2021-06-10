@@ -62,8 +62,6 @@ class PageUpdateView(generic.UpdateView):
 
 
 
-
-
 class PageView(generic.View):
 
     forms = {
@@ -168,7 +166,7 @@ class IconWithHeadingUpdateView(generic.UpdateView):
 class ImageWithDescriptionUpdateView(generic.UpdateView):
     model = ImageWithDescription
     template_name = 'cms_app/image_with_description_form.html'
-    fields = ['container_type', 'image_alignment', 'background_image', 'photo', 'heading', 'sub_heading', 'description','target_url']
+    fields = ['container_type', 'image_alignment', 'background_image', 'photo', 'heading', 'sub_heading', 'description', 'target_url']
    
 
     def get_success_url(self):
@@ -204,7 +202,8 @@ class VideosUrlsUpdateView(generic.UpdateView):
     template_name = 'cms_app/videos_urls.html'
     fields = ['heading', 'sub_heading', 'embed_url', 'description']
 
-
+    def get_success_url(self):
+        return self.get_object().section.page.get_absolute_url()
 
 
 
@@ -261,4 +260,3 @@ class HeadingWithMultipleImageUploadDeleteView(generic.DeleteView):
     def get_success_url(self):
         return self.get_object().section.page.get_absolute_url()
   
-

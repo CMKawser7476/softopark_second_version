@@ -228,7 +228,7 @@ class VideosUrls(models.Model):
     heading = models.CharField(max_length=300, blank=True, null=True)
     sub_heading = models.TextField(blank=True, null=True)
     embed_url = models.URLField(blank=True, null=True)
-    description = HTMLField("Description", null=True, blank=True)
+    description = HTMLField("Description", null=True, blank=True) 
 
 
     def __str__(self):
