@@ -1,5 +1,17 @@
 {% load static %}
 {% load widget_tweaks %}
+
+{% if request.user.is_authenticated %}
+<div class="action-buttons">
+  <div class="button-group">
+    <a href="{% url 'cms_app:section_update_view' pk=section.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>A</a>
+    
+    <a href="{% url 'cms_app:section_delete_view' pk=section.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> B</a>
+ 
+  </div>
+</div><br>
+{% endif %} 
+<hr>
 <section class="  py-5 heading_icon_name_border_container_by_6">
 
     <div class="container">

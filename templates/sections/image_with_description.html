@@ -1,6 +1,19 @@
 {% load static %}
 {% load widget_tweaks %}
 {% for item in section.image_with_description.all %}
+
+
+{% if request.user.is_authenticated %}
+<div class="action-buttons">
+  <div class="button-group">
+    <a href="{% url 'cms_app:section_update_view' pk=section.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>A</a>
+    
+    <a href="{% url 'cms_app:section_delete_view' pk=section.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> B</a>
+ 
+  </div>
+</div><br>
+{% endif %} 
+<hr>
     <section class="image_with_description py-3">
       {% if request.user.is_authenticated %}
                               <div class="action-buttons">

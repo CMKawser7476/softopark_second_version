@@ -34,7 +34,6 @@ SECTION_TYPE_CHOICES = [
     ("heading_logo_name_short_descrip_with_border_container_by_5", ['heading', 'ordering']),
     ("heading_media_with_border_container_by_2", ['heading', 'sub_heading', 'ordering']),
     ("heading_media_without_border_container_by_2", ['heading', 'ordering']),
-    # ("heading_name_short_descrip_border_container_by_4", ['heading', 'background_image', 'ordering']),
     ("heading_social_media_container_by_2", ['heading', 'sub_heading', 'ordering']),
     ("heading_sub_heading_icon_media_by_3", ['heading', 'sub_heading', 'ordering'])
 ]
@@ -109,6 +108,28 @@ class PageView(generic.View):
         else:
             context[form_name] = form
         return render(request, 'cms_app/page_detail.html', context)
+
+
+
+class SectionUpadateView(generic.UpdateView):
+    model = Section
+    template_name = "cms_app/section_update_form.html"
+    fields = ['page', 'section_type', 'heading', 'sub_heading', 'background_image', 'ordering']
+
+    def get_success_url(self):
+        return self.get_object().page.get_absolute_url()
+
+
+
+class SectionDeleteView(generic.DeleteView):
+    model = Section
+    template_name = "cms_app/section_delete_form.html"
+    fields = ['page', 'section_type', 'heading', 'sub_heading', 'background_image', 'ordering']
+
+    
+    def get_success_url(self):
+        return self.get_object().page.get_absolute_url()
+
 
 
 

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+   
+{% block content %}
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+          <h3>{{ form.errors }}</h3>
+            <div class="modal-body">
+              {% csrf_token %}
+              {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+              {% endfor %}
+              {% for field in form.visible_fields %}
+                {% if field.name == "section" %}
+                  <input type="hidden" name="section" value="{{ section.id }}">
+                {% elif field.name in 'page, section_type, heading, sub_heading, background_image, ordering' %}
+                  <div class="form-group">
+                      <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                      {{ field|add_class:'form-control' }}
+                      {% for error in field.errors %}
+                      <span class="help-block text-danger">{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+    
+    
+            </div>
+              <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+    </div>
+{% endblock %}
