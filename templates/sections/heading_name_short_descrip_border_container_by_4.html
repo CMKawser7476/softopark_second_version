@@ -1,7 +1,8 @@
 {% load static %}
 {% load widget_tweaks %}
 
-{% if request.user.is_authenticated %}
+<div class="container text-center pt-5">
+  {% if request.user.is_authenticated %}
 <div class="action-buttons">
   <div class="button-group">
     <a href="{% url 'cms_app:section_update_view' pk=section.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Section Update</a>
@@ -10,6 +11,7 @@
   </div>
 </div><br>
 {% endif %} 
+</div>
 <hr>
 <section class="p-5 background webdevelopment heading_name_short_descrip_border_container_by_4" style="{% if section.background_image %}background-image: url({{ section.background_image.url }});{% endif %}">
     <div class="container-fluid">

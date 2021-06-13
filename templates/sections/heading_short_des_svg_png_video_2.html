@@ -3,7 +3,8 @@
 {% for item in section.image_with_description.all %}
 
 
-{% if request.user.is_authenticated %}
+<div class="container text-center pt-5">
+  {% if request.user.is_authenticated %}
 <div class="action-buttons">
   <div class="button-group">
     <a href="{% url 'cms_app:section_update_view' pk=section.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Section Update</a>
@@ -12,6 +13,7 @@
   </div>
 </div><br>
 {% endif %} 
+</div> 
 <hr>
     <section class="image_with_description py-3">
       {% if request.user.is_authenticated %}

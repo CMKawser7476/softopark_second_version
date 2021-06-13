@@ -1,14 +1,17 @@
 {% load static %}
 {% load widget_tweaks %}
 
-{% if request.user.is_authenticated %}
+<div class="container text-center pt-5">
+  {% if request.user.is_authenticated %}
 <div class="action-buttons">
   <div class="button-group">
     <a href="{% url 'cms_app:section_update_view' pk=section.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Section Update</a>
     <a href="{% url 'cms_app:section_delete_view' pk=section.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Section Delete</a>
+ 
   </div>
 </div><br>
 {% endif %} 
+</div> 
 <hr>
 <section class="border-top py-5 heading_icon_name_short_descrip_without_border_container_by_3" style="background-color: rgb(227, 238, 238);"><br/>
     <div class="container pt-3">
