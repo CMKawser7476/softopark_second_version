@@ -1,0 +1,134 @@
+{% load static %}
+{% load widget_tweaks %} 
+
+<!-- section update / delete  -->
+<div class="container text-center pt-5">
+  {% if request.user.is_authenticated %}
+<div class="action-buttons">
+  <div class="button-group">
+    <a href="{% url 'cms_app:section_update_view' pk=section.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Section Update</a>
+    <a href="{% url 'cms_app:section_delete_view' pk=section.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Section Delete</a>
+ 
+  </div>
+</div><br>
+{% endif %} 
+</div>
+<!-- end section update / delete  -->
+
+
+<section class=" my-5 table_with_services2" style="background-color: rgb(237, 237, 238);"><br><br>
+    <div class="container pt-2 bg-dark">
+        <h2 class="text-center text-white my-4 pt-2 bg-dark display-4 pb-2">{{ section.heading }}</h2>
+        <div class="row bg-light">
+            {% for item in section.heading_logo_name_short_descrip.all %}
+                            <div class="col-sm-4 py-3">
+                                {% if request.user.is_authenticated %}
+                                    <div class="action-buttons">
+                                        <div class="button-group">
+                                            <a href="{% url 'cms_app:heading_logo_name_short_descrip_view' pk=item.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                            <a href="{% url 'cms_app:heading_logo_name_short_descrip_delete_view' pk=item.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> </a>
+                                        </div>
+                                    </div>
+                                <br>
+                                {% endif %}
+                           
+                                    <img src="{% if item.logo_icon %} {{ item.logo_icon.url }} {% endif %}" height="350" width="350" class="img-fluid"  alt=" {{item.heading}}" title="{{ item.heading }}">
+                           
+                            </div>
+
+                            <div class="col-sm-8 py-3">
+                                {% if request.user.is_authenticated %}
+                                <div class="action-buttons">
+                                    <div class="button-group">
+                                        <a href="{% url 'cms_app:heading_logo_name_short_descrip_view' pk=item.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                        <a href="{% url 'cms_app:heading_logo_name_short_descrip_delete_view' pk=item.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> </a>
+                                    </div>
+                                </div>
+                            <br>
+                            {% endif %}
+                                <div class="text-left p-2">
+                                    <h5 class="pt-1"> <b>{{ item.heading }}</b></h5>
+                                    <p>{{ item.short_description | safe }}</p>
+                                </div>
+                            </div>
+
+                            {% empty %}
+                            <div class="col-sm-4 py-3">
+                                
+                                <div class="">
+                                    <img src="{% if item.photo %} {{ item.photo.url }} {% endif %}" height="350" width="350" class="img-fluid"  alt=" {{item.heading}}" title="{{ item.heading }}">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-8 py-3">
+                                <div class="">
+                                <div class="text-left p-2">
+                                    <h5 class="pt-1"> <b>{{ section.heading }}</b></h5>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                                </div>
+                                </div>
+                            </div>
+            {% endfor %}
+
+
+
+
+
+
+
+             <!-- Button trigger modal -->
+             <div class="col-sm-6 my-3">
+                {% if request.user.is_authenticated %}
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#heading_logo_name_short_descrip_form_{{ section.id }}">
+                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </button>
+                {% endif %}
+              </div>
+  
+                    <!-- Modal -->
+                    <div class="modal fade" id="heading_logo_name_short_descrip_form_{{ section.id }}" tabindex="-1" role="dialog" aria-labelledby="heading_logo_name_short_descrip_formLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="heading_logo_name_short_descrip_form">ADD CONTENT</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+  
+                          <form method="POST" action="{% url 'page_detail' slug=page.slug %}" enctype="multipart/form-data">
+                            <div class="modal-body">
+                              {% csrf_token %}
+                              <input type="hidden" name="form_name" value="heading_logo_name_short_descrip_form">
+                              {% for field in heading_logo_name_short_descrip_form.visible_fields %}
+                                {% if field.name == "section" %}
+                                  <input type="hidden" name="section" value="{{ section.id }}">
+                                {% elif field.name in 'heading, logo_icon, short_description, target_url' %}
+                                  <div class="form-group">
+                                      <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                      {{ field|add_class:'form-control' }}
+                                      {% for error in field.errors %}
+                                      <span class="help-block text-danger">{{ error }}</span>
+                                      {% endfor %}
+                                  </div>
+                                {% endif %}
+                              {% endfor %}
+  
+  
+                            </div>
+                            
+  
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                          </form>
+  
+                        </div>
+                      </div>
+                    </div>
+   
+        </div>
+    </div>
+    <br><br>
+    </section>

@@ -18,37 +18,36 @@
     <h2 class="h2-responsive text-dark font-weight-bold my-5">{{section.heading}}</h2>
     <div class="row pb-5">
       {% for item in section.heading_logo_name_short_descrip.all %}
-      <div class="col-sm-6 my-3">
-        {% if request.user.is_authenticated %}
-        <div class="action-buttons">
-          <div class="button-group">
-            <a href="{% url 'cms_app:heading_logo_name_short_descrip_view' pk=item.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-            
-            <a href="{% url 'cms_app:heading_logo_name_short_descrip_delete_view' pk=item.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> </a>
-         
-          </div>
-        </div><br>
-        {% endif %}
-        <div class="card border-success bg-white">
-          
-        <div class="text-left p-3">
-          <img src="{% if item.logo_icon %} {{ item.logo_icon.url }} {% endif %}" class="img-fluid"  alt=" {{item.heading}}" title="{{ item.heading }}">
-          <h5 class="py-2">{{ item.heading}}</h5>
-          <p>{{ item.short_description | safe }}</p>
-        </div>
-        </div>
-      </div>
+                <div class="col-sm-6 my-3">
+                  {% if request.user.is_authenticated %}
+                  <div class="action-buttons">
+                    <div class="button-group">
+                      <a href="{% url 'cms_app:heading_logo_name_short_descrip_view' pk=item.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                      <a href="{% url 'cms_app:heading_logo_name_short_descrip_delete_view' pk=item.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> </a>
+                  
+                    </div>
+                  </div><br>
+                  {% endif %}
+                  <div class="card border-success bg-white">
+                    
+                  <div class="text-left p-3">
+                    <img src="{% if item.logo_icon %} {{ item.logo_icon.url }} {% endif %}" class="img-fluid"   alt=" {{item.heading}}" title="{{ item.heading }}">
+                    <h5 class="py-2">{{ item.heading}}</h5>
+                    <p>{{ item.short_description | safe }}</p>
+                  </div>
+                  </div>
+                </div>
 
-      {% empty %}
-      <div class="col-sm-6 my-3">
-        <div class="card border-success bg-white">
-          <img src="{% static '/images/content_development/content_development/icons/004_notebook_min.png' %}" alt=""  class="img-fluid">
-        <div class="text-left p-3">
-          <h4 class="py-2">In publishing and graphic design</h4>
-          <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or In publishing and graphic design, In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrateLorem ipsum is a placeholder text commonly used to demonstratea typeface without relying on meaningful content</p>
-        </div>
-        </div>
-      </div>
+                {% empty %}
+                <div class="col-sm-6 my-3">
+                  <div class="card border-success bg-white">
+                    <img src="{% static '/images/content_development/content_development/icons/004_notebook_min.png' %}" alt=""  class="img-fluid">
+                  <div class="text-left p-3">
+                    <h4 class="py-2">In publishing and graphic design</h4>
+                    <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or In publishing and graphic design, In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrateLorem ipsum is a placeholder text commonly used to demonstratea typeface without relying on meaningful content</p>
+                  </div>
+                  </div>
+                </div>
       {% endfor %}
 
                         <!-- Button trigger modal -->

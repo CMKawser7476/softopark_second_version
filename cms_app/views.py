@@ -95,6 +95,7 @@ class PageView(generic.View):
 
     def post(self, request, *args, **kwargs):
         slug = kwargs.get('slug')
+        print("hi there")
         if not slug:
             slug = 'home'
         form_name = request.POST.get('form_name')
@@ -106,9 +107,12 @@ class PageView(generic.View):
         for key, value in self.forms.items():
             context[key] = value()
         form = self.forms[form_name](request.POST, request.FILES)
+        print(form)
         if form.is_valid():
+            print(form)
             form.save()
         else:
+            print(form.is_valid()," hello")
             context[form_name] = form
         return render(request, 'cms_app/page_detail.html', context)
 

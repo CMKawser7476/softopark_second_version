@@ -29,19 +29,17 @@
         {% if item.background_image %} 
           style="background-image: url({{item.background_image.url}})"
         {% endif %}>
-        
-        <div class="row">
+        <div class="row border">
           
-            <div class="col-sm-6 pt-5 border-bottom">
-              <div class="text-center">
-                {% if item.image_alignment == 'right' %}order-sm-12{% endif %}">
-                <img src="{{item.photo.url}}" class="img-fluid" height="350" width="350" alt=" {{item.heading}}" title="{{ item.heading }}">
-              </div>
+            <div class="col-sm-6 border-bottom">
+            
+            {% if item.image_alignment == 'right' %}order-sm-12{% endif %}">
+                <img src="{{item.photo.url}}" class="img-fluid" alt=" {{item.heading}}" title="{{ item.heading }}">
             </div>
 
             <div class="col-sm-6 border-bottom {% if item.image_alignment == 'right' %}order-sm-1{% endif %}">
               <div class="p-5 text-left">
-                <h3 class="pb-2 text-left">{{ item.heading }}</h3>
+                <h3 class="pb-2 text-left">{{ section.heading }}</h3>
                 <p class="text-left text-dark">{{ item.description |safe }}</p><br/>
                 {% if item.target_url %}
                 <a href="{{ item.target_url }}" class="btn btn-outline-primary btn-lg" >Learn More</a>
@@ -55,8 +53,6 @@
       </section>
        
     {% empty %}
-
-    
     <section>
       <!-- <h3 class="pb-2 text-center">{{ section.heading }}</h3> -->
       <div class="{{ item.container_type }} {% if item.background_image %}{{item.background_image.url}}{% endif %}">
