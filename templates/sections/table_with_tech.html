@@ -74,34 +74,6 @@
                                         <span aria-hidden="true">&times;</span>
                                       </button>
                                     </div>
-            
-                                    <!-- <form method="POST" action="{% url 'page_detail' slug=page.slug %}" enctype="multipart/form-data">
-                                      <div class="modal-body">
-                                        {% csrf_token %}
-                                        <input type="hidden" name="form_name" value="heading_logo_name_short_descrip_form">
-                                        {% for field in heading_logo_name_short_descrip_form.visible_fields %}
-                                          {% if field.name == "section" %}
-                                            <input type="hidden" name="section" value="{{ section.id }}">
-                                          {% elif field.name in 'heading, logo_icon, short_description, target_url' %}
-                                            <div class="form-group">
-                                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                                                {{ field|add_class:'form-control' }}
-                                                {% for error in field.errors %}
-                                                <span class="help-block text-danger">{{ error }}</span>
-                                                {% endfor %}
-                                            </div>
-                                          {% endif %}
-                                        {% endfor %}
-            
-            
-                                      </div>
-                                      
-            
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Save</button>
-                                      </div>
-                                    </form> -->
 
                                     <form method="POST" action="{% url 'page_detail' slug=page.slug %}" enctype="multipart/form-data">
                                       
@@ -132,11 +104,6 @@
                                   </div>
                                 </div>
                               </div>
-
-
-
-
-
 
     
         </div>

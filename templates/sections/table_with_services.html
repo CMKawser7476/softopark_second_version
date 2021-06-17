@@ -1,7 +1,6 @@
 {% load static %}
 {% load widget_tweaks %}
 {% for item in section.image_with_description.all %}
-
 <div class="container text-center pt-5">
   {% if request.user.is_authenticated %}
 <div class="action-buttons">
@@ -14,7 +13,7 @@
 {% endif %} 
 </div>
 
-    <section class="image_with_description py-3">
+    <section class="table_with_services py-3">
       {% if request.user.is_authenticated %}
                               <div class="action-buttons">
                                 <div class="button-group">
@@ -31,10 +30,11 @@
         {% endif %}>
         <div class="row border">
           
-            <div class="col-sm-6 border-bottom">
-            
-            {% if item.image_alignment == 'right' %}order-sm-12{% endif %}">
-                <img src="{{item.photo.url}}" class="img-fluid" alt=" {{item.heading}}" title="{{ item.heading }}">
+            <div class="col-sm-6 border-bottom pt-5">
+              <div class="text-center">
+                {% if item.image_alignment == 'right' %}order-sm-12{% endif %}">
+                <img src="{% if item.photo %} {{item.photo.url}} {% endif %}" height="350" width="350" class="img-fluid" alt=" {{item.heading}}" title="{{ item.heading }}">
+              </div>
             </div>
 
             <div class="col-sm-6 border-bottom {% if item.image_alignment == 'right' %}order-sm-1{% endif %}">
@@ -55,7 +55,7 @@
     {% empty %}
     <section>
       <!-- <h3 class="pb-2 text-center">{{ section.heading }}</h3> -->
-      <div class="{{ item.container_type }} {% if item.background_image %}{{item.background_image.url}}{% endif %}">
+      <div class="{{ item.container_type }}">
         <div class="row">
             <div class="col-sm-6 {% if item.image_alignment == 'right' %}col-md-push-6 col-sm-push-6{% endif %}">
                 <img src="{{item.photo.url}}" class="img-fluid" alt="">
@@ -84,6 +84,8 @@
   </button>
   {% endif %}
 </div>
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="image_with_description_form_{{ section.id }}" tabindex="-1" role="dialog" aria-labelledby="image_with_description_formLabel" aria-hidden="true">
