@@ -42,7 +42,7 @@
 
             <div class="col-sm-6 {% if item.image_alignment == 'right' %}order-sm-1{% endif %}">
               <div class="p-5 text-left">
-                <h3 class="pb-2 text-left">{{ section.heading }}</h3>
+                <h4 class="pb-2 text-left">{{ section.heading }}</h4>
                 <p class="text-left text-dark">{{ item.description |safe }}</p><br/>
                 {% if item.target_url %}
                 <a href="{{ item.target_url }}" class="btn btn-outline-primary btn-lg" >Learn More</a>
