@@ -34,13 +34,12 @@
           
             <div class="col-sm-6 pb-1 pt-3">
             
-            <div class="text-center">
-              {% if item.image_alignment == 'right' %}order-sm-12{% endif %}
+            <div class="text-center{% if item.image_alignment == 'right' %} order-sm-12{% endif %}">
                 <img src="{{item.photo.url}}" class="img-fluid" alt=" {{item.heading}}" title="{{ item.heading }}">
             </div>
             </div>
 
-            <div class="col-sm-6 pt-3 {% if item.image_alignment == 'right' %}order-sm-1{% endif %}">
+            <div class="col-sm-6 pt-3{% if item.image_alignment == 'right' %} order-sm-1{% endif %}">
               <div class="p-5 text-left">
                 <h4 class="pb-2 text-left">{{ section.heading }}</h4>
                 <p class="text-left text-dark">{{ item.description |safe }}</p><br/>
