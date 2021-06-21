@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from django.utils.text import slugify
+# from django.utils.text import slugify
 import json
 from tinymce import HTMLField
 # Create your models here. 
@@ -89,9 +89,9 @@ class Page(models.Model):
     
  
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.page_name)
-        super(Page, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     self.slug = slugify(self.page_name)
+    #     super(Page, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('page_detail', kwargs={"slug": self.slug})
