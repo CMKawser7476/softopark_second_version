@@ -3,10 +3,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views import generic
 from django.contrib.sitemaps import Sitemap
-from .models import Page, Section, HeadingLogoNameShortDescrip, ImageWithDescription, IconWithHeading, HeadingWithDescription, HeadingWithMultipleImageUpload, LandingPageAssets, Slide, VideosUrls
-from .forms import SectionForm, HeadingLogoNameShortDescripForm, ImageWithDescriptionForm, IconWithHeadingForm, HeadingWithDescriptionForm, HeadingWithMultipleImageUploadForm, LandingPageAssetsForm, SlideForm, VideosUrlsForm
+from .models import Page, Section, HeadingLogoNameShortDescrip, ImageWithDescription, IconWithHeading, HeadingWithDescription, HeadingWithMultipleImageUpload, LandingPageAssets, Slide, VideosUrls, Faq
+from .forms import SectionForm, HeadingLogoNameShortDescripForm, ImageWithDescriptionForm, IconWithHeadingForm, HeadingWithDescriptionForm, HeadingWithMultipleImageUploadForm, LandingPageAssetsForm, SlideForm, VideosUrlsForm, FaqForm
 
 SECTION_TYPE_CHOICES = [
+    ("accordian", ['heading', 'ordering']),
     ("table_with_tech", ['heading', 'ordering']),
     ("table_with_services", ['heading', 'ordering']),
     ("table_with_services_2", ['heading', 'ordering']),
@@ -235,6 +236,16 @@ class VideosUrlsUpdateView(generic.UpdateView):
 
 
 
+class FaqUpdateView(generic.UpdateView):
+    model = Faq
+    template_name = 'cms_app/accordian.html'
+    fields = ['question', 'answere', 'ordering']
+
+    def get_success_url(self):
+        return self.get_object().section.page.get_absolute_url()
+
+
+
 
 
 # -----delete view-----
@@ -288,3 +299,12 @@ class HeadingWithMultipleImageUploadDeleteView(generic.DeleteView):
     def get_success_url(self):
         return self.get_object().section.page.get_absolute_url()
   
+
+
+
+class FaqDeleteView(generic.DeleteView):
+    model = Faq
+    template_name = 'cms_app/accordian.html'
+
+    def get_success_url(self):
+        return self.get_object().section.page.get_absolute_url()

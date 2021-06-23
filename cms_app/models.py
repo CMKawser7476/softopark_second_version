@@ -1,11 +1,12 @@
 from django.db import models
+from django.db.models.deletion import CASCADE
 from django.urls import reverse
 # from django.utils.text import slugify
 import json
 from tinymce import HTMLField
+
+
 # Create your models here. 
-
-
 SECTION_TYPE_CHOICES = [
     ("table_with_tech", "Table With Tech"),
     ("table_with_services", "Table With Services"),
@@ -236,3 +237,14 @@ class VideosUrls(models.Model):
 
     def __str__(self):
         return self.heading
+
+
+
+class Faq(models.Model):
+    section = models.ForeignKey(Section, related_name="all_faqs", on_delete=models.CASCADE)
+    question = models.CharField(max_length=300)
+    answere = models.TextField(blank=True, null=True)
+    ordering = models.IntegerField()
+
+    def __str__(self):
+        return self.question
