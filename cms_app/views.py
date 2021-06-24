@@ -11,7 +11,7 @@ SECTION_TYPE_CHOICES = [
     ("table_with_tech", ['heading', 'ordering']),
     ("table_with_services", ['heading', 'ordering']),
     ("table_with_services_2", ['heading', 'ordering']),
-    ("heading_logo_border_by_6", ['heading', 'ordering'])
+    ("heading_logo_border_by_6", ['heading', 'ordering']),
     ("call_to_action", ['heading', 'ordering']),
     ("call_to_action2", ['heading', 'ordering']),
     ("image_with_cards_by_2", ['heading', 'ordering']),
