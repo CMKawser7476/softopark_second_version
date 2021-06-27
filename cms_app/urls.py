@@ -1,7 +1,7 @@
 from django.urls import path
 from django.views.generic.edit import UpdateView
-from .views import HeadingLogoNameShortDescripUpdateView, IconWithHeadingUpdateView, ImageWithDescriptionUpdateView, HeadingWithDescriptionUpdateView, HeadingWithMultipleImageUploadUpdateView, HeadingLogoNameShortDescripDeleteView, IconWithHeadingDeleteView, ImageWithDescriptionDeleteView, HeadingWithDescriptionDeleteView, HeadingWithMultipleImageUploadDeleteView, SectionUpadateView, SectionDeleteView
-
+from .views import HeadingLogoNameShortDescripUpdateView, IconWithHeadingUpdateView, ImageWithDescriptionUpdateView, HeadingWithDescriptionUpdateView, HeadingWithMultipleImageUploadUpdateView, HeadingLogoNameShortDescripDeleteView, IconWithHeadingDeleteView, ImageWithDescriptionDeleteView, HeadingWithDescriptionDeleteView, HeadingWithMultipleImageUploadDeleteView, SectionUpadateView, SectionDeleteView , current_datetime
+ 
 
 app_name = "cms_app"
 
@@ -14,6 +14,7 @@ urlpatterns = [
     path('items/heading_with_description/<int:pk>/', HeadingWithDescriptionUpdateView.as_view(), name="heading_with_description_view"),
     path('items/heading_with_multiple_image_upload/<int:pk>/', HeadingWithMultipleImageUploadUpdateView.as_view(), name="heading_with_multiple_image_upload_view"),
     
+    path('twakto/', current_datetime, name="current_datetime"),
     # DeleteView path
     path('sections/all_section_delete/<int:pk>/', SectionDeleteView.as_view(), name="section_delete_view"),
     path('items/heading_logo_name_short_description_delete_view/<int:pk>/', HeadingLogoNameShortDescripDeleteView.as_view(), name="heading_logo_name_short_descrip_delete_view"),
