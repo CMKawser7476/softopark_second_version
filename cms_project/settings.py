@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'tawkto',
     'robots',
-    'tinymce',
+    # 'tinymce',
    
 
     # our apps

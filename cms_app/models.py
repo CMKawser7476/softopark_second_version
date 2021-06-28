@@ -3,7 +3,7 @@ from django.db.models.deletion import CASCADE
 from django.urls import reverse
 # from django.utils.text import slugify
 import json
-from tinymce import HTMLField
+# from tinymce import HTMLField
 
 
 # Create your models here. 
@@ -162,7 +162,7 @@ class HeadingLogoNameShortDescrip(models.Model):
     heading = models.CharField(max_length=255)
     sub_heading = models.CharField(max_length=255, blank=True, null=True)
     logo_icon = models.ImageField(upload_to="logo_icons", null=True, blank=True)
-    short_description = HTMLField("Short_description", null=True, blank=True)
+    short_description = models.TextField( blank=True, null=True)
     target_url = models.URLField(blank=True, null=True)
 
     
@@ -180,8 +180,8 @@ class ImageWithDescription(models.Model):
     photo = models.ImageField()
     heading = models.CharField(max_length=255)
     sub_heading = models.TextField(blank=True, null=True)
-    # description = models.TextField( blank=True, null=True)
-    description = HTMLField("Description", null=True, blank=True)
+    description = models.TextField( blank=True, null=True)
+    # description = HTMLField("Description", null=True, blank=True)
     target_url = models.URLField(blank=True, null=True)
 
 
@@ -193,7 +193,7 @@ class ImageWithDescription(models.Model):
 
 class IconWithHeading(models.Model):
     section = models.ForeignKey(Section, related_name="icon_with_heading", on_delete=models.CASCADE)
-    heading = models.CharField(max_length=255, blank=True, null=True)
+    heading = models.CharField(max_length=275, blank=True, null=True)
     sub_heading = models.TextField(null=True, blank=True)
     icon = models.ImageField()
     target_url = models.URLField(blank=True, null=True)
@@ -209,7 +209,7 @@ class HeadingWithDescription(models.Model):
     section = models.ForeignKey(Section, related_name="heading_with_description", on_delete=models.CASCADE)
     heading = models.CharField(max_length=255)
     sub_heading = models.CharField(max_length=255, blank=True, null=True)
-    description = HTMLField("Description", null=True, blank=True)
+    description = models.TextField( blank=True, null=True)
     target_url = models.URLField(blank=True, null=True)
 
 
@@ -233,7 +233,7 @@ class VideosUrls(models.Model):
     heading = models.CharField(max_length=300, blank=True, null=True)
     sub_heading = models.TextField(blank=True, null=True)
     embed_url = models.URLField(blank=True, null=True)
-    description = HTMLField("Description", null=True, blank=True) 
+    description = models.TextField( blank=True, null=True)
 
 
     def __str__(self):

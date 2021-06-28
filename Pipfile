@@ -13,7 +13,6 @@ whitenoise = "*"
 django-tawkto = "*"
 django-robots = "*"
 six = "*"
-django-tinymce4-lite = "*"
 
 [dev-packages]
 
