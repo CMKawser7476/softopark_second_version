@@ -3,7 +3,7 @@ from django.db.models.deletion import CASCADE
 from django.urls import reverse
 # from django.utils.text import slugify
 import json
-# from tinymce import HTMLField
+from tinymce.models import HTMLField
 
 
 # Create your models here. 
@@ -88,12 +88,6 @@ class Page(models.Model):
     og_url = models.URLField(null=True, blank=True)
     og_image = models.ImageField(upload_to="og_images", null=True, blank=True)
     
-    
- 
-
-    # def save(self, *args, **kwargs):
-    #     self.slug = slugify(self.page_name)
-    #     super(Page, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('page_detail', kwargs={"slug": self.slug})
@@ -133,18 +127,6 @@ class Section(models.Model):
 
 
 
-
-# heading_social_media_container_by_2
-# heading_media_with_border_container_by_2
-# heading_logo_name_short_descrip_with_border_container_by_5
-# heading_icon_name_short_descrip_without_border_container_by_3
-# heading_sub_heading_icon_media_by_3
-# heading_media_without_border_container_by_2
-# heading_logo_name_short_descrip_with_border_container_by_4
-# heading_logo_name_short_descrip_border_container_by_3
-# heading_icon_short_descrip_name_border_container_by_4
-# heading_name_short_descrip_border_container_by_4
-
  
 class Slide(models.Model):
     section = models.ForeignKey(Section, related_name="slides", on_delete=models.CASCADE)
@@ -180,8 +162,8 @@ class ImageWithDescription(models.Model):
     photo = models.ImageField()
     heading = models.CharField(max_length=255)
     sub_heading = models.TextField(blank=True, null=True)
-    description = models.TextField( blank=True, null=True)
-    # description = HTMLField("Description", null=True, blank=True)
+    # description = models.TextField( blank=True, null=True)
+    description = HTMLField("Description", null=True, blank=True)
     target_url = models.URLField(blank=True, null=True)
 
 
@@ -209,7 +191,7 @@ class HeadingWithDescription(models.Model):
     section = models.ForeignKey(Section, related_name="heading_with_description", on_delete=models.CASCADE)
     heading = models.CharField(max_length=255)
     sub_heading = models.CharField(max_length=255, blank=True, null=True)
-    description = models.TextField( blank=True, null=True)
+    description = HTMLField("Description", null=True, blank=True)
     target_url = models.URLField(blank=True, null=True)
 
 

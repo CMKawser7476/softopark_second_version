@@ -8,7 +8,6 @@
   <div class="button-group">
     <a href="{% url 'cms_app:section_update_view' pk=section.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Section Update</a>
     <a href="{% url 'cms_app:section_delete_view' pk=section.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Section Delete</a>
- 
   </div>
 </div><br>
 {% endif %} 
@@ -52,7 +51,6 @@
 
                             {% empty %}
                             <div class="col-sm-4 py-3">
-                                
                                 <div class="">
                                     <img src="{% if item.photo %} {{ item.photo.url }} {% endif %}" height="350" width="350" class="img-fluid"  alt=" {{item.heading}}" title="{{ item.heading }}">
                                 </div>
