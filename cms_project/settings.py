@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     # third party packages
     'widget_tweaks',
     'ckeditor',
-    'tawkto',
+    # 'tawkto',
     'robots',
     # 'tinymce',
    
@@ -58,8 +58,8 @@ INSTALLED_APPS = [
 ]
 
 
-TAWKTO_ID_SITE='60d9736065b7290ac6383c48'
-TAWKTO_API_KEY='d7686a5eb39ef84c70e8a51126cd3932290a2108'
+# TAWKTO_ID_SITE='60d9736065b7290ac6383c48'
+# TAWKTO_API_KEY='d7686a5eb39ef84c70e8a51126cd3932290a2108'
 # TAWKTO_IS_SECURE=True
 
 
