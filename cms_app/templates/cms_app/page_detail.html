@@ -16,17 +16,18 @@
             {% if page.page_banner %}
             <section class="home-banner home-slider-two">
                 <img class="img-fluid" src="{{ page.page_banner.url }}" alt="Software company in Dhaka">
+                <h1 class="text-white text-center"><b>{{page.heading}}</b></h1>
              </section>
             {% endif %}
 
             {% if page.heading or page.sub_heading %}
-             <section class="section-md border-top" style="background-color: rgb(255, 255, 255);">
+             <section class="section-md border-top" style="background-color: rgb(8, 8, 9);">
               <div class="container">
                   <div class="row justify-content-center">
                       <div class="col-md-8">
                           <div class="section-title text-left">
-                              <h2 class="text-dark text-center"><b>{{page.heading}}</b></h2><br>
-                              <h6 class="text-dark">{{page.sub_heading}}<br/></h6>
+                              <h1 class="text-white text-center"><b>{{page.heading}}</b></h1><br>
+                              <!-- <h6 class="text-dark">{{page.sub_heading}}<br/></h6> -->
                           </div>
                       </div>
                   </div>
