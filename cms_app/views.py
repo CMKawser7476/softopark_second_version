@@ -77,14 +77,15 @@ class PageView(generic.View):
         'icon_with_heading_form': IconWithHeadingForm,
         'heading_with_description_form': HeadingWithDescriptionForm,
         'heading_with_multiple_image_upload_form': HeadingWithMultipleImageUploadForm,
-        'videos_urls_form': VideosUrlsForm,
-        'faq_form':FaqForm
+        'videos_urls_form': VideosUrlsForm
         
     }
 
 
     def get(self, request, *args, **kwargs):
         slug = kwargs.get('slug')
+        if slug == "home":
+            return redirect("/")
         if not slug:
             slug = 'home'
         page = get_object_or_404(Page, slug=slug)
@@ -98,10 +99,7 @@ class PageView(generic.View):
 
 
     def post(self, request, *args, **kwargs):
-        slug = kwargs.get('slug')
-        print("hi there")
-        if not slug:
-            slug = 'home'
+        slug = kwargs.get('slug', "home")
         form_name = request.POST.get('form_name')
         page = get_object_or_404(Page, slug=slug)
         context = {}
@@ -111,12 +109,10 @@ class PageView(generic.View):
         for key, value in self.forms.items():
             context[key] = value()
         form = self.forms[form_name](request.POST, request.FILES)
-        print(form)
         if form.is_valid():
-            print(form)
             form.save()
+            return redirect("/")
         else:
-            print(form.is_valid()," hello")
             context[form_name] = form
         return render(request, 'cms_app/page_detail.html', context)
 

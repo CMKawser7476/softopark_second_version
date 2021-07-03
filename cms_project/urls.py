@@ -30,7 +30,7 @@ urlpatterns = [
     path('dashboard/', include('dashboard.urls', 'dashboard')),
     path('', TemplateView.as_view(template_name="index.html"), name='home'),
     path('robots.txt/', include('robots.urls')),
-    path('home/', RedirectView.as_view(url='/')),
+    # path('home/', RedirectView.as_view(url='/')),
     path('tinymce/', include('tinymce.urls')),
     path('<str:slug>/', PageView.as_view(), name="page_detail"),
  
