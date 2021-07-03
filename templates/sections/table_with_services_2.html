@@ -14,7 +14,7 @@
 {% endif %} 
 </div>
 
-    <section class="image_with_description py-3">
+    <section class="table_with_services_2 py-3">
       {% if request.user.is_authenticated %}
                               <div class="action-buttons">
                                 <div class="button-group">
@@ -49,6 +49,20 @@
       </section>
        
     {% empty %}
+
+
+
+    <div class="container text-center pt-5">
+      {% if request.user.is_authenticated %}
+    <div class="action-buttons">
+      <div class="button-group">
+        <a href="{% url 'cms_app:section_update_view' pk=section.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Section Update</a>
+        <a href="{% url 'cms_app:section_delete_view' pk=section.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Section Delete</a>
+     
+      </div>
+    </div><br>
+    {% endif %} 
+    </div>
     <section>
       <!-- <h3 class="pb-2 text-center">{{ section.heading }}</h3> -->
       <div class="{{ item.container_type }} {% if item.background_image %}{{item.background_image.url}}{% endif %}">

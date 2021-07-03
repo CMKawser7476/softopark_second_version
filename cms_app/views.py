@@ -77,7 +77,8 @@ class PageView(generic.View):
         'icon_with_heading_form': IconWithHeadingForm,
         'heading_with_description_form': HeadingWithDescriptionForm,
         'heading_with_multiple_image_upload_form': HeadingWithMultipleImageUploadForm,
-        'videos_urls_form': VideosUrlsForm
+        'videos_urls_form': VideosUrlsForm,
+        'faq_form':FaqForm
         
     }
 
