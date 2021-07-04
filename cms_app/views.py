@@ -17,6 +17,7 @@ SECTION_TYPE_CHOICES = [
     ("image_with_cards_by_2", ['heading', 'ordering']),
     ("testimonials", ['heading', 'ordering']),
     ("cards_3", ['heading', 'ordering']),
+    ("cards_4", ['heading', 'ordering']),
     ("all_logos", ['heading', 'ordering']),
     ("video_with_full_container", ['heading', 'ordering']),
     ("video_with_description_by_2", ['heading', 'ordering']),
