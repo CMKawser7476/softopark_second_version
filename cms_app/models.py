@@ -19,6 +19,7 @@ SECTION_TYPE_CHOICES = [
     ("testimonials", "Testimonials"),
     ("cards_3", "Cards 3"),
     ("cards_4", "Cards 4"),
+    ("cards_4_with_link", "Cards 4 With Link"),
     ("all_logos", "All Logos"),
     ("video_with_full_container", "Video With Full Container"),
     ("video_with_description_by_2", "Video With Description By 2"),
