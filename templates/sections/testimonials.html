@@ -34,7 +34,7 @@
             <div class="card p-3 border-success bg-white">
               <img src="{% if item.logo_icon %} {{ item.logo_icon.url }} {% endif %}" alt="" height="100" width="100" class="img-fluid rounded-circle">
             <div class="text-left">
-              <h5>{{ item.heading }}</h5>
+              <h5 class="pt-1">{{ item.heading }}</h5>
               <p class="text-success"><b>{{item.sub_heading}}</b></p>
               <p>{{ item.short_description | safe }}</p>
             </div>
