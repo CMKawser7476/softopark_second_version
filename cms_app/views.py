@@ -24,6 +24,8 @@ SECTION_TYPE_CHOICES = [
     ("col_sm_3_bg_white", ['heading', 'ordering']),
     ("col_sm_4", ['heading', 'ordering']),
     ("col_sm_4_bg_white", ['heading', 'ordering']),
+    ("col_sm_4_with_link", ['heading', 'ordering']),
+    ("col_sm_4_bg_white_with_link", ['heading', 'ordering']),
     ("video_with_full_container", ['heading', 'ordering']),
     ("video_with_description_by_2", ['heading', 'ordering']),
     ("video_with_description_by_3", ['heading', 'ordering']),

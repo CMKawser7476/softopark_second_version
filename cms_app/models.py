@@ -25,6 +25,8 @@ SECTION_TYPE_CHOICES = [
     ("col_sm_3_bg_white", "Col sm 3 Bg White"),
     ("col_sm_4", "Col sm 4"),
     ("col_sm_4_bg_white", "Col sm 4 Bg White"),
+    ("col_sm_4_with_link", "Col sm 4 with link"),
+    ("col_sm_4_bg_white_with_link", "Col sm 4 white with link"),
     ("video_with_full_container", "Video With Full Container"),
     ("video_with_description_by_2", "Video With Description By 2"),
     ("video_with_description_by_3", "Video With Description By 2"),
