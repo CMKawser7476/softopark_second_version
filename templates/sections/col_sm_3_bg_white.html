@@ -1,0 +1,107 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<div class="container text-center pt-5">
+  {% if request.user.is_authenticated %}
+<div class="action-buttons">
+  <div class="button-group">
+    <a href="{% url 'cms_app:section_update_view' pk=section.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Section Update</a>
+    <a href="{% url 'cms_app:section_delete_view' pk=section.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Section Delete</a>
+  </div>
+</div><br>
+{% endif %} 
+</div>
+
+  <section class="col_sm_3_bg_white text-center px-3 py-2">
+  <div class="container-fluid">
+  <h2 class="h2-responsive font-weight-bold my-5">{{section.heading}}</h2>
+  <div class="row pb-5">
+    {% for item in section.heading_logo_name_short_descrip.all %}
+    <div class="col-sm-4  pt-3 border">
+      {% if request.user.is_authenticated %}
+      <div class="action-buttons">
+        <div class="button-group">
+          <a href="{% url 'cms_app:heading_logo_name_short_descrip_view' pk=item.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+          <a href="{% url 'cms_app:heading_logo_name_short_descrip_delete_view' pk=item.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> </a>
+      
+        </div>
+      </div><br>
+      {% endif %}
+        <div class="card h-100 border-white">
+            <div class="text-center">
+              <img src="{% if item.logo_icon %} {{ item.logo_icon.url }} {% endif %}" class="img-fluid" height="100" width="100"  alt=" {{item.heading}}" title="{{ item.heading }}">
+            </div>
+            <div class="card-body">
+              <h6 class="card-title text-left">{{item.heading}}</h6>
+              <p class="card-text text-left">{{item.short_description}}</p>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-sm-4  pt-3 border">
+      <div class="card h-100 border-white">
+          <div class="text-center">
+              <img class="img-fluid" src="img/001_stats.png"  height="100" width="100" alt="Card image cap">
+          </div>
+          <div class="card-body">
+            <h6 class="card-title text-left">INDUSTRY STANDARD DEVELOPMENT</h6>
+            <p class="card-text text-left">This is a longer card with supporting text below as a natural lead-in to additionalThis is a longer card with  This is a longer card with supporting text below as a natural lead-in to additionalsupporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+  </div>
+    {% endfor %}
+
+                <!-- Button trigger modal -->
+                <div class="col-sm-6 my-3">
+                  {% if request.user.is_authenticated %}
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#heading_logo_name_short_descrip_form_{{ section.id }}">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                  </button>
+                  {% endif %}
+                </div>
+    
+                      <!-- Modal -->
+                      <div class="modal fade" id="heading_logo_name_short_descrip_form_{{ section.id }}" tabindex="-1" role="dialog" aria-labelledby="heading_logo_name_short_descrip_formLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="heading_logo_name_short_descrip_form">ADD CONTENT</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+    
+                            <form method="POST" action="{% url 'page_detail' slug=page.slug %}" enctype="multipart/form-data">
+                              <div class="modal-body">
+                                {% csrf_token %}
+                                <input type="hidden" name="form_name" value="heading_logo_name_short_descrip_form">
+                                {% for field in heading_logo_name_short_descrip_form.visible_fields %}
+                                  {% if field.name == "section" %}
+                                    <input type="hidden" name="section" value="{{ section.id }}">
+                                  {% elif field.name in 'heading, logo_icon, short_description, target_url' %}
+                                    <div class="form-group">
+                                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                        {{ field|add_class:'form-control' }}
+                                        {% for error in field.errors %}
+                                        <span class="help-block text-danger">{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                  {% endif %}
+                                {% endfor %}
+    
+    
+                              </div>
+                              
+    
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                              </div>
+                            </form>
+    
+                          </div>
+                        </div>
+                      </div>
+  </div> 
+  </div>
+ </section>

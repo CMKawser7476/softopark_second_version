@@ -7,7 +7,6 @@
   <div class="button-group">
     <a href="{% url 'cms_app:section_update_view' pk=section.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Section Update</a>
     <a href="{% url 'cms_app:section_delete_view' pk=section.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Section Delete</a>
- 
   </div>
 </div><br>
 {% endif %} 
@@ -33,7 +32,7 @@
           <div class="card border-white">
               <img src="{% if item.logo_icon %} {{ item.logo_icon.url }} {% endif %}" class="img-fluid"  alt=" {{item.heading}}" title="{{ item.heading }}">
               <div class="card-body">
-                <h6 class="card-title text-left">{{ item.heading}}</h6>
+                <h6 class="card-title text-left">{{item.heading}}</h6>
               </div>
             </div>
         </a>
