@@ -29,8 +29,8 @@
           </div>
         </div><br>
         {% endif %}
-          <div class="card border-white">
-              <img src="{% if item.logo_icon %} {{ item.logo_icon.url }} {% endif %}" class="card-img-top"  alt=" {{item.heading}}" title="{{ item.heading }}">
+          <div class="card h-100 border-white">
+              <img src="{% if item.logo_icon %} {{ item.logo_icon.url }} {% endif %}" class="img-fluid" height="220" width="400" alt=" {{item.heading}}" title="{{ item.heading }}">
               <div class="card-body">
                 <h6 class="card-title text-left">{{ item.heading}}</h6>
                 <p class="card-text text-left">{{ item.short_description | safe }}</p>
