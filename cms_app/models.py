@@ -155,7 +155,8 @@ class HeadingLogoNameShortDescrip(models.Model):
     heading = models.CharField(max_length=255)
     sub_heading = models.CharField(max_length=255, blank=True, null=True)
     logo_icon = models.ImageField(upload_to="logo_icons", null=True, blank=True)
-    short_description = models.TextField( blank=True, null=True)
+    # short_description = models.TextField( blank=True, null=True)
+    short_description = HTMLField("Shortdescription", null=True, blank=True)
     target_url = models.URLField(blank=True, null=True)
 
     
