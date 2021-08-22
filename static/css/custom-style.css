@@ -96,7 +96,7 @@ div#content-section {
 
   }
 
-
+ 
   .startup_consultation {
     border-radius: 15px;
 
@@ -261,3 +261,16 @@ button.btn.btn-primary.btn-sm.btnpadding.border-0.bg-lightgrey.text-dark {
   line-height: 30px;
   color: #222;
 }
+
+
+/* 
+.background-img{
+  background-image: url({{item.background_image.url}});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right center;
+  height: 550px;
+  position: relative; 
+  display: table;
+  width: 100%;
+} */
