@@ -274,3 +274,12 @@ button.btn.btn-primary.btn-sm.btnpadding.border-0.bg-lightgrey.text-dark {
   display: table;
   width: 100%;
 } */
+
+.asset-url {
+  cursor: pointer;
+}
+
+.asset-url:hover {
+  font-size: 18px;
+  color: lightseagreen;
+}
