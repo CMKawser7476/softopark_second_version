@@ -2,7 +2,7 @@
 {% load widget_tweaks %}
 {% for item in section.image_with_description.all %}
 
-<div class="container text-center pt-5">
+<div class="container text-center">
   {% if request.user.is_authenticated %}
 <div class="action-buttons">
   <div class="button-group">
@@ -14,7 +14,7 @@
 {% endif %} 
 </div>
 
-    <section class="table_with_services_2 py-3">
+    <section class="table_with_services_2 py-5">
       {% if request.user.is_authenticated %}
                               <div class="action-buttons">
                                 <div class="button-group">

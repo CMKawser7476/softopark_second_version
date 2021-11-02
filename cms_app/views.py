@@ -3,8 +3,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views import generic
 from django.contrib.sitemaps import Sitemap
-from .models import Page, Section, HeadingLogoNameShortDescrip, ImageWithDescription, IconWithHeading, HeadingWithDescription, HeadingWithMultipleImageUpload, LandingPageAssets, Slide, VideosUrls, Faq
-from .forms import SectionForm, HeadingLogoNameShortDescripForm, ImageWithDescriptionForm, IconWithHeadingForm, HeadingWithDescriptionForm, HeadingWithMultipleImageUploadForm, LandingPageAssetsForm, SlideForm, VideosUrlsForm, FaqForm
+from .models import Page, Section, HeadingLogoNameShortDescrip, ImageWithDescription, IconWithHeading, HeadingWithDescription, HeadingWithMultipleImageUpload, LandingPageAssets, Slide
+from .forms import SectionForm, HeadingLogoNameShortDescripForm, ImageWithDescriptionForm, IconWithHeadingForm, HeadingWithDescriptionForm, HeadingWithMultipleImageUploadForm, LandingPageAssetsForm, SlideForm
 
 SECTION_TYPE_CHOICES = [
     ("accordian", ['heading', 'ordering']),
@@ -86,8 +86,8 @@ class PageView(generic.View):
         'image_with_description_form': ImageWithDescriptionForm,
         'icon_with_heading_form': IconWithHeadingForm,
         'heading_with_description_form': HeadingWithDescriptionForm,
-        'heading_with_multiple_image_upload_form': HeadingWithMultipleImageUploadForm,
-        'videos_urls_form': VideosUrlsForm
+        'heading_with_multiple_image_upload_form': HeadingWithMultipleImageUploadForm
+        
         
     }
 
@@ -235,23 +235,23 @@ class HeadingWithMultipleImageUploadUpdateView(generic.UpdateView):
         return self.get_object().section.page.get_absolute_url()
 
 
-class VideosUrlsUpdateView(generic.UpdateView):
-    model = VideosUrls
-    template_name = 'cms_app/videos_urls.html'
-    fields = ['heading', 'sub_heading', 'embed_url', 'description']
+# class VideosUrlsUpdateView(generic.UpdateView):
+#     model = VideosUrls
+#     template_name = 'cms_app/videos_urls.html'
+#     fields = ['heading', 'sub_heading', 'embed_url', 'description']
 
-    def get_success_url(self):
-        return self.get_object().section.page.get_absolute_url()
+#     def get_success_url(self):
+#         return self.get_object().section.page.get_absolute_url()
 
 
 
-class FaqUpdateView(generic.UpdateView):
-    model = Faq
-    template_name = 'cms_app/accordian.html'
-    fields = ['question', 'answere', 'ordering']
+# class FaqUpdateView(generic.UpdateView):
+#     model = Faq
+#     template_name = 'cms_app/accordian.html'
+#     fields = ['question', 'answere', 'ordering']
 
-    def get_success_url(self):
-        return self.get_object().section.page.get_absolute_url()
+#     def get_success_url(self):
+#         return self.get_object().section.page.get_absolute_url()
 
 
 
@@ -311,10 +311,10 @@ class HeadingWithMultipleImageUploadDeleteView(generic.DeleteView):
 
 
 
-class FaqDeleteView(generic.DeleteView):
-    model = Faq
-    template_name = 'cms_app/accordian.html'
+# class FaqDeleteView(generic.DeleteView):
+#     model = Faq
+#     template_name = 'cms_app/accordian.html'
 
-    def get_success_url(self):
-        return self.get_object().section.page.get_absolute_url()
+#     def get_success_url(self):
+#         return self.get_object().section.page.get_absolute_url()
 

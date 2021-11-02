@@ -1,7 +1,7 @@
 {% load static %}
 {% load widget_tweaks %}
 
-<div class="container text-center pt-5">
+<div class="container text-center">
   {% if request.user.is_authenticated %}
 <div class="action-buttons">
   <div class="button-group">
@@ -13,7 +13,7 @@
 {% endif %} 
 </div>
 
-<section class="text-center bg-white py-2 img_heading_descrip ">
+<section class="text-center bg-white py-5 img_heading_descrip ">
     <div class="container">
     <h2 class="h2-responsive text-dark font-weight-bold my-5">{{section.heading}}</h2>
     <div class="row justify-content-center pb-5">

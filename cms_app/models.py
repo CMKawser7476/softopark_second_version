@@ -222,24 +222,24 @@ class HeadingWithMultipleImageUpload(models.Model):
         return f"{self.section.heading} - {self.id}"
 
 
-class VideosUrls(models.Model):
-    section = models.ForeignKey(Section, related_name="videos_urls", on_delete=models.CASCADE)
-    heading = models.CharField(max_length=300, blank=True, null=True)
-    sub_heading = models.TextField(blank=True, null=True)
-    embed_url = models.URLField(blank=True, null=True)
-    description = models.TextField( blank=True, null=True)
+# class VideosUrls(models.Model):
+#     section = models.ForeignKey(Section, related_name="videos_urls", on_delete=models.CASCADE)
+#     heading = models.CharField(max_length=300, blank=True, null=True)
+#     sub_heading = models.TextField(blank=True, null=True)
+#     embed_url = models.URLField(blank=True, null=True)
+#     description = models.TextField( blank=True, null=True)
 
 
-    def __str__(self):
-        return self.heading
+#     def __str__(self):
+#         return self.heading
 
 
 
-class Faq(models.Model):
-    section = models.ForeignKey(Section, related_name="all_faqs", on_delete=models.CASCADE)
-    question = models.CharField(max_length=300)
-    answere = models.TextField(blank=True, null=True)
-    ordering = models.IntegerField()
+# class Faq(models.Model):
+#     section = models.ForeignKey(Section, related_name="all_faqs", on_delete=models.CASCADE)
+#     question = models.CharField(max_length=300)
+#     answere = models.TextField(blank=True, null=True)
+#     ordering = models.IntegerField()
 
-    def __str__(self):
-        return self.question
+#     def __str__(self):
+#         return self.question

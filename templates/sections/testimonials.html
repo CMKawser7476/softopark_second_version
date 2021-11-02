@@ -1,7 +1,7 @@
 {% load static %}
 {% load widget_tweaks %}
 
-<div class="container text-center pt-5">
+<div class="container text-center">
   {% if request.user.is_authenticated %}
 <div class="action-buttons">
   <div class="button-group">
@@ -13,7 +13,7 @@
 {% endif %} 
 </div>
 
-<section class="text-center bg-light py-2 testimonials">
+<section class="text-center bg-light py-5 testimonials">
     <div class="container">
     <!-- Section heading -->
     <h2 class="h2-responsive font-weight-bold my-5">{{ section.heading }}</h2>
