@@ -42,7 +42,6 @@ SECTION_TYPE_CHOICES = [
     ("heading_icon_border_name_by_4", ['heading', 'ordering']),
     ("heading_icon_name_border_container_by_4", ['heading', 'ordering']),
     ("heading_icon_name_border_container_by_6", ['heading', 'ordering']),
-    ("heading_icon_name_container_by_4", ['heading', 'ordering']),
     ("heading_icon_name_short_descrip_without_border_container_by_3", ['heading', 'ordering']),
     ("heading_img_by_3", ['heading', 'ordering']),
     ("heading_logo_name_border_container_by_6", ['heading', 'ordering']),

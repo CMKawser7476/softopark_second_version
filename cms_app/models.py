@@ -40,7 +40,6 @@ SECTION_TYPE_CHOICES = [
     ("heading_icon_border_name_by_4", "Heading Icon Border Name By 4"),
     ("heading_icon_name_border_container_by_4", "Heading Icon Name Border Container By 4"),
     ("heading_icon_name_border_container_by_6", "Heading Icon Name Border Container By 6"),
-    ("heading_icon_name_container_by_4", "Heading Icon Name Container By 4"),
     ("heading_icon_name_short_descrip_without_border_container_by_3", "Heading Icon Name Short Descrip Without Border Container by 3"),
     ("heading_img_by_3", "Heading img by 3"),
     ("heading_logo_name_border_container_by_6", "Heading logo name border container by 6"),
