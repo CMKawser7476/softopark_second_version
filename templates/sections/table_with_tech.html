@@ -13,10 +13,10 @@
  {% endif %} 
  </div>
 
-<section class="table_with_tech py-5" style="background-color: rgb(237, 237, 238);"><br><br>
-    <div class="container pt-2 bg-dark">
-        <h2 class="text-center text-white my-4 pt-2 bg-dark display-4 pb-2">{{ section.heading }}</h2>
-        <div class="row border bg-light"> 
+<section class="table_with_tech py-5"><br><br>
+    <div class="container">
+        <h2 class="text-center my-4 pt-2 text-danger display-4 pb-2" style="font-weight: 600; font-size: 6vh;">{{ section.heading }}</h2>
+        <div class="row"> 
           {% for item in section.heading_logo_name_short_descrip.all %}
                 <div class="col-sm-6 py-3">
                   {% if request.user.is_authenticated %}
@@ -29,10 +29,10 @@
                   <br>
                   {% endif %}
 
-                  <div class="card p-3 bg-white shadow">
-                      <img src="{% if item.logo_icon %} {{ item.logo_icon.url }} {% endif %}" class="img-fluid" height="80" width="80"  alt=" {{item.heading}}" title="{{ item.heading }}">
-                      <div class="text-left">
-                        <h5 class="pt-1">{{ item.heading}}</h5>
+                  <div class="p-3  border-danger border-bottom">
+                      <img src="{% if item.logo_icon %} {{ item.logo_icon.url }} {% endif %}" class="img-fluid" height="100" width="100"  alt=" {{item.heading}}" title="{{ item.heading }}"><br>
+                      <div class="" style="color: black;">
+                        <h6 class="pt-2 text-danger">{{ item.heading}}</h6>
                         <p>{{ item.short_description | safe }}</p>
                       </div>
                     </div>
@@ -42,7 +42,7 @@
                   <div class="card p-3 bg-white shadow">
                       <img src="{% static 'img/004_analytics.png' %}" alt="" height="80" width="80" class="img-fluid">
                     <div class="text-left">
-                      <h5 class="pt-1"><b>Card Dummy</b></h5>
+                      <h6 class="pt-1"><b>Card Dummy</b></h6>
                      
                       <p>React.js has dominent presence in the history of mobile application as well as web application development project from last few years. Beign adopted by the facebook, react has stable position in front end development technologies.
                           The Strategy We've adopted to build React.js applications is based on  
@@ -83,7 +83,7 @@
                                         {% for field in heading_logo_name_short_descrip_form.visible_fields %}
                                           {% if field.name == "section" %}
                                             <input type="hidden" name="section" value="{{ section.id }}">
-                                          {% elif field.name in 'heading,logo_icon,short_description,target_url' %}
+                                          {% elif field.name in 'heading,logo_icon,short_description' %}
                                             <div class="form-group">
                                                 <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                                                 {{ field|add_class:'form-control' }}

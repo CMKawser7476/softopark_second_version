@@ -16,7 +16,7 @@
 <section>
     <div class="my-5">
         {% for item in section.heading_with_description.all %}
-        <div class="card text-center bg-primary">
+        <div class="card text-center bg-info">
             <div class="call_to_action call_action card-body">
               <h2 class="card-title text-light mt-5">{{ section.heading }}</h2>
               <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#exampleModalCenter">
@@ -26,7 +26,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLongTitle">Please submit your contact information</h5>
+                      <h5 class="modal-title" id="exampleModalLongTitle">{{ section.heading }}</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>

@@ -28,8 +28,8 @@
       <div class="{{ item.container_type }}"
         {% if item.background_image %} 
           style="background-image: url({{item.background_image.url}})"
-        {% endif %}
-      >
+        {% endif %}>
+        
         <div class="row border-bottom">
             <div class="col-sm-4 text-center pb-1 pt-3{% if item.image_alignment == 'right' %} order-sm-12{% endif %}">
                 <img src="{{item.photo.url}}" class="img-fluid" alt=" {{item.heading}}" title="{{ item.heading }}">
