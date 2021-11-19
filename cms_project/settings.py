@@ -43,10 +43,10 @@ INSTALLED_APPS = [
     # third party packages
     'widget_tweaks',
     'ckeditor',
-    'tawkto',
+    # 'tawkto',
     'robots',
     'tinymce',
-   
+
 
     # our apps
     'cms_app',
@@ -54,20 +54,14 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'dashboard',
     'accounts',
-    
+
 ]
-
-
-TAWKTO_ID_SITE='<tawkto id site>'
-# TAWKTO_API_KEY='<tawkto api key>'
-# TAWKTO_IS_SECURE=True
-
 
 
 # --------for sitemap-----------
 SITE_ID = 1
 
-AUTH_USER_MODEL='accounts.User'
+AUTH_USER_MODEL = 'accounts.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -101,11 +95,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'cms_project.wsgi.application'
 
 
-
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql', 
+#         'ENGINE': 'django.db.backends.mysql',
 #         'NAME': 'softopark_cms5',
 #         'USER': 'root',
 #         'PASSWORD': 'root',
@@ -116,11 +108,12 @@ WSGI_APPLICATION = 'cms_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'softopark_cms',
         'USER': 'admin',
         'PASSWORD': 'k23Ed33#hjs',
-        'HOST': 'jo-app.cjmuidrvfx0b.ap-southeast-1.rds.amazonaws.com',   # Or an IP Address that your DB is hosted on
+        # Or an IP Address that your DB is hosted on
+        'HOST': 'jo-app.cjmuidrvfx0b.ap-southeast-1.rds.amazonaws.com',
         'PORT': '3306',
     }
 }
@@ -188,9 +181,12 @@ CKEDITOR_CONFIGS = {
             ['Source', '-', 'Bold', 'Italic']
         ],
         'toolbar_YourCustomToolbarConfig': [
-            {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
-            {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
-            {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
+            {'name': 'document', 'items': [
+                'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
+            {'name': 'clipboard', 'items': [
+                'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
+            {'name': 'editing', 'items': [
+                'Find', 'Replace', '-', 'SelectAll']},
             {'name': 'forms',
              'items': ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton',
                        'HiddenField']},
@@ -205,7 +201,8 @@ CKEDITOR_CONFIGS = {
             {'name': 'insert',
              'items': ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe']},
             '/',
-            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'styles', 'items': [
+                'Styles', 'Format', 'Font', 'FontSize']},
             {'name': 'colors', 'items': ['TextColor', 'BGColor']},
             {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
             {'name': 'about', 'items': ['About']},
@@ -218,7 +215,7 @@ CKEDITOR_CONFIGS = {
             ]},
         ],
         'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
-        'toolbarGroups': [{ 'name': 'document', 'groups': [ 'mode', 'document', 'doctools' ] }],
+        'toolbarGroups': [{'name': 'document', 'groups': ['mode', 'document', 'doctools']}],
         'height': 291,
         'width': '100%',
         'filebrowserWindowHeight': 725,
@@ -227,7 +224,7 @@ CKEDITOR_CONFIGS = {
         'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
         'tabSpaces': 4,
         'extraPlugins': ','.join([
-            'uploadimage', # the upload image feature
+            'uploadimage',  # the upload image feature
             # your extra plugins here
             'div',
             'autolink',

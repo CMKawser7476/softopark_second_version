@@ -1,7 +1,7 @@
 {% load static %}
 {% load widget_tweaks %}
 
-<div class="container text-center pt-5">
+<div class="container text-center">
   {% if request.user.is_authenticated %}
 <div class="action-buttons">
   <div class="button-group">
@@ -13,10 +13,10 @@
 {% endif %} 
 </div>
 
-<section class="text-center bg-dark my-5 py-2 testimonials">
+<section class="text-center bg-light py-5 testimonials">
     <div class="container">
     <!-- Section heading -->
-    <h2 class="h2-responsive text-white font-weight-bold my-5">{{ section.heading }}</h2>
+    <h2 class="h2-responsive font-weight-bold my-5">{{ section.heading }}</h2>
     <div class="row pb-5">
 
       {% for item in section.heading_logo_name_short_descrip.all %}
@@ -31,14 +31,14 @@
               </div>
             </div><br>
             {% endif %}
-            <div class="card p-3 border-success bg-white">
+            <div class="card p-3  bg-white">
               <img src="{% if item.logo_icon %} {{ item.logo_icon.url }} {% endif %}" alt="" height="100" width="100" class="img-fluid rounded-circle">
             <div class="text-left">
-              <h5>{{ item.heading }}</h5>
-              <p class="text-success"><b>{{item.sub_heading}}</b></p>
+              <h6 class="pt-1"><b> {{ item.heading }}</b></h6>
+              <p class="text-danger"><b>{{item.sub_heading}}</b></p>
               <p>{{ item.short_description | safe }}</p>
             </div>
-            </div>
+            </div><br>
           </div>
       {% empty %}
           <div class="col-sm-6">

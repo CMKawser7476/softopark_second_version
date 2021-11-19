@@ -1,7 +1,7 @@
 {% load static %}
 {% load widget_tweaks %}
 
-<div class="container text-center pt-5">
+<div class="container text-center">
   {% if request.user.is_authenticated %}
 <div class="action-buttons">
   <div class="button-group">
@@ -14,7 +14,7 @@
 </div>
 
 <section class="py-5 heading_img_by_3">
-    <div class="container shadow"><br/>
+    <div class="container"><br/>
       <h3 class="text-center">{{ section.heading }}</h3>
       <h4 class="text-center">{{ section.sub_heading }}</h4>
 

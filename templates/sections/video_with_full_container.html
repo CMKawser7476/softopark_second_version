@@ -23,17 +23,18 @@
         {% if request.user.is_authenticated %}
         <div class="action-buttons">
           <div class="button-group">
-            <a href="{% url 'cms_app:heading_logo_name_short_descrip_view' pk=item.pk %}" class="btn btn-primary"><i
+            <a href="{% url 'cms_app:video_urls_update_view' pk=item.pk %}" class="btn btn-primary"><i
                 class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-            <a href="{% url 'cms_app:heading_logo_name_short_descrip_delete_view' pk=item.pk %}" class="btn btn-danger"><i
+            <a href="{% url 'cms_app:video_urls_delete_view' pk=item.pk %}" class="btn btn-danger"><i
                 class="fa fa-trash-o" aria-hidden="true"></i> </a>
           </div>
         </div>
         <br>
         {% endif %}
 
+        <!-- {{item.embed_url}} -->
     <div class="embed-responsive embed-responsive-21by9">
-      <iframe class="embed-responsive-item" src="{% if item.embed_url %} {{item.embed_url}} {% endif %}"></iframe>
+      <iframe class="embed-responsive-item" src="{{item.embed_url}}"></iframe>
     </div>
     {% empty %}
     <div class="embed-responsive embed-responsive-21by9">
@@ -45,7 +46,7 @@
                    <!-- Button trigger modal -->
                    <div class="col-sm-4 mt-5">
                     {% if request.user.is_authenticated %}
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#heading_logo_name_short_descrip_form_{{ section.id }}">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#videos_urls_form_{{ section.id }}">
                       <i class="fa fa-plus-circle" aria-hidden="true"></i>
                     </button>
                     {% endif %}
@@ -69,7 +70,7 @@
                                 {% for field in videos_urls_form.visible_fields %}
                                   {% if field.name == "section" %}
                                     <input type="hidden" name="section" value="{{ section.id }}">
-                                    {% elif field.name in 'heading, sub_heading, embed_url, description' %}
+                                    {% elif field.name in 'embed_url' %}
                                     <div class="form-group">
                                         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                                         {{ field|add_class:'form-control' }}

@@ -1,7 +1,7 @@
 {% load static %}
 {% load widget_tweaks %}
 
-<div class="container text-center pt-5">
+<div class="container text-center">
   {% if request.user.is_authenticated %}
 <div class="action-buttons">
   <div class="button-group">
@@ -36,7 +36,7 @@
                               {% empty %}
                               <div class="col-6 col-sm-4 col-md-2 text-center border p-3">
                                   <img src="{% static '/images/content_development/content_development/icons/004_notebook_min.png' %}" height="70" width="75" class="img-fluid" alt="">
-                                  <h6 class="text-dark">Heading Dummy</h6>
+                                  <!-- <h6 class="text-dark">Heading Dummy</h6> -->
                               </div>
                               {% endfor %}
 
@@ -80,8 +80,7 @@
                                                 </div>
                                               {% endif %}
                                             {% endfor %}
-                                  
-                                  
+                                
                                           </div>
                                           
                                   

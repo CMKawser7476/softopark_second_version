@@ -16,6 +16,18 @@ SECTION_TYPE_CHOICES = [
     ("call_to_action2", ['heading', 'ordering']),
     ("image_with_cards_by_2", ['heading', 'ordering']),
     ("testimonials", ['heading', 'ordering']),
+    ("cards_3", ['heading', 'ordering']),
+    ("cards_3_container_fluid", ['heading', 'ordering']),
+    ("cards_4", ['heading', 'ordering']),
+    ("cards_4_with_link", ['heading', 'ordering']),
+    ("all_logos", ['heading', 'ordering']),
+    ("col_sm_3", ['heading', 'ordering']),
+    ("col_sm_3_bg_white", ['heading', 'ordering']),
+    ("col_sm_4", ['heading', 'ordering']),
+    ("col_sm_4_bg_white", ['heading', 'ordering']),
+    ("col_sm_4_with_link", ['heading', 'ordering']),
+    ("col_sm_4_bg_white_with_link", ['heading', 'ordering']),
+    ("img_heading_descrip", ['heading', 'ordering']),
     ("video_with_full_container", ['heading', 'ordering']),
     ("video_with_description_by_2", ['heading', 'ordering']),
     ("video_with_description_by_3", ['heading', 'ordering']),
@@ -35,7 +47,6 @@ SECTION_TYPE_CHOICES = [
     ("heading_logo_name_border_container_by_6", ['heading', 'ordering']),
     ("heading_logo_name_short_descrip_border_container_by_3", ['heading', 'ordering']),
     ("heading_logo_name_short_descrip_with_border_container_by_4", ['heading', 'ordering']),
-    ("heading_logo_name_short_descrip_with_border_container_by_5", ['heading', 'ordering']),
     ("heading_media_with_border_container_by_2", ['heading', 'sub_heading', 'ordering']),
     ("heading_media_without_border_container_by_2", ['heading', 'ordering']),
     ("heading_social_media_container_by_2", ['heading', 'sub_heading', 'ordering']),
@@ -46,7 +57,7 @@ SECTION_TYPE_CHOICES = [
 # Create your views here.
 class PageCreateView(generic.CreateView):
     model = Page
-    fields = ['parent_page', 'page_name', 'heading', 'sub_heading', 'page_banner', 'content','title_tag', 'meta_description', 'keywords', 'twitter_description', 'twitter_title', 'twitter_image', 'og_title', 'og_type', 'og_description', 'og_url', 'og_image',]
+    fields = ['parent_page', 'page_name', 'heading', 'sub_heading', 'slug', 'page_banner', 'content','title_tag', 'meta_description', 'keywords', 'twitter_description', 'twitter_title', 'twitter_image', 'og_title', 'og_type', 'og_description', 'og_url', 'og_image',]
 
     def get_context_data(self, **kwargs):
         context = super(PageCreateView, self).get_context_data(**kwargs)
@@ -75,13 +86,17 @@ class PageView(generic.View):
         'icon_with_heading_form': IconWithHeadingForm,
         'heading_with_description_form': HeadingWithDescriptionForm,
         'heading_with_multiple_image_upload_form': HeadingWithMultipleImageUploadForm,
-        'videos_urls_form': VideosUrlsForm
+        'videos_urls_form': VideosUrlsForm,
+        'FaqForm': FaqForm
+        
         
     }
 
 
     def get(self, request, *args, **kwargs):
         slug = kwargs.get('slug')
+        if slug == "home":
+            return redirect("/")
         if not slug:
             slug = 'home'
         page = get_object_or_404(Page, slug=slug)
@@ -95,10 +110,7 @@ class PageView(generic.View):
 
 
     def post(self, request, *args, **kwargs):
-        slug = kwargs.get('slug')
-        print("hi there")
-        if not slug:
-            slug = 'home'
+        slug = kwargs.get('slug', "home")
         form_name = request.POST.get('form_name')
         page = get_object_or_404(Page, slug=slug)
         context = {}
@@ -108,12 +120,10 @@ class PageView(generic.View):
         for key, value in self.forms.items():
             context[key] = value()
         form = self.forms[form_name](request.POST, request.FILES)
-        print(form)
         if form.is_valid():
-            print(form)
             form.save()
+            return redirect("/")
         else:
-            print(form.is_valid()," hello")
             context[form_name] = form
         return render(request, 'cms_app/page_detail.html', context)
 
@@ -166,9 +176,7 @@ class PageSitemap(Sitemap):
 
 
 
-
-
-    
+# --------all items updateviews -----------  
 class HeadingLogoNameShortDescripUpdateView(generic.UpdateView):
     model = HeadingLogoNameShortDescrip
     template_name = 'cms_app/heading_logo_name_short_descrip_form.html'
@@ -302,9 +310,18 @@ class HeadingWithMultipleImageUploadDeleteView(generic.DeleteView):
 
 
 
+
+class VideourlsDeleteView(generic.DeleteView):
+    model = VideosUrls
+    template_name = 'cms_app/videos_urls_confirm_delete.html'
+
+    def get_success_url(self):
+        return self.get_object().section.page.get_absolute_url()
+
 class FaqDeleteView(generic.DeleteView):
     model = Faq
     template_name = 'cms_app/accordian.html'
 
     def get_success_url(self):
         return self.get_object().section.page.get_absolute_url()
+

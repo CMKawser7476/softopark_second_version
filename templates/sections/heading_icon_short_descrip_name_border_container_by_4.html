@@ -1,7 +1,7 @@
 {% load static %}
 {% load widget_tweaks %}
 
-<div class="container text-center pt-5">
+<div class="container text-center">
   {% if request.user.is_authenticated %}
 <div class="action-buttons">
   <div class="button-group">
@@ -13,12 +13,10 @@
 {% endif %} 
 </div> 
 
-<section class="border-top py-5 heading_icon_name_short_descrip_without_border_container_by_3" style="background-color: rgb(227, 238, 238);"><br/>
-    <div class="container pt-3">
-          <h2 class="text-center">{{ section.heading }}</h2><br/>
-      
-          <div class="row  py-2">
-
+<section class="py-5" style="background-color: rgb(226, 243, 243);">
+    <div class="container">
+          <h2 class="text-center text-size">{{ section.heading }}</h2><br>
+          <div class="row py-2">
                   {% for item in section.heading_logo_name_short_descrip.all %}
                   <div class="col-sm-3  p-3">
                     {% if request.user.is_authenticated %}
@@ -30,16 +28,18 @@
                                
                                 </div>
                               </div><br>
+
                               {% endif %}
-                        <div class="m-1 border promotional_ad_content shadow bg-white text-dark">
-                            <div class="text-center pt-3">
-                                <img src="{% if item.logo_icon %} {{item.logo_icon.url}} {% endif %}"  height="100" width="100" alt=" {{item.heading}}" title="{{ item.heading }}">
-                            </div>
-                            <div class="m-1 pt-2">
-                                <p class="text-center p-2 ">{{ item.short_description | safe }}</p>
-                            </div>
-                        </div><br>
-                        <h6 class="text-center"><strong>{{ item.heading }}</strong></h6>
+                                <div class="m-1 promotional_ad_content h-100 shadow bg-white text-dark">
+                                    <div class="text-center pt-3">
+                                      <img src="{% if item.logo_icon %} {{item.logo_icon.url}} {% endif %}"  height="100" width="100" alt=" {{item.heading}}" title="{{ item.heading }}">
+                                  </div>
+                                  <div class="p-3 m-1 pt-1">
+                                    <h6 class="text-center"><strong>{{ item.heading }}</strong></h6>
+                                    <p class="text-center p-2 ">{{ item.short_description | safe }}</p>
+                                  </div>
+                              </div>
+                            
                   </div>
                   {% empty %}
                   <div class="col-sm-3  p-3">

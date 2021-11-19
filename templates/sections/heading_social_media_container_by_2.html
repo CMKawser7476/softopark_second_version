@@ -1,7 +1,7 @@
 {% load static %}
 {% load widget_tweaks %}
 
-<div class="container text-center pt-5">
+<div class="container text-center">
   {% if request.user.is_authenticated %}
 <div class="action-buttons">
   <div class="button-group">
@@ -13,7 +13,7 @@
 {% endif %} 
 </div> 
 
-<section class="py-5 heading_social_media_container_by_2" style="background-color: rgb(255, 255, 255);">
+<section class="py-5 bg-white heading_social_media_container_by_2">
     <div class="container">
       <h2 class="text-center">{{ section.heading }}</h2>
       
