@@ -6,7 +6,7 @@ import json
 from tinymce.models import HTMLField
 
 
-# Create your models here. 
+# Create your models here.
 SECTION_TYPE_CHOICES = [
     ("table_with_tech", "Table With Tech"),
     ("table_with_services", "Table With Services"),
@@ -35,7 +35,7 @@ SECTION_TYPE_CHOICES = [
     ("image_with_description", "Image With Description"),
     ("heading_border_name_by_4", "Heading Border Name By 4"),
     ("heading_descrip_container", " Heading Descrip Container"),
-    ("heading_icon_short_descrip_name_border_container_by_4", "Heading Icon Short Descrip Name Border Container By 4"),
+    ("heading_icon_short_descrip_name_border_container_by_4", "Heading icon short descrip name border container by 4"),
     ("heading_icon_border_name_by_3", "Heading Icon Border Name By 3"),
     ("heading_icon_border_name_by_4", "Heading Icon Border Name By 4"),
     ("heading_icon_name_border_container_by_4", "Heading Icon Name Border Container By 4"),
@@ -50,8 +50,8 @@ SECTION_TYPE_CHOICES = [
     ("heading_social_media_container_by_2", "Heading social media container by 2"),
     ("heading_sub_heading_icon_media_by_3", "Heading sub heading icon media by 3"),
     ("slider", "Slider"),
-    ("heading_short_des_svg_png_video_2", "heading short descrip with svg or videos")
-    
+    ("heading_short_des_svg_png_video_2", "heading short descrip with svg or videos"),
+
 
 ]
 
@@ -68,8 +68,6 @@ IMAGE_ALIGNMENT_CHOICES = [
 ]
 
 
-
-
 # top_banner_image
 class Page(models.Model):
     # page = models.CharField(max_length=255, choices=PAGE_CHOICES)
@@ -80,24 +78,24 @@ class Page(models.Model):
     slug = models.SlugField(null=True, blank=True, unique=True)
     sub_heading = models.TextField(null=True, blank=True)
     content = models.TextField(null=True, blank=True)
-    
+
     # seo related fields for name
     title_tag = models.TextField(null=True, blank=True)
     meta_description = models.TextField(null=True, blank=True)
-    keywords = models.TextField(null=True, blank=True) # please enter keywords separated by comma here
-    
-    twitter_description = models.TextField(null=True, blank=True)
-    twitter_title = models.CharField(max_length=260 ,null=True, blank=True)
-    twitter_image = models.ImageField(upload_to="twitter_images", null=True, blank=True)
+    # please enter keywords separated by comma here
+    keywords = models.TextField(null=True, blank=True)
 
+    twitter_description = models.TextField(null=True, blank=True)
+    twitter_title = models.CharField(max_length=260, null=True, blank=True)
+    twitter_image = models.ImageField(
+        upload_to="twitter_images", null=True, blank=True)
 
     # OG issues for properties
     og_title = models.CharField(max_length=255, null=True, blank=True)
     og_description = models.TextField(null=True, blank=True)
-    og_type = models.CharField(max_length=260 , null=True, blank=True)
+    og_type = models.CharField(max_length=260, null=True, blank=True)
     og_url = models.URLField(null=True, blank=True)
     og_image = models.ImageField(upload_to="og_images", null=True, blank=True)
-    
 
     def get_absolute_url(self):
         return reverse('page_detail', kwargs={"slug": self.slug})
@@ -106,17 +104,12 @@ class Page(models.Model):
         return self.page_name
 
 
-
-
-
 class LandingPageAssets(models.Model):
     name = models.CharField(max_length=255)
     image_or_file = models.FileField(upload_to="landing_page_assets")
 
     def __str__(self):
         return str(self.id)
-
-
 
 
 class Section(models.Model):
@@ -130,14 +123,10 @@ class Section(models.Model):
     class Meta:
         ordering = ["ordering"]
 
-    
     def __str__(self):
         return self.heading
 
 
-
-
- 
 class Slide(models.Model):
     section = models.ForeignKey(Section, related_name="slides", on_delete=models.CASCADE)
     image = models.ImageField(upload_to="slides")
@@ -146,7 +135,6 @@ class Slide(models.Model):
 
     def __str__(self):
         return self.heading if self.heading else int(self.id)
-
 
 
 class HeadingLogoNameShortDescrip(models.Model):
@@ -158,11 +146,8 @@ class HeadingLogoNameShortDescrip(models.Model):
     short_description = HTMLField("Description", null=True, blank=True)
     target_url = models.URLField(blank=True, null=True)
 
-    
     def __str__(self):
         return self.heading
- 
-
 
 
 class ImageWithDescription(models.Model):
@@ -177,11 +162,8 @@ class ImageWithDescription(models.Model):
     description = HTMLField("Description", null=True, blank=True)
     target_url = models.URLField(blank=True, null=True)
 
-
-    
     def __str__(self):
         return self.heading
-
 
 
 class IconWithHeading(models.Model):
@@ -191,11 +173,8 @@ class IconWithHeading(models.Model):
     icon = models.ImageField()
     target_url = models.URLField(blank=True, null=True)
 
-    
     def __str__(self):
         return self.heading
-
-
 
 
 class HeadingWithDescription(models.Model):
@@ -205,8 +184,6 @@ class HeadingWithDescription(models.Model):
     description = HTMLField("Description", null=True, blank=True)
     target_url = models.URLField(blank=True, null=True)
 
-
-    
     def __str__(self):
         return self.heading
 
@@ -224,12 +201,10 @@ class VideosUrls(models.Model):
     heading = models.CharField(max_length=300, blank=True, null=True)
     sub_heading = models.TextField(blank=True, null=True)
     embed_url = models.URLField(blank=True, null=True)
-    description = models.TextField( blank=True, null=True)
-
+    description = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.heading
-
 
 
 class Faq(models.Model):
@@ -237,8 +212,6 @@ class Faq(models.Model):
     question = models.CharField(max_length=300)
     answere = models.TextField(blank=True, null=True)
     ordering = models.IntegerField()
-
-    
 
     def __str__(self):
         return self.question
