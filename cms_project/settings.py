@@ -110,7 +110,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'softopark_cms',
-        'USER': 'admin',
+        'USER': 'root',
         'PASSWORD': 'k23Ed33#hjs',
         # Or an IP Address that your DB is hosted on
         'HOST': 'jo-app.cjmuidrvfx0b.ap-southeast-1.rds.amazonaws.com',
