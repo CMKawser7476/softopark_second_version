@@ -109,7 +109,7 @@ WSGI_APPLICATION = 'cms_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'softopark',
+        'NAME': 'softopark_cms',
         'USER': 'admin',
         'PASSWORD': 'k23Ed33#hjs',
         # Or an IP Address that your DB is hosted on
