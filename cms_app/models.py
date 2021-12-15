@@ -12,8 +12,6 @@ SECTION_TYPE_CHOICES = [
     ("table_with_services", "Table With Services"),
     ("table_with_sercices_2", "Table With Services 2"),
     ("heading_logo_border_by_6", "Heading Logo Border By 6"),
-    ("book_an_appointment", "Book An Appointment"),
-    ("call_to_action", "Call To Action"),
     ("call_to_action2", "Call To Action 2"),
     ("image_with_cards_by_2", "Image With Cards By 2"),
     ("testimonials", "Testimonials"),

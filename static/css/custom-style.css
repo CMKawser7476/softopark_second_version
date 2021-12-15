@@ -96,7 +96,7 @@ div#content-section {
 
   }
 
- 
+
   .startup_consultation {
     border-radius: 15px;
 
@@ -110,6 +110,8 @@ div#content-section {
 
   .background {
 
+  
+    
     background-size: cover;
     background-position: right center;
     height: 550px;
@@ -118,6 +120,7 @@ div#content-section {
     width: 100%;
   
   }
+
 
   .background.webdevelopment {
 
@@ -141,20 +144,19 @@ div#content-section {
 }
 
 .call_to_action.call_action{
-  background: url("../images/logo/call_to_action.jpg") no-repeat 0 0;
-  background-size: cover;
+  background: url("../img/call_to_action.jpg") no-repeat 0 0;
+    background-size: cover;
 }
 
 .call_to_action.book_an_appointment{
-  background: url("../images/logo/book_an_appointment.jpg") no-repeat 0 0;
-  background-size: cover;
+  background: url("../img/book_an_appointment.jpg") no-repeat 0 0;
+    background-size: cover;
 }
 
 .circle_button{
 
 border-radius: 15px;
 }
-
 
 
 
@@ -200,81 +202,6 @@ button.btn.btn-primary.btn-sm.btnpadding.border-0.bg-lightgrey.text-dark {
 
 }
 
-
-
-
-
-/* accordian system  */
-#main {
-  margin: 50px 0;
-}
-
-#main #faq .card {
-  margin-bottom: 30px;
-  border: 0;
-}
-
-#main #faq .card .card-header {
-  border: 0;
-  -webkit-box-shadow: 0 0 20px 0 rgba(213, 213, 213, 0.5);
-          box-shadow: 0 0 20px 0 rgba(213, 213, 213, 0.5);
-  border-radius: 2px;
-  padding: 0;
-}
-
-#main #faq .card .card-header .btn-header-link {
-  color: #fff;
-  display: block;
-  text-align: left;
-  background: #FFE472;
-  color: #222;
-  padding: 20px;
-}
-
-#main #faq .card .card-header .btn-header-link:after {
-  content: "\f107";
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  float: right;
-}
-
-#main #faq .card .card-header .btn-header-link.collapsed {
-  background: #A541BB;
-  color: #fff;
-}
-
-#main #faq .card .card-header .btn-header-link.collapsed:after {
-  content: "\f106";
-}
-
-#main #faq .card .collapsing {
-  background: #FFE472;
-  line-height: 30px;
-}
-
-#main #faq .card .collapse {
-  border: 0;
-}
-
-#main #faq .card .collapse.show {
-  background: #FFE472;
-  line-height: 30px;
-  color: #222;
-}
-
-
-/* 
-.background-img{
-  background-image: url({{item.background_image.url}});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: right center;
-  height: 550px;
-  position: relative; 
-  display: table;
-  width: 100%;
-} */
-
 .asset-url {
   cursor: pointer;
 }
@@ -286,8 +213,6 @@ button.btn.btn-primary.btn-sm.btnpadding.border-0.bg-lightgrey.text-dark {
 
 
 
-
-.text-size{
-  font-weight: 600;
-  font-size: 6vh;
+.footer_txt{
+  font-size: small;
 }

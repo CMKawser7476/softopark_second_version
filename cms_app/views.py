@@ -7,12 +7,9 @@ from .models import Page, Section, HeadingLogoNameShortDescrip, ImageWithDescrip
 from .forms import SectionForm, HeadingLogoNameShortDescripForm, ImageWithDescriptionForm, IconWithHeadingForm, HeadingWithDescriptionForm, HeadingWithMultipleImageUploadForm, LandingPageAssetsForm, SlideForm, VideosUrlsForm, FaqForm
 
 SECTION_TYPE_CHOICES = [
-    ("accordian", ['heading', 'ordering']),
     ("table_with_tech", ['heading', 'ordering']),
     ("table_with_services", ['heading', 'ordering']),
-    ("table_with_services_2", ['heading', 'ordering']),
     ("heading_logo_border_by_6", ['heading', 'ordering']),
-    ("call_to_action", ['heading', 'ordering']),
     ("call_to_action2", ['heading', 'ordering']),
     ("image_with_cards_by_2", ['heading', 'ordering']),
     ("testimonials", ['heading', 'ordering']),
