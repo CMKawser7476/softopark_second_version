@@ -1,0 +1,26 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<div class="container text-center pt-5">
+  {% if request.user.is_authenticated %}
+<div class="action-buttons">
+  <div class="button-group">
+    <a href="{% url 'cms_app:section_update_view' pk=section.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Section Update</a>
+    <a href="{% url 'cms_app:section_delete_view' pk=section.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Section Delete</a>
+ 
+  </div>
+</div><br>
+{% endif %} 
+</div> 
+
+<section>
+    <div class="my-5">
+        <div class="card text-center">
+            <div class="call_to_action book_an_appointment card-body bg-primary">
+              <h2 class="card-title text-light mt-4"><b>Get Schedule for Your Services</b> </h2>
+              <button type="button" class="btn btn-warning btn-lg circle_button"><b>Book An Appointment</b></button>
+            </div>
+        
+          </div>
+    </div>
+</section>
