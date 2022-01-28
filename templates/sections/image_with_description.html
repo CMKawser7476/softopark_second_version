@@ -31,12 +31,12 @@
       >
         <div class="row">
           
-            <div class="col-sm-6 col-md-6 pt-5{% if item.image_alignment == 'right' %} order-sm-12{% endif %}">
+            <div class="col-sm-6 col-md-6 pt-2{% if item.image_alignment == 'right' %} order-sm-12{% endif %}">
                 <img src="{{item.photo.url}}" class="img-fluid" alt=" {{item.heading}}" title="{{ item.heading }}">
             </div>
 
             <div class="col-sm-6 {% if item.image_alignment == 'right' %}order-sm-1{% endif %}">
-              <div class="p-5 text-left">
+              <div class="p-1 text-left">
                 <h3 class="pb-2 text-left">{{ section.heading }}</h3>
                 <p class="text-left text-dark">{{ item.description |safe }}</p><br/>
                 {% if item.target_url %}
