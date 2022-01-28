@@ -10,8 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>
-        {% block title %}
-        {% endblock %}
+        {{ page.title_tag }}
     </title>  
 <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% elif blog.blog_keywords %}{{ blog.blog_keywords }}{% else %}blog, softopark blog{% endif %}">
 <meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% elif blog.blog_meta_description %}{{ blog.blog_meta_description }}{% else %}This is the blog page {% if request.GET.category %}| category:{{ request.GET.category }}{% endif %}{% if request.GET.page %} | page: {{ request.GET.page }}{% endif %}{% endif %}">
