@@ -47,7 +47,8 @@ SECTION_TYPE_CHOICES = [
     ("heading_media_with_border_container_by_2", ['heading', 'sub_heading', 'ordering']),
     ("heading_media_without_border_container_by_2", ['heading', 'ordering']),
     ("heading_social_media_container_by_2", ['heading', 'sub_heading', 'ordering']),
-    ("heading_sub_heading_icon_media_by_3", ['heading', 'sub_heading', 'ordering'])
+    ("heading_sub_heading_icon_media_by_3", ['heading', 'sub_heading', 'ordering']),
+    ("lead_data_form", ['heading', 'ordering'])
 ]
   
 

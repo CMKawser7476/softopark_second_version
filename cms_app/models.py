@@ -29,7 +29,7 @@ SECTION_TYPE_CHOICES = [
     ("img_heading_descrip", "Image heading descriptin"),
     ("video_with_full_container", "Video With Full Container"),
     ("video_with_description_by_2", "Video With Description By 2"),
-    ("video_with_description_by_3", "Video With Description By 2"),
+    ("video_with_description_by_3", "Video With Description By 3"),
     ("image_with_description", "Image With Description"),
     ("heading_border_name_by_4", "Heading Border Name By 4"),
     ("heading_descrip_container", " Heading Descrip Container"),
@@ -49,6 +49,7 @@ SECTION_TYPE_CHOICES = [
     ("heading_sub_heading_icon_media_by_3", "Heading sub heading icon media by 3"),
     ("slider", "Slider"),
     ("heading_short_des_svg_png_video_2", "heading short descrip with svg or videos"),
+    ("lead_data_form", "Lead Data Form"),
 
 
 ]
@@ -86,7 +87,7 @@ class Page(models.Model):
     twitter_description = models.TextField(null=True, blank=True)
     twitter_title = models.CharField(max_length=260, null=True, blank=True)
     twitter_image = models.ImageField(
-        upload_to="twitter_images", null=True, blank=True)
+    upload_to="twitter_images", null=True, blank=True)
 
     # OG issues for properties
     og_title = models.CharField(max_length=255, null=True, blank=True)

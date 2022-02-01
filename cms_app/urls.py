@@ -16,7 +16,6 @@ urlpatterns = [
     path('items/video_urls/<int:pk>/', VideosUrlsUpdateView.as_view(), name="video_urls_update_view"),
 
     
-    # path('twakto/', current_datetime, name="current_datetime"),
     # DeleteView path
     path('sections/all_section_delete/<int:pk>/', SectionDeleteView.as_view(), name="section_delete_view"),
     path('items/heading_logo_name_short_description_delete_view/<int:pk>/', HeadingLogoNameShortDescripDeleteView.as_view(), name="heading_logo_name_short_descrip_delete_view"),
