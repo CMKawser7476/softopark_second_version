@@ -1,3 +1,7 @@
+import email
+from email import message
+from operator import truediv
+from pyexpat import model
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.urls import reverse
@@ -214,3 +218,14 @@ class Faq(models.Model):
 
     def __str__(self):
         return self.question
+
+
+class LeadData(models.Model):
+    section = models.ForeignKey(Section, related_name="all_leads", on_delete=models.CASCADE)
+    name = models.CharField(max_length=255, blank=True, null=True)
+    email = models.EmailField(max_length=255, blank=True, null=True)
+    phone = models.CharField(max_length=255, blank=True, null=True)
+    message = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name

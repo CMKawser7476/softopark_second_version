@@ -112,8 +112,12 @@ DATABASES = {
         'NAME': 'softopark_cms',
         'USER': 'admin',
         'PASSWORD': 'k23Ed33#hjs',
-        # Or an IP Address that your DB is hosted on
         'HOST': 'jo-app.cjmuidrvfx0b.ap-southeast-1.rds.amazonaws.com',
+
+        # local config
+        # 'USER': 'root',
+        # 'PASSWORD': 'root',
+        # 'HOST': 'localhost',
         'PORT': '3306',
     }
 }

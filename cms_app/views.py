@@ -1,10 +1,13 @@
-from django.db import models
+# from pyexpat import model
+# from statistics import mode
+# from django.db import models
+from urllib import request
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views import generic
 from django.contrib.sitemaps import Sitemap
-from .models import Page, Section, HeadingLogoNameShortDescrip, ImageWithDescription, IconWithHeading, HeadingWithDescription, HeadingWithMultipleImageUpload, LandingPageAssets, Slide, VideosUrls, Faq
-from .forms import SectionForm, HeadingLogoNameShortDescripForm, ImageWithDescriptionForm, IconWithHeadingForm, HeadingWithDescriptionForm, HeadingWithMultipleImageUploadForm, LandingPageAssetsForm, SlideForm, VideosUrlsForm, FaqForm
+from .models import Page, Section, HeadingLogoNameShortDescrip, ImageWithDescription, IconWithHeading, HeadingWithDescription, HeadingWithMultipleImageUpload, LandingPageAssets, Slide, VideosUrls, Faq, LeadData
+from .forms import SectionForm, HeadingLogoNameShortDescripForm, ImageWithDescriptionForm, IconWithHeadingForm, HeadingWithDescriptionForm, HeadingWithMultipleImageUploadForm, LandingPageAssetsForm, SlideForm, VideosUrlsForm, FaqForm, LeadDataForm
 
 SECTION_TYPE_CHOICES = [
     ("table_with_tech", ['heading', 'ordering']),
@@ -322,4 +325,13 @@ class FaqDeleteView(generic.DeleteView):
 
     def get_success_url(self):
         return self.get_object().section.page.get_absolute_url()
+
+
+def clientinfosubmit(request):
+    form = LeadDataForm(request.POST)
+    if form.is_valid():
+        form.save()
+    return redirect("/")
+
+
 

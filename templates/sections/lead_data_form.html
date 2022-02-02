@@ -1,25 +1,43 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<div class="container text-center">
+  {% if request.user.is_authenticated %}
+<div class="action-buttons">
+  <div class="button-group">
+    <a href="{% url 'cms_app:section_update_view' pk=section.pk %}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Section Update</a>
+    <a href="{% url 'cms_app:section_delete_view' pk=section.pk %}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Section Delete</a>
+  </div>
+</div><br>
+{% endif %} 
+</div>
+
 <section class="py-5">
     <div class="container border">
       <div class="">
-        <h3 class="text-size txt_shadow text_color pt-3 text-center">Let's Get In touch</h3><br>
+        <h3 class="text-size txt_shadow text_color pt-3 text-center">{{ section.heading }}</h3><br>
       </div>
-      <form action="" method="">
+      <form method="POST" action="{% url 'cms_app:lead_collection_view' %}">
         <div class="row bg-dark shadow-lg rounded">
           <div class="col-sm-8 p-3  ">
-                <label for="exampleInputEmail1" class="text-white">Name*</label>
-                 <input type="text" name="text" class="form-control form-control-lg shadow" required><br>
+            {% csrf_token %}
+             <div class="form-group">
+              <input type="hidden" name="section" value="{{ section.id }}">
+              <!-- <label for="exampleInputEmail1" class="text-white">Name*</label> -->
+              <input type="text" name="name" class="form-control form-control-lg shadow" placeholder="Name*" required><br>
 
-                 <label for="exampleInputEmail1" class="text-white">Email*</label>
-                 <input type="email" name="email" class="form-control form-control-lg shadow" required> <br>
+              <!-- <label for="exampleInputEmail1" class="text-white">Email*</label> -->
+              <input type="email" name="email" class="form-control form-control-lg shadow" placeholder="Email*" required> <br>
 
-                 <label for="exampleInputEmail1" class="text-white">Phone</label>
-                 <input type="number" name="number" class="form-control form-control-lg shadow"> <br>
+              <!-- <label for="exampleInputEmail1" class="text-white">Phone</label> -->
+              <input type="text" name="text" class="form-control form-control-lg shadow" placeholder="Phone"> <br>
 
-                 <label for="exampleInputEmail1" class="text-white">Message</label>
-                 <textarea class="form-control form-control-lg shadow" type="text" name="message" rows="3"></textarea><br>
-                 <div class="">
-                  <button type="submit" class="btn btn-lg btn-info">submit</button>
-                </div>
+              <!-- <label for="exampleInputEmail1" class="text-white">Message</label> -->
+              <textarea class="form-control form-control-lg shadow" placeholder="Message" type="text" name="message" rows="3"></textarea><br>
+              <div class="">
+               <button type="submit" class="btn btn-lg btn-info">submit</button>
+             </div>
+             </div>
           </div>
   
           <div class="col-sm-4 p-2">
