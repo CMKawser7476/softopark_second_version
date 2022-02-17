@@ -327,6 +327,7 @@ class FaqDeleteView(generic.DeleteView):
         return self.get_object().section.page.get_absolute_url()
 
 
+# client submit data view
 def clientinfosubmit(request):
     form = LeadDataForm(request.POST)
     if form.is_valid():
@@ -335,3 +336,10 @@ def clientinfosubmit(request):
 
 
 
+class ClientInfoSubmitDeleteView(generic.DeleteView):
+    model = LeadData
+    template_name = 'cms_app/lead_submit_section_delete.html'
+
+
+    def get_success_url(self):
+        return self.get_object().section.page.get_absolute_url()
