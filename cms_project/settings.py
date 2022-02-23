@@ -110,9 +110,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'softopark_cms',
-        'USER': 'admin',
-        'PASSWORD': 'k23Ed33#hjs',
-        'HOST': 'jo-app.cjmuidrvfx0b.ap-southeast-1.rds.amazonaws.com',
+        # 'USER': 'admin',
+        # 'PASSWORD': 'k23Ed33#hjs',
+        # 'HOST': 'jo-app.cjmuidrvfx0b.ap-southeast-1.rds.amazonaws.com',
 
         # local config
         # 'USER': 'root',
