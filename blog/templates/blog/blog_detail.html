@@ -11,7 +11,10 @@
             <div class="col-sm-9 border-right" style="background-color: rgb(255, 255, 255);">
                 <div class=" p-3">
                     <h1 class="text-left fntfamily text-dark">{{ object.title }}</h1><br>
-                    <img class="img-fluid" src="{{ object.photo.url }}" alt="{{ object.title }}" title="{{ object.title }}"><br>
+                    <div class="text-center">
+                        <img class="img-fluid" src="{{ object.photo.url }}" alt="{{ object.title }}" title="{{ object.title }}">
+                    </div>
+                    <br>
                     <br>
                     
                     <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.get_host }}{{ request.get_full_path|urlencode }}"><i class="fa fa-facebook-official fa-2x" aria-hidden="true" alt="Facebook" title="{{ object.title }}"></i></a>&nbsp;

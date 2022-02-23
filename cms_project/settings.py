@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'ckeditor',
     # 'tawkto',
     'robots',
-    'tinymce',
 
 
     # our apps
@@ -95,32 +94,30 @@ TEMPLATES = [
 WSGI_APPLICATION = 'cms_project.wsgi.application'
 
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'softoparkcms',
+        'USER': 'admin',
+        'PASSWORD': 'k23Ed33#hjs',
+        'HOST': 'jo-app.cjmuidrvfx0b.ap-southeast-1.rds.amazonaws.com',
+
+    }
+}
+
+
+
+# local config
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
 #         'NAME': 'softopark_cms5',
 #         'USER': 'root',
 #         'PASSWORD': 'root',
-#         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+#         'HOST': 'localhost',
 #         'PORT': '3306',
 #     }
 # }
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'softopark_cms',
-        # 'USER': 'admin',
-        # 'PASSWORD': 'k23Ed33#hjs',
-        # 'HOST': 'jo-app.cjmuidrvfx0b.ap-southeast-1.rds.amazonaws.com',
-
-        # local config
-        # 'USER': 'root',
-        # 'PASSWORD': 'root',
-        # 'HOST': 'localhost',
-        # 'PORT': '3306',
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

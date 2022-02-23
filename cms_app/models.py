@@ -7,7 +7,7 @@ from django.db.models.deletion import CASCADE
 from django.urls import reverse
 # from django.utils.text import slugify
 import json
-from tinymce.models import HTMLField
+# from tinymce.models import HTMLField
 
 
 # Create your models here.
@@ -161,8 +161,8 @@ class ImageWithDescription(models.Model):
     photo = models.ImageField()
     heading = models.CharField(max_length=255)
     sub_heading = models.TextField(blank=True, null=True)
-    # description = models.TextField( blank=True, null=True)
-    description = HTMLField("Description", null=True, blank=True)
+    description = models.TextField( blank=True, null=True)
+    # description = HTMLField("Description", null=True, blank=True)
     target_url = models.URLField(blank=True, null=True)
 
     def __str__(self):
@@ -184,7 +184,8 @@ class HeadingWithDescription(models.Model):
     section = models.ForeignKey(Section, related_name="heading_with_description", on_delete=models.CASCADE)
     heading = models.CharField(max_length=255)
     sub_heading = models.CharField(max_length=255, blank=True, null=True)
-    description = HTMLField("Description", null=True, blank=True)
+    description = models.TextField( blank=True, null=True)
+    # description = HTMLField("Description", null=True, blank=True)
     target_url = models.URLField(blank=True, null=True)
 
     def __str__(self):
