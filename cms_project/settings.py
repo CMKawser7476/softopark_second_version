@@ -111,7 +111,7 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'softopark_cms5',
+#         'NAME': 'local_database',
 #         'USER': 'root',
 #         'PASSWORD': 'root',
 #         'HOST': 'localhost',
