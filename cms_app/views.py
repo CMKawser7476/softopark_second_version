@@ -1,6 +1,4 @@
-# from pyexpat import model
-# from statistics import mode
-# from django.db import models
+
 from urllib import request
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
@@ -14,6 +12,7 @@ SECTION_TYPE_CHOICES = [
     ("table_with_services", ['heading', 'ordering']),
     ("heading_logo_border_by_6", ['heading', 'ordering']),
     ("call_to_action2", ['heading', 'ordering']),
+    ("call_to_action_with_slug", ['heading', 'ordering']),
     ("image_with_cards_by_2", ['heading', 'ordering']),
     ("testimonials", ['heading', 'ordering']),
     ("cards_3", ['heading', 'ordering']),
@@ -123,7 +122,9 @@ class PageView(generic.View):
         form = self.forms[form_name](request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect("/")
+            # return redirect("/")
+            def get_success_url(self):
+                return self.get_object().page.get_absolute_url()
         else:
             context[form_name] = form
         return render(request, 'cms_app/page_detail.html', context)
@@ -181,7 +182,7 @@ class PageSitemap(Sitemap):
 class HeadingLogoNameShortDescripUpdateView(generic.UpdateView):
     model = HeadingLogoNameShortDescrip
     template_name = 'cms_app/heading_logo_name_short_descrip_form.html'
-    fields = ['heading', 'sub_heading', 'logo_icon', 'short_description', 'target_url']
+    fields = ['heading', 'sub_heading', 'logo_icon', 'short_description', 'target_url', 'button_text']
 
     def get_success_url(self):
         return self.get_object().section.page.get_absolute_url()
@@ -204,7 +205,7 @@ class IconWithHeadingUpdateView(generic.UpdateView):
 class ImageWithDescriptionUpdateView(generic.UpdateView):
     model = ImageWithDescription
     template_name = 'cms_app/image_with_description_form.html'
-    fields = ['container_type', 'image_alignment', 'background_image', 'photo', 'heading', 'sub_heading', 'description', 'target_url']
+    fields = ['container_type', 'image_alignment', 'background_image', 'photo', 'heading', 'sub_heading', 'description', 'target_url', 'button_text']
    
 
     def get_success_url(self):
@@ -238,7 +239,7 @@ class HeadingWithMultipleImageUploadUpdateView(generic.UpdateView):
 class VideosUrlsUpdateView(generic.UpdateView):
     model = VideosUrls
     template_name = 'cms_app/videos_urls.html'
-    fields = ['heading', 'sub_heading', 'embed_url', 'description']
+    fields = ['heading', 'sub_heading', 'embed_url', 'description', 'button_text']
 
     def get_success_url(self):
         return self.get_object().section.page.get_absolute_url()

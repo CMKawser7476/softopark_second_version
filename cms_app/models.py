@@ -1,3 +1,4 @@
+from doctest import BLANKLINE_MARKER
 import email
 from email import message
 from operator import truediv
@@ -7,7 +8,7 @@ from django.db.models.deletion import CASCADE
 from django.urls import reverse
 # from django.utils.text import slugify
 import json
-# from tinymce.models import HTMLField
+from tinymce.models import HTMLField
 
 
 # Create your models here.
@@ -17,6 +18,7 @@ SECTION_TYPE_CHOICES = [
     ("table_with_sercices_2", "Table With Services 2"),
     ("heading_logo_border_by_6", "Heading Logo Border By 6"),
     ("call_to_action2", "Call To Action 2"),
+    ("call_to_action_with_slug", "Call To Action With Slug"),
     ("image_with_cards_by_2", "Image With Cards By 2"),
     ("testimonials", "Testimonials"),
     ("cards_3", "Cards 3"),
@@ -148,6 +150,7 @@ class HeadingLogoNameShortDescrip(models.Model):
     short_description = models.TextField( blank=True, null=True)
     # short_description = HTMLField("Description", null=True, blank=True)
     target_url = models.URLField(blank=True, null=True)
+    button_text = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return self.heading

@@ -34,6 +34,9 @@
               <div class="card-body">
                 <h6 class="card-title text-left">{{ item.heading}}</h6>
                 <p class="card-text text-left">{{ item.short_description | safe }}</p>
+                {% if item.target_url %}
+                <a href="{{ item.target_url }}" class="btn btn-outline-primary" >{{ item.button_text }}</a>
+                {% endif %}
               </div>
             </div>
       </div>
@@ -77,7 +80,7 @@
                                         {% for field in heading_logo_name_short_descrip_form.visible_fields %}
                                           {% if field.name == "section" %}
                                             <input type="hidden" name="section" value="{{ section.id }}">
-                                          {% elif field.name in 'heading, logo_icon, short_description, target_url' %}
+                                          {% elif field.name in 'heading, logo_icon, short_description, target_url, button_text' %}
                                             <div class="form-group">
                                                 <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                                                 {{ field|add_class:'form-control' }}
