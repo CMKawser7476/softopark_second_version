@@ -24,7 +24,7 @@
                   {% endif %} -->
                   <a href="{{item.target_url}}">
                     <button class="btn btn-primary">{{item.sub_heading}}</button>
-                  </a>
+                  </a> 
             </div>
             {% if request.user.is_authenticated %}
             <div class="action-buttons">
@@ -36,23 +36,29 @@
             {% endif %}
         </div>
         {% empty %}
-        <div class=" call_to_action call_action card-body">
-            <h2 class="card-title text-white mt-5">Heading Dummy</h2>
+        <div class=" call_to_action call_action card-body bg-light">
+          <div class="text-center">
+            <h2 class="card-title text-info mt-5">{{ section.heading }}</h2>
             <button class="btn btn-warning  btn-lg circle_button"> <b>Lets Go for contact </b> </button>
+          </div>
           </div>
         {% endfor %}
     </div>
 
 
   <!-- Button trigger modal -->
-    <div class="col-sm-3">
+    <div class="row justify-content-center">
+      <div class="col-sm-3">
         {% if request.user.is_authenticated %}
-         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#heading_with_description_form_{{ section.id }}">
-           <i class="fa fa-plus-circle" aria-hidden="true"></i>
-         </button>
+         <div class="text-center">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#heading_with_description_form_{{ section.id }}">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+          </button>
+         </div>
         
        {% endif %}
       </div>
+    </div>
 
           <!-- Modal -->
           <div class="modal fade" id="heading_with_description_form_{{ section.id }}" tabindex="-1" role="dialog" aria-labelledby="heading_with_description_formLabel" aria-hidden="true">
@@ -74,7 +80,7 @@
                     {% for field in heading_with_description_form.visible_fields %}
                       {% if field.name == "section" %}
                         <input type="hidden" name="section" value="{{ section.id }}">
-                      {% elif field.name in 'heading, sub_heading, target_url' %}
+                      {% elif field.name in 'heading, target_url, button_text' %}
                         <div class="form-group">
                             <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                             {{ field|add_class:'form-control' }}

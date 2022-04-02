@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-mysqlclient = "==2.0.3"
+mysqlclient = "===2.0.3"
 django = "==3.1.7"
 pillow = "*"
 django-widget-tweaks = "*"

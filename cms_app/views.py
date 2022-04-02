@@ -218,7 +218,7 @@ class ImageWithDescriptionUpdateView(generic.UpdateView):
 class HeadingWithDescriptionUpdateView(generic.UpdateView):
     model = HeadingWithDescription
     template_name = 'cms_app/heading_with_description_form.html'
-    fields = ['heading', 'sub_heading', 'description']
+    fields = ['heading', 'sub_heading', 'target_url', 'button_text']
     
 
     def get_success_url(self):
