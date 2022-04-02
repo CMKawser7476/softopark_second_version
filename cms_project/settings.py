@@ -96,7 +96,7 @@ WSGI_APPLICATION = 'cms_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'softoparkcms',
+        'NAME': 'softopark_cms5',
         'USER': 'admin',
         'PASSWORD': 'k23Ed33#hjs',
         'HOST': 'jo-app.cjmuidrvfx0b.ap-southeast-1.rds.amazonaws.com',
