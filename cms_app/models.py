@@ -167,7 +167,7 @@ class ImageWithDescription(models.Model):
     description = models.TextField( blank=True, null=True)
     # description = HTMLField("Description", null=True, blank=True)
     target_url = models.URLField(blank=True, null=True)
-    button_text = models.CharField(max_length=255, blank=True, null=True)
+    # button_text = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return self.heading
