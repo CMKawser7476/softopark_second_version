@@ -102,7 +102,6 @@ DATABASES = {
         'PASSWORD': 'k23Ed33#hjs',
         'HOST': 'jo-app.cjmuidrvfx0b.ap-southeast-1.rds.amazonaws.com',
         'PORT': '3306',
-
     }
 }
 
