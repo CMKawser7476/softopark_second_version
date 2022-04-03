@@ -167,7 +167,7 @@ class ImageWithDescription(models.Model):
     description = models.TextField( blank=True, null=True)
     # description = HTMLField("Description", null=True, blank=True)
     target_url = models.URLField(blank=True, null=True)
-    # button_text = models.CharField(max_length=255, blank=True, null=True)
+    button_text = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return self.heading
@@ -226,12 +226,12 @@ class Faq(models.Model):
         return self.question
 
 
-# class LeadData(models.Model):
-#     section = models.ForeignKey(Section, related_name="all_leads", on_delete=models.CASCADE)
-#     name = models.CharField(max_length=255, blank=True, null=True)
-#     email = models.EmailField(max_length=255, blank=True, null=True)
-#     phone = models.CharField(max_length=255, blank=True, null=True)
-#     message = models.TextField(blank=True, null=True)
+class LeadData(models.Model):
+    section = models.ForeignKey(Section, related_name="all_leads", on_delete=models.CASCADE)
+    name = models.CharField(max_length=255, blank=True, null=True)
+    email = models.EmailField(max_length=255, blank=True, null=True)
+    phone = models.CharField(max_length=255, blank=True, null=True)
+    message = models.TextField(blank=True, null=True)
 
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return self.name

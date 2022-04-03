@@ -1,6 +1,6 @@
 from django.urls import path
 from django.views.generic.edit import UpdateView
-from .views import SectionUpadateView, SectionDeleteView, HeadingLogoNameShortDescripUpdateView, IconWithHeadingUpdateView, ImageWithDescriptionUpdateView, HeadingWithDescriptionUpdateView, HeadingWithMultipleImageUploadUpdateView, HeadingLogoNameShortDescripDeleteView, IconWithHeadingDeleteView, ImageWithDescriptionDeleteView, HeadingWithDescriptionDeleteView, HeadingWithMultipleImageUploadDeleteView, VideosUrlsUpdateView, VideourlsDeleteView, FaqUpdateView  
+from .views import SectionUpadateView, SectionDeleteView, HeadingLogoNameShortDescripUpdateView, IconWithHeadingUpdateView, ImageWithDescriptionUpdateView, HeadingWithDescriptionUpdateView, HeadingWithMultipleImageUploadUpdateView, HeadingLogoNameShortDescripDeleteView, IconWithHeadingDeleteView, ImageWithDescriptionDeleteView, HeadingWithDescriptionDeleteView, HeadingWithMultipleImageUploadDeleteView, VideosUrlsUpdateView, VideourlsDeleteView, FaqUpdateView, clientinfosubmit  
  
 
 app_name = "cms_app"
@@ -14,7 +14,7 @@ urlpatterns = [
     path('items/heading_with_description/<int:pk>/', HeadingWithDescriptionUpdateView.as_view(), name="heading_with_description_view"),
     path('items/heading_with_multiple_image_upload/<int:pk>/', HeadingWithMultipleImageUploadUpdateView.as_view(), name="heading_with_multiple_image_upload_view"),
     path('items/video_urls/<int:pk>/', VideosUrlsUpdateView.as_view(), name="video_urls_update_view"),
-    # path('items/submit_data/', clientinfosubmit, name="lead_collection_view"),
+    path('items/submit_data/', clientinfosubmit, name="lead_collection_view"),
 
     
     # DeleteView path

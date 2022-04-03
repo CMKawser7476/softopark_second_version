@@ -1,4 +1,4 @@
-<!-- {% load static %}
+{% load static %}
 {% load widget_tweaks %}
 
 <div class="container text-center">
@@ -23,12 +23,16 @@
             {% csrf_token %}
              <div class="form-group">
               <input type="hidden" name="section" value="{{ section.id }}">
+              <!-- <label for="exampleInputEmail1" class="text-white">Name*</label> -->
               <input type="text" name="name" class="form-control form-control-lg shadow" placeholder="Name*" required><br>
 
+              <!-- <label for="exampleInputEmail1" class="text-white">Email*</label> -->
               <input type="email" name="email" class="form-control form-control-lg shadow" placeholder="Email*" required> <br>
 
+              <!-- <label for="exampleInputEmail1" class="text-white">Phone</label> -->
               <input type="text" name="text" class="form-control form-control-lg shadow" placeholder="Phone"> <br>
 
+              <!-- <label for="exampleInputEmail1" class="text-white">Message</label> -->
               <textarea class="form-control form-control-lg shadow" placeholder="Message" type="text" name="message" rows="3"></textarea><br>
               <div class="">
                <button type="submit" class="btn btn-lg btn-info">submit</button>
@@ -68,4 +72,4 @@
         </div>
       </form>
     </div>
-  </section> -->
+  </section>
