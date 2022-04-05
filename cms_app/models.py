@@ -1,13 +1,13 @@
-from doctest import BLANKLINE_MARKER
-import email
-from email import message
-from operator import truediv
-from pyexpat import model
+# from doctest import BLANKLINE_MARKER
+# import email
+# from email import message
+# from operator import truediv
+# from pyexpat import model
+# from django.utils.text import slugify
+# import json
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.urls import reverse
-# from django.utils.text import slugify
-import json
 from tinymce.models import HTMLField
 
 
@@ -55,7 +55,6 @@ SECTION_TYPE_CHOICES = [
     ("heading_sub_heading_icon_media_by_3", "Heading sub heading icon media by 3"),
     ("slider", "Slider"),
     ("heading_short_des_svg_png_video_2", "heading short descrip with svg or videos"),
-    ("lead_data_form", "Lead Data Form"),
 
 
 ]
@@ -225,13 +224,3 @@ class Faq(models.Model):
     def __str__(self):
         return self.question
 
-
-class LeadData(models.Model):
-    section = models.ForeignKey(Section, related_name="all_leads", on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, blank=True, null=True)
-    email = models.EmailField(max_length=255, blank=True, null=True)
-    phone = models.CharField(max_length=255, blank=True, null=True)
-    message = models.TextField(blank=True, null=True)
-
-    def __str__(self):
-        return self.name
