@@ -33,23 +33,16 @@
                                 </div>
                               </div><br>
                               {% endif %}
-                                <div class="m-1  p-2">
+                                <div class="m-1 p-1">
                                     <img src="{% if item.icon %} {{item.icon.url}} {% endif %}" alt=" {{ item.heading }}" class="img-fluid" height="200" width="200" title="{{ item.heading }}">
-                                
-                        
-                                </div><br/>
-                                <!-- <h6>{{ item.heading }}  </h6> -->
-                        
+                                </div><br/>                        
                               </div>
                               {% empty %}
                               <div class="col-sm-3 text-center bg-white ">
                                 <div class="m-1  p-4">
                                     <img src="{% static '/images/content_development/content_development/icons/004_notebook_min.png' %}" alt="" class="img-fluid" height="120" width="120">
-                                
-                        
-                                </div><br/>
-                                <!-- <h6>Heading Dummy  </h6> -->
-                        
+                                </div>
+                                <br/>
                               </div>
                       {% endfor %}
 
