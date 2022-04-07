@@ -182,7 +182,7 @@ class PageSitemap(Sitemap):
 class HeadingLogoNameShortDescripUpdateView(generic.UpdateView):
     model = HeadingLogoNameShortDescrip
     template_name = 'cms_app/heading_logo_name_short_descrip_form.html'
-    fields = ['heading', 'sub_heading', 'logo_icon', 'short_description', 'target_url', 'button_text']
+    fields = ['heading', 'sub_heading', 'logo_icon', 'short_description', 'target_url']
 
     def get_success_url(self):
         return self.get_object().section.page.get_absolute_url()
@@ -205,7 +205,7 @@ class IconWithHeadingUpdateView(generic.UpdateView):
 class ImageWithDescriptionUpdateView(generic.UpdateView):
     model = ImageWithDescription
     template_name = 'cms_app/image_with_description_form.html'
-    fields = ['container_type', 'image_alignment', 'background_image', 'photo', 'heading', 'sub_heading', 'description', 'target_url', 'button_text']
+    fields = ['container_type', 'image_alignment', 'background_image', 'photo', 'heading', 'sub_heading', 'description', 'target_url']
    
 
     def get_success_url(self):
@@ -218,7 +218,7 @@ class ImageWithDescriptionUpdateView(generic.UpdateView):
 class HeadingWithDescriptionUpdateView(generic.UpdateView):
     model = HeadingWithDescription
     template_name = 'cms_app/heading_with_description_form.html'
-    fields = ['heading', 'sub_heading', 'target_url', 'button_text']
+    fields = ['heading', 'sub_heading', 'target_url']
     
 
     def get_success_url(self):
@@ -239,7 +239,7 @@ class HeadingWithMultipleImageUploadUpdateView(generic.UpdateView):
 class VideosUrlsUpdateView(generic.UpdateView):
     model = VideosUrls
     template_name = 'cms_app/videos_urls.html'
-    fields = ['heading', 'sub_heading', 'embed_url', 'description', 'button_text']
+    fields = ['heading', 'sub_heading', 'embed_url', 'description']
 
     def get_success_url(self):
         return self.get_object().section.page.get_absolute_url()

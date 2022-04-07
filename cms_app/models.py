@@ -8,7 +8,7 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.urls import reverse
-from tinymce.models import HTMLField
+# from tinymce.models import HTMLField
 
 
 # Create your models here.
@@ -223,4 +223,5 @@ class Faq(models.Model):
 
     def __str__(self):
         return self.question
+
 
