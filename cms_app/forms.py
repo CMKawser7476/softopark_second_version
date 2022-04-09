@@ -1,7 +1,9 @@
+# from dataclasses import fields
+from pyexpat import model
 from django import forms
 # from django.db import models
 # from django.forms import fields
-from .models import Section, HeadingLogoNameShortDescrip, ImageWithDescription, IconWithHeading, HeadingWithDescription, HeadingWithMultipleImageUpload, LandingPageAssets, Slide, VideosUrls, Faq
+from .models import Section, HeadingLogoNameShortDescrip, ImageWithDescription, IconWithHeading, HeadingWithDescription, HeadingWithMultipleImageUpload, LandingPageAssets, Slide, VideosUrls, Faq, LeadData
 
 
 class LandingPageAssetsForm(forms.ModelForm):
@@ -66,4 +68,10 @@ class VideosUrlsForm(forms.ModelForm):
 class FaqForm(forms.ModelForm):
     class Meta:
         model = Faq
+        fields = "__all__"
+
+
+class LeadDataForm(forms.ModelForm):
+    class Meta:
+        model = LeadData
         fields = "__all__"
