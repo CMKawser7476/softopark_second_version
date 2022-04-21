@@ -7,8 +7,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views import generic
 from django.contrib.sitemaps import Sitemap
-from .models import LeadData, Page, Section, HeadingLogoNameShortDescrip, ImageWithDescription, IconWithHeading, HeadingWithDescription, HeadingWithMultipleImageUpload, LandingPageAssets, Slide, VideosUrls, Faq, LeadData
-from .forms import SectionForm, HeadingLogoNameShortDescripForm, ImageWithDescriptionForm, IconWithHeadingForm, HeadingWithDescriptionForm, HeadingWithMultipleImageUploadForm, LandingPageAssetsForm, SlideForm, VideosUrlsForm, FaqForm, LeadDataForm
+from .models import Page, Section, HeadingLogoNameShortDescrip, ImageWithDescription, IconWithHeading, HeadingWithDescription, HeadingWithMultipleImageUpload, LandingPageAssets, Slide, VideosUrls, Faq #ClientDataSubmit
+from .forms import SectionForm, HeadingLogoNameShortDescripForm, ImageWithDescriptionForm, IconWithHeadingForm, HeadingWithDescriptionForm, HeadingWithMultipleImageUploadForm, LandingPageAssetsForm, SlideForm, VideosUrlsForm, FaqForm #ClientDataForm
 
 SECTION_TYPE_CHOICES = [
     ("table_with_tech", ['heading', 'ordering']),
@@ -53,7 +53,7 @@ SECTION_TYPE_CHOICES = [
     ("heading_media_without_border_container_by_2", ['heading', 'ordering']),
     ("heading_social_media_container_by_2", ['heading', 'sub_heading', 'ordering']),
     ("heading_sub_heading_icon_media_by_3", ['heading', 'sub_heading', 'ordering']),
-    ("lead_data_form", ['heading', 'ordering']),
+    # ("client_data_submit_form", ['heading', 'ordering']),
 ]
   
 
@@ -90,6 +90,7 @@ class PageView(generic.View):
         'heading_with_description_form': HeadingWithDescriptionForm,
         'heading_with_multiple_image_upload_form': HeadingWithMultipleImageUploadForm,
         'videos_urls_form': VideosUrlsForm,
+        # 'lead_data_form': LeadDataForm,
         'FaqForm': FaqForm
         
         
@@ -185,7 +186,7 @@ class PageSitemap(Sitemap):
 class HeadingLogoNameShortDescripUpdateView(generic.UpdateView):
     model = HeadingLogoNameShortDescrip
     template_name = 'cms_app/heading_logo_name_short_descrip_form.html'
-    fields = ['heading', 'sub_heading', 'logo_icon', 'short_description', 'target_url']
+    fields = ['heading', 'sub_heading', 'logo_icon', 'short_description', 'target_url', 'button_text', 'button_direction', 'button_size']
 
     def get_success_url(self):
         return self.get_object().section.page.get_absolute_url()
@@ -332,14 +333,17 @@ class FaqDeleteView(generic.DeleteView):
 
 
 
+# class ClinetLeadCreateView(generic.CreateView):
+#     form_class = ClientDataForm
+#     model = ClientDataSubmit
+#     success_url = "/Thanks"
 
-def leadcollection(request, *args, **kwargs):
-    form = LeadDataForm(request.POST)
-    if form.is_valid():
-        form.save()
-    return redirect("/")
+    # return redirect("https://www.softopark.com/Thanks/")
 
 
-class LeadDataFormDeleteView(generic.DeleteView):
-    model = LeadData
-    template_name = 'cms_app/lead_data_form_delete.html'
+# class ClientDataFormDeleteView(generic.DeleteView):
+#     model = ClientDataSubmit
+#     template_name = 'cms_app/lead_data_form_delete.html'
+
+#     def get_success_url(self):
+#         return self.get_object().section.page.get_absolute_url()

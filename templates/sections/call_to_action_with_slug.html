@@ -19,12 +19,12 @@
         <div class="card text-center bg-dark">
             <div class="call_to_action call_action card-body">
               <h2 class="card-title text-light mt-5">{{ section.heading }}</h2><br>
-              <!-- {% if item.target_url %}
-                  <a href="{{ item.target_url }}" class="btn btn-outline-primary btn-lg" >{{item.sub_heading}}</a>
-                  {% endif %} -->
-                  <a href="{{item.target_url}}">
-                    <button class="btn btn-primary">{{item.sub_heading}}</button>
-                  </a> 
+              {% if item.target_url %}
+                  <a href="{{ item.target_url }}" class="btn btn-outline-primary btn-lg" >{{item.button_text}}</a>
+                  {% endif %}
+                  <!-- <a href="{{item.target_url}}">
+                    <button class="btn btn-primary">{{item.button_text}}</button>
+                  </a>  -->
             </div>
             {% if request.user.is_authenticated %}
             <div class="action-buttons">

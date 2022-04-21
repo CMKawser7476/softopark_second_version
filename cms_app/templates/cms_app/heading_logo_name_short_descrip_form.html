@@ -13,7 +13,7 @@
               {% for field in form.visible_fields %}
                 {% if field.name == "section" %}
                   {% render_field field class="d-none" %}
-                {% elif field.name in 'heading, logo_icon, short_description, target_url, button_text' %}
+                {% elif field.name in 'heading, logo_icon, short_description, target_url, button_text, button_direction, button_size' %}
                   <div class="form-group">
                       <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                       {{ field|add_class:'form-control' }}

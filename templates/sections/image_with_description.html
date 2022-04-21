@@ -39,12 +39,18 @@
 
             <div class="col-sm-6 {% if item.image_alignment == 'right' %}order-sm-1{% endif %}">
               <div class="row-h1 d-flex align-items-center">
-                <div class="p-1 text-left">
+                <div class="p-1">
                   <h3 class="pb-2 text-left">{{ section.heading }}</h3>
                   <p class="text-left text-dark">{{ item.description |safe }}</p><br/>
                   {% if item.target_url %}
                   <a href="{{ item.target_url }}" class="btn btn-outline-primary btn-lg" >Learn More</a>
                   {% endif %}
+
+                 <!-- <div class="{% if item.button_alignment == 'left' %} text-left {% elif item.button_alignment == 'right' %} text-right {% elif item.button_alignment == 'center' %} text-center {% endif %}">
+                  {% if item.target_url %}
+                  <a href="{{ item.target_url }}" class="btn btn-outline-primary {% if item.button_size == 'small' %}btn-sm {% elif item.button_size == 'large' %} btn-lg{% endif %}" >{{item.button_text}}</a>
+                  {% endif %}
+                 </div> -->
                 </div>
               </div>
             </div>

@@ -5,12 +5,13 @@
 # from pyexpat import model
 # from django.utils.text import slugify
 # import json
-from email import message
-from pyexpat import model
-from django.db import models
-from django.db.models.deletion import CASCADE
-from django.urls import reverse
 # from tinymce.models import HTMLField
+# from email import message
+# from pyexpat import model
+# from django.db.models.deletion import CASCADE
+
+from django.db import models
+from django.urls import reverse
 
 
 # Create your models here.
@@ -57,7 +58,7 @@ SECTION_TYPE_CHOICES = [
     ("heading_sub_heading_icon_media_by_3", "Heading sub heading icon media by 3"),
     ("slider", "Slider"),
     ("heading_short_des_svg_png_video_2", "heading short descrip with svg or videos"),
-    ("lead_data_form", "Lead Data"),
+    # ("client_data_submit_form", "Client Data Submit"),
 
 
 ]
@@ -72,6 +73,20 @@ CONTAINER_TYPE_CHOICES = [
 IMAGE_ALIGNMENT_CHOICES = [
     ("left", "Left Image"),
     ("right", "Right Image")
+]
+
+
+
+BUTTON_ALIGNMENT_CHOICES = [
+    ("left_button", "Button Left"),
+    ("center_button", "Button Center"),
+    ("right_button", "Button Right")
+]
+
+
+BUTTON_SIZE = [
+    ("small", "Small Button"),
+    ("large", "Large Button"),
 ]
 
 
@@ -152,7 +167,10 @@ class HeadingLogoNameShortDescrip(models.Model):
     short_description = models.TextField( blank=True, null=True)
     # short_description = HTMLField("Description", null=True, blank=True)
     target_url = models.URLField(blank=True, null=True)
-    # button_text = models.CharField(max_length=255, blank=True, null=True)
+    button_text = models.CharField(max_length=255, blank=True, null=True)
+    button_direction = models.CharField(choices=BUTTON_ALIGNMENT_CHOICES, default="left_button", max_length=15)
+    button_size = models.CharField(choices=BUTTON_SIZE, default="small", max_length=55 )
+
 
     def __str__(self):
         return self.heading
@@ -170,6 +188,9 @@ class ImageWithDescription(models.Model):
     # description = HTMLField("Description", null=True, blank=True)
     target_url = models.URLField(blank=True, null=True)
     # button_text = models.CharField(max_length=255, blank=True, null=True)
+    # button_alignment = models.CharField(choices=BUTTON_ALLIGNMENT, default="left", max_length=55)
+    # button_size = models.CharField(choices=BUTTON_SIZE, default="small", max_length=55 )
+
 
     def __str__(self):
         return self.heading
@@ -194,6 +215,10 @@ class HeadingWithDescription(models.Model):
     # description = HTMLField("Description", null=True, blank=True)
     target_url = models.URLField(blank=True, null=True)
     # button_text = models.CharField(max_length=255, blank=True, null=True)
+    # button_alignment = models.CharField(choices=BUTTON_ALLIGNMENT, default="left", max_length=55)
+    # button_size = models.CharField(choices=BUTTON_SIZE, default="small", max_length=55 )
+
+
 
     def __str__(self):
         return self.heading
@@ -228,12 +253,13 @@ class Faq(models.Model):
         return self.question
 
 
-class LeadData(models.Model):
-    section = models.ForeignKey(Section, related_name="all_leads", on_delete=CASCADE)
-    name = models.CharField(max_length=255, blank=True, null=True)
-    email = models.CharField(max_length=255, blank=True, null=True)
-    phone = models.CharField(max_length=255, blank=True, null=True)
-    message = models.TextField(blank=True, null=True)
 
-    def __str__(self):
-        return self.name
+# class ClientDataSubmit(models.Model):
+#     section = models.ForeignKey(Section, related_name="all_data_submits", on_delete=models.CASCADE)
+#     name = models.CharField(max_length=255, blank=True, null=True)
+#     email = models.CharField(max_length=255, blank=True, null=True)
+#     phone = models.CharField(max_length=255, blank=True, null=True)
+#     message = models.TextField(blank=True, null=True)
+
+#     def __str__(self):
+#         return self.name

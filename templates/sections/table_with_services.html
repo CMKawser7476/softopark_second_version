@@ -38,8 +38,11 @@
               <div class="p-5 text-left">
                 <h4 class="pb-2 text-left">{{ section.heading }}</h4>
                 <p class="text-left text-dark">{{ item.description |safe }}</p><br/>
-                {% if item.target_url %}
+                <!-- {% if item.target_url %}
                 <a href="{{ item.target_url }}" class="btn btn-outline-primary btn-lg" >Learn More</a>
+                {% endif %} -->
+                {% if item.target_url %}
+                <a href="{{ item.target_url }}" class="btn btn-outline-primary btn-lg" >learn more</a>
                 {% endif %}
               </div>
             </div>

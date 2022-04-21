@@ -27,7 +27,6 @@
         </div>
       </div><br>
       {% endif %}
-      <a href="{{ item.target_url }}" >
         <div class="card h-100 border-white">
             <div class="text-center">
               <img src="{% if item.logo_icon %} {{ item.logo_icon.url }} {% endif %}" class="img-fluid" height="100" width="100"  alt=" {{item.heading}}" title="{{ item.heading }}">
@@ -35,9 +34,13 @@
             <div class="card-body">
               <h6 class="card-title text-left">{{item.heading}}</h6>
               <p class="card-text text-left">{{item.short_description}}</p>
+              <br>
+              {% if item.target_url %}
+              <a href="{{ item.target_url }}" class="btn btn-outline-primary btn-sm shadow" >learn More</a>
+              {% endif %}
             </div>
         </div>
-        </a>
+      
     </div>
     {% empty %}
     <div class="col-sm-3  pt-3 border">

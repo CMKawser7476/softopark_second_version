@@ -34,6 +34,9 @@
               <div class="card-body">
                 <h6 class="card-title text-left">{{ item.heading}}</h6>
                 <p class="card-text text-left">{{ item.short_description | safe }}</p>
+                {% if item.target_url %}
+                <a href="{{ item.target_url }}" class="btn btn-outline-primary btn-sm shadow" >learn more</a>
+                {% endif %}
               </div>
             </div>
       </div>

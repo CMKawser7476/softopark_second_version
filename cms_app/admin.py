@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Page, Section, HeadingLogoNameShortDescrip,  ImageWithDescription, IconWithHeading, HeadingWithDescription, HeadingWithMultipleImageUpload, LandingPageAssets, Slide, VideosUrls, Faq, LeadData
+from .models import Page, Section, HeadingLogoNameShortDescrip,  ImageWithDescription, IconWithHeading, HeadingWithDescription, HeadingWithMultipleImageUpload, LandingPageAssets, Slide, VideosUrls, Faq #ClientDataSubmit
      
 
 # Register your models here.
@@ -14,6 +14,6 @@ admin.site.register(HeadingWithMultipleImageUpload)
 admin.site.register(HeadingWithDescription)
 admin.site.register(VideosUrls)
 admin.site.register(Faq)
-admin.site.register(LeadData)
+# admin.site.register(ClientDataSubmit)
 
 
