@@ -187,6 +187,7 @@ class HeadingLogoNameShortDescripUpdateView(generic.UpdateView):
     model = HeadingLogoNameShortDescrip
     template_name = 'cms_app/heading_logo_name_short_descrip_form.html'
     fields = ['heading', 'sub_heading', 'logo_icon', 'short_description', 'target_url', 'button_text', 'button_direction', 'button_size']
+    
 
     def get_success_url(self):
         return self.get_object().section.page.get_absolute_url()

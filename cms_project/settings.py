@@ -94,30 +94,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'cms_project.wsgi.application'
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'softopark_cms',
-        'USER': 'admin',
-        'PASSWORD': 'k23Ed33#hjs',
-        'HOST': 'jo-app.cjmuidrvfx0b.ap-southeast-1.rds.amazonaws.com',
-        'PORT': '3306',
-    }
-}
+
 
 
 
 # local config
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'softoparkcms',
-#         'USER': 'root',
-#         'PASSWORD': 'root',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'cms_second_version',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
 
 
 

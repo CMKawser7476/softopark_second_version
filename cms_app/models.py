@@ -254,6 +254,8 @@ class Faq(models.Model):
 
 
 
+
+
 # class ClientDataSubmit(models.Model):
 #     section = models.ForeignKey(Section, related_name="all_data_submits", on_delete=models.CASCADE)
 #     name = models.CharField(max_length=255, blank=True, null=True)
